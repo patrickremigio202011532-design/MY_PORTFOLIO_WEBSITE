@@ -2,444 +2,366 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patrick Onest Remigio // Creative Director & Developer Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FORMA | Enterprise Infrastructure & Architecture Portfolio</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="custom-cursor"></div>
     <canvas id="swirl-canvas"></canvas>
+    <div id="custom-cursor"></div>
 
     <nav>
         <a href="#" class="logo-container">
-            <span class="logo-text">// PORTFOLIO //</span>
+            <span class="logo-text">FORMA</span>
         </a>
-        <div class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
+        
+        <div class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#metrics">Overview</a>
+            <a href="#store">Case Studies</a>
+            <a href="#editorial">Philosophy</a>
+            <a href="#gallery">Gallery Workspace</a>
+            <a href="#pipeline">System Pipeline</a>
+            <a href="#contact">Terminus</a>
         </div>
-        <div class="nav-links" id="nav-links-container">
-            <a href="#hero">About</a>
-            <a href="#work">Featured Work</a>
-            <a href="#case-studies">My Design</a>
-            <a href="#experience">Experience</a>
-        </div>
+
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
     </nav>
 
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-links">
+            <a href="#hero" class="mobile-link">Home</a>
+            <a href="#metrics" class="mobile-link">Overview</a>
+            <a href="#store" class="mobile-link">Case Studies</a>
+            <a href="#editorial" class="mobile-link">Philosophy</a>
+            <a href="#gallery" class="mobile-link">Gallery Workspace</a>
+            <a href="#pipeline" class="mobile-link">System Pipeline</a>
+            <a href="#contact" class="mobile-link">Terminus</a>
+        </div>
+    </div>
+
     <main>
+
         <section id="hero" class="hero">
-            <div class="hero-content fade-up">
-                <h2>Web Design Web Developer and Quality Assurance // 2026</h2>
-                <h1>Patrick Onest<br>Remigio</h1>
-                <p style="color: var(--muted); letter-spacing: 2px; text-transform: uppercase; font-size: 11px; margin-bottom: 40px; margin-top: -30px;">Crafting High-Fidelity Digital Experiences</p>
-                <a href="#work" class="btn-outline">View Selected Works</a>
+            <div class="hero-content reveal active">
+                <h2>System Automation &amp; Web Architecture</h2>
+                <h1>Form Follows Infrastructure.</h1>
+                <p class="hero-intro-text">Engineering responsive multi-device environment controls, Python file deployment layers, and architectural digital spaces optimized across standard system frameworks.</p>
+                <div class="hero-action-row">
+                    <a href="#store" class="btn-outline">Explore Deployments</a>
+                    <a href="#gallery" class="btn-secondary-link">View Layout Grid</a>
+                </div>
             </div>
             <div class="hero-photo-container">
-                <img src="patrick-hero_processed.png" alt="Patrick Onest Remigio Portrait">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='650' height='800' viewBox='0 0 650 800'><rect width='650' height='800' fill='%230e0e0e'/><line x1='0' y1='0' x2='650' y2='800' stroke='%23222' stroke-width='1'/><line x1='650' y1='0' x2='0' y2='800' stroke='%23222' stroke-width='1'/></svg>" alt="Hero Architectural Spatial Infrastructure">
             </div>
         </section>
 
-        <section class="stats reveal">
+        <section id="metrics" class="stats reveal">
             <div class="stat-item">
-                <h3>Web Design /</h3>
-                <p>UI/UX & Creative Direction</p>
+                <span class="stat-label-prefix">MATRIX COMPILATION</span>
+                <h3>99.99%</h3>
+                <p>Uptime Infrastructure Optimization</p>
             </div>
             <div class="stat-item">
-                <h3>Frontend /</h3>
-                <p>WebGL, React, Next.js, CSS3</p>
+                <span class="stat-label-prefix">SYSTEM AUTOMATION</span>
+                <h3>48+</h3>
+                <p>Device Push Nodes Connected</p>
             </div>
             <div class="stat-item">
-                <h3>Network Design /</h3>
-                <p>Cisco Packet Tracer</p>
+                <span class="stat-label-prefix">LATENCY THRESHOLD</span>
+                <h3>0.4ms</h3>
+                <p>Data Transmission Verification</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label-prefix">CODE COVERAGE</span>
+                <h3>100%</h3>
+                <p>Responsive Media Compliance</p>
             </div>
         </section>
 
-        <section id="work" class="buy-zone-section reveal">
-            <div class="buy-grid">
-                <div class="buy-card" 
-                     data-title="FORMA DESIGN" 
-                     data-image="FORMA DESIGN.png"
-                     data-desc="A completely headless digital shopping experience utilizing Next.js and high-performance WebGL product transitions for a premium luxury brand. Built with optimized server-side rendering pipelines for instant global scaling.">
-                    <img src="FORMA DESIGN.png" alt="Aether Project Thumbnail">
+        <section id="store" class="apple-store-section reveal">
+            <div class="section-header-block">
+                <h2 class="store-main-title">Selected <span>Deployments</span></h2>
+                <p class="store-main-subtitle">Interactive enterprise configurations and structural system applications.</p>
+            </div>
+            
+            <div class="scroll-wrapper">
+                <button class="scroll-btn prev" aria-label="Scroll Carousel Left">&larr;</button>
+                <div class="apple-card-row">
+                    
+                    <div class="apple-card" data-video="uploaded:VID5.mp4" data-title="Swedenet Automation Pro" data-desc="Python automation engine using highly responsive Tkinter visual user panels. Designed to target, bundle, and push compiled file paths globally to host nodes without configuration drops.">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'><rect width='400' height='500' fill='%23111'/><circle cx='200' cy='250' r='60' fill='none' stroke='%23333' stroke-width='1'/></svg>" alt="Swedenet Interface Systems">
+                        <div class="card-content">
+                            <div>
+                                <p class="card-label">Automation Scripting Matrix</p>
+                                <h3 class="card-title">Swedenet Framework</h3>
+                            </div>
+                            <p class="card-price">Multi-Device Deployer Pro</p>
+                        </div>
+                    </div>
+
+                    <div class="apple-card" data-image="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='880' height='400' viewBox='0 0 880 400'><rect width='880' height='400' fill='%231a1a1a'/><line x1='0' y1='200' x2='880' y2='200' stroke='%23333'/></svg>" data-title="Recto2Go Hub-and-Spoke Infrastructure" data-desc="Complete Cisco Packet Tracer architecture maps deployment including multi-node distribution layers, dedicated VLAN structural configurations, inter-VLAN core routing blocks, and real-time active voice over IP pipelines.">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'><rect width='400' height='500' fill='%23181818'/><path d='M100,100 L300,400' stroke='%232c2c2c' stroke-width='2'/></svg>" alt="Recto2Go Network Mapping">
+                        <div class="card-content">
+                            <div>
+                                <p class="card-label">Enterprise Network Design</p>
+                                <h3 class="card-title">Recto2Go Topology</h3>
+                            </div>
+                            <p class="card-price">Cisco Packet Tracer</p>
+                        </div>
+                    </div>
+
+                    <div class="apple-card" data-image="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='880' height='400' viewBox='0 0 880 400'><rect width='880' height='400' fill='%23121212'/></svg>" data-title="Cloud Architecture &amp; Economics" data-desc="Deep infrastructure analysis map managing cloud resource spend limits, structural data processing thresholds, and dynamic pricing metrics designed within the Microsoft Azure ecosystem alignment parameters.">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'><rect width='400' height='500' fill='%23141414'/><rect x='100' y='150' width='200' height='200' fill='none' stroke='%23222'/></svg>" alt="Cloud Allocation Framework">
+                        <div class="card-content">
+                            <div>
+                                <p class="card-label">Azure Solution Design</p>
+                                <h3 class="card-title">Cloud Billing Modules</h3>
+                            </div>
+                            <p class="card-price">AZ-305 Architecture</p>
+                        </div>
+                    </div>
+
+                    <div class="apple-card" data-video="uploaded:VID6.mp4" data-title="Multi-Deployer Execution Stream" data-desc="Real-time multi-threaded automated workspace parsing execution sequences across network target lines simultaneously without system locking configurations.">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'><rect width='400' height='500' fill='%230d0d0d'/></svg>" alt="Multi-threaded runtime panels">
+                        <div class="card-content">
+                            <div>
+                                <p class="card-label">Thread Optimization</p>
+                                <h3 class="card-title">Parallel Deployment</h3>
+                            </div>
+                            <p class="card-price">Python Script Run</p>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="buy-card" 
-                     data-title="NETWORK DESIGN" 
-                     data-image="NETWORK DESIGN.png"
-                     data-desc="Complete corporate rebranding, comprehensive design system generation, and secure multi-platform digital interface rollout for a cutting-edge decentralized fin-tech cloud framework.">
-                    <img src="NETWORK DESIGN.png" alt="Krypton Project Thumbnail">
-                </div>
-                <div class="buy-card" 
-                     data-title="26 PAGES Calculatior in austrilian" 
-                     data-image="CALCU.png"
-                     data-desc="An interactive generative soundscape application combining Web Audio API node routers with customized raw GLSL mathematical fragmentation canvas rendering shaders.">
-                    <img src="CALCU.png" alt="Vortex Project Thumbnail">
-                </div>
-                <div class="buy-card" 
-                     data-title="FORMA DESIGN" 
-                     data-image="Screenshot 2026-04-12 140533.png"
-                     data-desc="A hyper-minimalist property presentation engine prioritizing ultra-smooth layout visibility changes, custom micro-interactions, and flawless performance parameters optimized for luxury mobile browsers.">
-                    <img src="Screenshot 2026-04-12 140533.png" alt="Nova Project Thumbnail">
-                </div>
+                <button class="scroll-btn next" aria-label="Scroll Carousel Right">&rarr;</button>
             </div>
         </section>
 
-        <section class="ad-container">
-            <div class="ad-page reveal">
+        <section id="editorial" class="ad-container reveal">
+            
+            <div class="ad-page">
                 <div class="ad-img-box">
-                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Studio Setup Visual">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'><rect width='500' height='500' fill='%23111'/><line x1='50' y1='50' x2='450' y2='450' stroke='%232a2a2a'/></svg>" alt="Structural Blueprint Interface Representation">
                 </div>
                 <div class="ad-text-content">
-                    <span class="ad-label">The Manifesto</span>
-                    <h3 class="ad-title">Where Clean Form Meets Interactive Performance</h3>
-                    <p class="ad-desc">I believe that modern websites should be fast, expressive interactive systems, not static documents. By combining structural design grids with fluid custom animations, I turn everyday interfaces into unforgettable brand journeys.</p>
-                    <a href="mailto:design@studio.com" class="btn-outline">Start A Project</a>
+                    <span class="ad-label">Design Paradigm</span>
+                    <h2 class="ad-title">Minimalism Meets System Core Automation</h2>
+                    <p class="ad-desc">True digital structural architecture demands an uncompromising balance between dark, hyper-clean aesthetic interfaces and high-performance underlying technology matrices. By optimizing link weights, asset load chains, and client rendering layouts, the browser canvas transitions into an immersive presentation medium.</p>
+                    <p class="ad-desc-secondary">Every single line of layout code, from responsive media breakpoint configurations to tactile touch input interception filters, is manually managed for flawless rendering profiles across standard desktop browsers and high-density mobile displays.</p>
+                    <a href="#pipeline" class="btn-outline">Analyze System Sequence</a>
                 </div>
             </div>
 
-            <div class="full-width-feature" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1500&q=80');">
-                <h2>WEB DEVELOPER</h2>
+            <div class="full-width-feature" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1920\' height=\'1080\'><rect width=\'1920\' height=\'1080\' fill=\'%23030303\'/><line x1=\'0\' y1=\'540\' x2=\'1920\' y2=\'540\' stroke=\'%23111\'/></svg>');">
+                <h2>INFRASTRUCTURE</h2>
             </div>
         </section>
 
-        <section id="case-studies" class="apple-store-section reveal">
-            <h2 class="store-main-title">MY WORK EXPERIENCES <span>// DESIGN</span></h2>
-            <p class="store-main-subtitle">A hardwork design develop and system desgins.</p>
+        <section id="gallery" class="buy-zone-section reveal">
+            <div class="gallery-title-wrapper">
+                <span class="section-pre-tag">VISUAL DISCOVERY PANELS</span>
+                <h2 class="gallery-section-title">Workspace Systems Grid</h2>
+                <p class="gallery-section-subtitle">Tactile breakdown profiles of interface developments, layout testing schemes, and structural hardware topologies.</p>
+            </div>
 
-            <div class="scroll-wrapper">
-                <button class="scroll-btn prev" aria-label="Scroll left">&#8249;</button>
-                <button class="scroll-btn next" aria-label="Scroll right">&#8250;</button>
+            <div class="buy-grid">
                 
-                <div class="apple-card-row">
-                    <div class="apple-card" 
-                         data-title="FORMA // Structural Architecture & Ecosystem" 
-                         data-video="VID1.mp4"
-                         data-desc="An immersive presentation engine highlighting dark-themed editorial design grids, fluid layout state changes, and seamless landscape-to-structure image reveals customized for ultra-premium architectural portfolios.">
-                        <video src="VID1.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">01 / CONVERSION DESIGN</div>
-                                <h3 class="card-title">FORMA // Structural Architecture & Ecosystem</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
+                <div class="buy-card" data-image="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='880' height='400' viewBox='0 0 880 400'><rect width='880' height='400' fill='%231a1a1a'/></svg>" data-title="Automation Script Control Center" data-desc="Tkinter UI layout built explicitly with custom theme token injections for cross-platform visual consistency.">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'><rect width='500' height='500' fill='%23111'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23333'>PANEL_01</text></svg>" alt="Workspace System Render 1">
+                    <div class="grid-card-hover-overlay">
+                        <span class="view-project-tag">Inspect System Panel</span>
                     </div>
-
-                    <div class="apple-card" 
-                         data-title="CITY STORIES // Panoramic Reveal Engine" 
-                         data-video="VID2.mp4"
-                         data-desc="An experimental, high-impact storytelling layout built to maximize cinematic engagement. As the viewport scrolls, synchronized side panels slide outward to transition seamlessly from a street-level urban grid into an expansive, full-width bird's-eye architectural skyline.">
-                        <video src="VID2.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">02 / WEB INTERACTION</div>
-                                <h3 class="card-title">CITY STORIES // Panoramic Reveal Engine</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="Hyper-Vibrant Neon Canvas Matrix" 
-                         data-video="VID3.mp4"
-                         data-desc="Engineered for smooth 60FPS presentation workflows. This module optimizes heavy, saturated visual assets through hardware-accelerated transitions, enabling rapid layout mutations and dynamic typography overlays without sacrificing browser performance.">
-                        <video src="VID3.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">03 / AUTOMATION ARCHITECTURE</div>
-                                <h3 class="card-title">Hyper-Vibrant Neon Canvas Matrix</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="Parallax Slider Frame Matrix" 
-                         data-video="VID4.mp4"
-                         data-desc="Engineered with smooth, hardware-accelerated CSS clip-paths. This modular interaction system pushes outer image panels toward the viewport boundary, turning a rigid graphic grid into an immersive background frame architecture.">
-                        <video src="VID4.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">04 / SPATIAL GRAPHICS</div>
-                                <h3 class="card-title">Parallax Slider Frame Matrix</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="TOKYO NIGHT // Kinetic Typography Overlay" 
-                         data-video="VID5.mp4"
-                         data-desc="An elegant storefront interaction layout showcasing advanced horizontal slice reveals. As the user engages, synchronized neon video ribbons glide apart on hardware-accelerated axes to unveil clean, high-contrast typography and minimalist city narratives.">
-                        <video src="VID5.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">05 / KINETIC TYPOGRAPHY</div>
-                                <h3 class="card-title">TOKYO NIGHT // Kinetic Typography Overlay</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="TOKYO NIGHT // Vertical Split Showcase" 
-                         data-video="VID6.mp4"
-                         data-desc="An elegant interaction concept featuring a dual-panel vertical sliding animation. Upon scrolling, the layout shifts to push high-contrast neon cityscapes upward and downward away from the viewport center, elegantly fading into a minimalist black text canvas.">
-                        <video src="VID6.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">06 / GRID SYSTEMS</div>
-                                <h3 class="card-title">TOKYO NIGHT // Vertical Split Showcase</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="TOKYO // Explore The Night Interface" 
-                         data-video="VID7.mp4"
-                         data-desc="A modern cinematic scrolling experience inspired by Tokyo's vibrant neon streets. This interaction architecture coordinates a localized text reveal with structural layout masks, transitioning into a beautiful, full-bleed blur overlay as the user advances.">
-                        <video src="VID7.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">07 / EXPERIMENTAL UI</div>
-                                <h3 class="card-title">TOKYO // Explore The Night Interface</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="Distributed Hub-and-Spoke Infrastructure" 
-                         data-video="VID8.mp4"
-                         data-desc="An elegant interaction concept featuring a dual-panel vertical sliding animation. Upon scrolling, the layout shifts to push high-contrast neon cityscapes upward and downward away from the viewport center, elegantly fading into a minimalist black text canvas.">
-                        <video src="VID8.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">08 / CINEMATIC LAYOUT</div>
-                                <h3 class="card-title">TOKYO NIGHT // Vertical Split Showcase</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="buy-card" data-video="uploaded:VID7.mp4" data-title="Dynamic Fluid Execution Flow" data-desc="Real-time browser logic rendering matrices executing animation pipelines at solid performance limits.">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'><rect width='500' height='500' fill='%23151515'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23333'>RUNTIME_02</text></svg>" alt="Workspace System Render 2">
+                    <div class="grid-card-hover-overlay">
+                        <span class="view-project-tag">Launch Video Stream</span>
+                    </div>
+                </div>
+
+                <div class="buy-card" data-image="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='880' height='400' viewBox='0 0 880 400'><rect width='880' height='400' fill='%23222'/></svg>" data-title="Cisco Router Access Array" data-desc="Secure programmatic console routing and script architecture validation layer parameters configuration.">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'><rect width='500' height='500' fill='%230f0f0f'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23333'>ROUTER_03</text></svg>" alt="Workspace System Render 3">
+                    <div class="grid-card-hover-overlay">
+                        <span class="view-project-tag">Inspect Topology Node</span>
+                    </div>
+                </div>
+
+                <div class="buy-card" data-video="uploaded:VID8.mp4" data-title="Interactive Custom Mask Pipeline" data-desc="Testing dynamic hardware accelerated canvas transitions and structural backdrop blurs inside iOS Safari engine profiles.">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'><rect width='500' height='500' fill='%231c1c1c'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23333'>MASK_04</text></svg>" alt="Workspace System Render 4">
+                    <div class="grid-card-hover-overlay">
+                        <span class="view-project-tag">Launch Video Stream</span>
+                    </div>
+                </div>
+
+                <div class="buy-card" data-image="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='880' height='400' viewBox='0 0 880 400'><rect width='880' height='400' fill='%232a2a2a'/></svg>" data-title="Subnetting Topology Allocation Table" data-desc="Mathematical distribution matrix managing target address blocks across local subnets and external edge gateways.">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'><rect width='500' height='500' fill='%23121212'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23333'>SUBNET_05</text></svg>" alt="Workspace System Render 5">
+                    <div class="grid-card-hover-overlay">
+                        <span class="view-project-tag">Inspect Subnet Table</span>
+                    </div>
+                </div>
+
+                <div class="buy-card" data-image="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='880' height='400' viewBox='0 0 880 400'><rect width='880' height='400' fill='%23333'/></svg>" data-title="Dark Theme Aesthetics Assessment" data-desc="Color system balance testing ensuring contrast safety levels align with system display parameters.">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'><rect width='500' height='500' fill='%23171717'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23333'>THEME_06</text></svg>" alt="Workspace System Render 6">
+                    <div class="grid-card-hover-overlay">
+                        <span class="view-project-tag">Inspect Theme Tokens</span>
+                    </div>
+                </div>
+
             </div>
         </section>
-        
-        <section id="experience" class="eco-flow-section reveal">
+
+        <section id="pipeline" class="eco-flow-section reveal">
+            <div class="pipeline-section-header">
+                <span class="section-pre-tag">ARCHITECTURAL TIMELINE</span>
+                <h2 class="pipeline-main-title">Infrastructure Pipeline</h2>
+                <p class="pipeline-main-subtitle">The programmatic progression of building out automated web platforms and networks.</p>
+            </div>
+
             <div class="flow-container">
+                
                 <div class="flow-step">
+                    <div class="step-number">01</div>
                     <div class="step-content">
-                        <span class="step-number">22-26</span>
-                        <span class="step-tag">Current Position</span>
-                        <h3 class="step-title">Lead Interactive Engineer — Studio Devt</h3>
-                        <p class="step-details">Directing user interface strategy, structural layout systems, and custom frontend build pipelines for global tech products. Championing modular design patterns and high-performance WebGL integrations.</p>
+                        <span class="step-tag">Conceptual Architecture</span>
+                        <h3 class="step-title">Topology Logic &amp; Routing Structures</h3>
+                        <p class="step-details">Establishing rigid logical design profiles, mapping infrastructure edge points, defining inter-vlan traffic access control matrices, and running trace models to guarantee low latency packet behavior across nodes.</p>
                     </div>
                     <div class="step-visual">
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Engineering Experience Layer">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'><rect width='500' height='500' fill='%23111'/><circle cx='250' cy='250' r='100' fill='none' stroke='%23333'/></svg>" alt="Pipeline Sequence Image 1">
                     </div>
                 </div>
 
                 <div class="flow-step">
+                    <div class="step-number">02</div>
                     <div class="step-content">
-                        <span class="step-number">20-22</span>
-                        <span class="step-tag">Previous Experience</span>
-                        <h3 class="step-title">Senior UI/UX Designer — Vector Agency</h3>
-                        <p class="step-details">Spearheaded full-scale responsive product transformations for design-forward clients. Engineered fluid component design systems, custom interactions, and intuitive mobile application architectures.</p>
+                        <span class="step-tag">Automation Programming</span>
+                        <h3 class="step-title">Multi-Threaded Python Engine Construction</h3>
+                        <p class="step-details">Writing reliable parallel systems scripts designed to bundle, handshake, and multi-deploy assets directly to host targets cleanly. Integrating Tkinter canvas frames with async execution routines to prevent interface hanging bugs.</p>
                     </div>
                     <div class="step-visual">
-                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" alt="Design Experience Layer">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'><rect width='500' height='500' fill='%23151515'/><rect x='150' y='150' width='200' height='200' fill='none' stroke='%23333'/></svg>" alt="Pipeline Sequence Image 2">
                     </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <span class="step-tag">Interface Design System</span>
+                        <h3 class="step-title">Responsive UI Framework &amp; CSS Optimization</h3>
+                        <p class="step-details">Compiling highly optimized structural style layouts. Hardening navigation overlays, scroll snap parameters, and hardware accelerated filter properties against native browser layout engines on all major platforms.</p>
+                    </div>
+                    <div class="step-visual">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'><rect width='500' height='500' fill='%230f0f0f'/><line x1='0' y1='100' x2='500' y2='100' stroke='%23333'/><line x1='0' y1='400' x2='500' y2='400' stroke='%23333'/></svg>" alt="Pipeline Sequence Image 3">
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <span class="step-tag">Validation Matrix</span>
+                        <h3 class="step-title">Cross-Browser Testing &amp; Mobile Compliance</h3>
+                        <p class="step-details">Conducting comprehensive manual inspection rounds checking viewport tracking behavior, touch target responses, overscroll inertia mechanics, and hardware scaling metrics under both iOS Safari and Android Chrome execution profiles.</p>
+                    </div>
+                    <div class="step-visual">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'><rect width='500' height='500' fill='%231a1a1a'/><circle cx='250' cy='250' r='10' fill='%23333'/></svg>" alt="Pipeline Sequence Image 4">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="system-logs-terminal reveal">
+            <div class="terminal-container">
+                <div class="terminal-top-bar">
+                    <div class="terminal-buttons">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">system_manifest_output.log</div>
+                </div>
+                <div class="terminal-body-content">
+                    <p class="log-line"><span class="log-timestamp">[2026-06-13 19:51:38]</span> <span class="status-success">INIT</span> Core rendering pipelines loaded via DOMContentLoaded protocols successfully.</p>
+                    <p class="log-line"><span class="log-timestamp">[2026-06-13 19:51:39]</span> <span class="status-success">INFO</span> Active touch monitors parsed. Custom cursor engine toggled off for viewports under 1024px to enforce hardware processing efficiency.</p>
+                    <p class="log-line"><span class="log-timestamp">[2026-06-13 19:51:40]</span> <span class="status-warning">WARN</span> Safari passive resize listener checked; overscroll canvas geometry properties adjusted for dynamic safe area layout variables.</p>
+                    <p class="log-line"><span class="log-timestamp">[2026-06-13 19:51:41]</span> <span class="status-success">READY</span> System multi-device navigation drawer layout optimized across all client configurations.</p>
                 </div>
             </div>
         </section>
+
     </main>
 
     <div id="infoModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <button class="close-modal" aria-label="Close Project Modal Window">&times;</button>
             <div class="modal-image-wrapper">
-                <img id="modalImage" src="" alt="Project Presentation Screen Grid">
+                <img id="modalImage" src="" alt="Modal Visual Context Window">
+                <video id="modalVideo" loop muted playsinline></video>
             </div>
             <div class="modal-info">
-                <h3 id="modalTitle">Project Title Placeholder</h3>
-                <p id="modalDesc">Detailed system overview information placeholder text context goes here smoothly.</p>
+                <h3 id="modalTitle">System Topology Parameter</h3>
+                <p id="modalDesc">Comprehensive configuration manifests and deployment logic matrices compile down into this inspection workspace.</p>
             </div>
         </div>
     </div>
 
-    <footer>
+    <footer id="contact">
         <div class="footer-grid">
-            <div class="footer-col">
-                <span class="logo-text" style="display:block; margin-bottom: 20px;">PATRICK ONEST REMIGIO</span>
-                <p>Creating memorable interfaces through fine-tuned typography, functional motion design, and elegant code solutions.</p>
+            
+            <div class="footer-col-brand">
+                <span class="footer-logo">FORMA</span>
+                <p class="brand-statement-text">Architectural layouts and automated infrastructure systems built for global operational parameters.</p>
             </div>
+
             <div class="footer-col">
-                <h4>Navigation</h4>
-                <a href="#hero">About Intro</a>
-                <a href="#work">Featured Work</a>
-                <a href="#case-studies">Case Studies</a>
+                <h4>Index Traversal</h4>
+                <a href="#hero">System Base</a>
+                <a href="#metrics">System Performance</a>
+                <a href="#store">Case Studies</a>
+                <a href="#editorial">Design Philosophy</a>
+                <a href="#gallery">Grid Workspace</a>
+                <a href="#pipeline">Infrastructure Pipeline</a>
             </div>
+
             <div class="footer-col">
-                <h4>Social Assets</h4>
-                <a href="https://github.com" target="_blank" rel="noopener">GitHub Space</a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn Index</a>
+                <h4>Target Modules</h4>
+                <a href="#">Swedenet Project</a>
+                <a href="#">Recto2Go Topology</a>
+                <a href="#">Multi-Deployer Core</a>
+                <a href="#">Azure Cost Calculus</a>
+                <a href="#">UI Design Tokens</a>
             </div>
+
             <div class="footer-col">
-                <h4>Inquiries</h4>
-                <p>Caloocan, Metro Manila</p>
-                <a href="mailto:design@studio.com">design@studio.com</a>
+                <h4>Operational Status</h4>
+                <p class="status-indicator-row"><span class="live-pulse-dot"></span> System Live</p>
+                <p>Location: National University Fairview</p>
+                <p>Environment: BSIT Portfolio Node</p>
+                <p>Target Framework: HTML5 / CSS3 / ES6</p>
             </div>
+
         </div>
+
         <div class="footer-bottom">
-            &copy; 2026 Patrick Onest Remigio. All Rights Reserved. Pure Aesthetics Engineering.
+            <div class="footer-bottom-flex">
+                <p class="copyright-notice">&copy; 2026 FORMA SYSTEMS DESIGN LABS. ALL HUMAN INTELLIGENCE PROTECTED UNDER OPERATIONAL DEVELOPMENT LICENSES. ABSOLUTELY NO SYSTEM ARTIFACTS REMOVED WITHOUT DIRECT AUTHORIZATION MANIFESTS.</p>
+                <p class="system-revision-tag">REV_4.0.2_MOBILE_COMPLIANT</p>
+            </div>
         </div>
     </footer>
 
-    <script>
-        // --- 1. GLOBAL HIGHER-FIDELITY HOVER CURSOR TRACKER ---
-        const cursor = document.getElementById('custom-cursor');
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
-        });
-
-        const interactiveElements = document.querySelectorAll('a, button, .buy-card, .apple-card, .close-modal, .menu-toggle');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.width = '55px';
-                cursor.style.height = '55px';
-                cursor.style.borderColor = 'rgba(255,255,255,0.8)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.width = '24px';
-                cursor.style.height = '24px';
-                cursor.style.borderColor = 'rgba(255,255,255,0.4)';
-            });
-        });
-
-        // --- MOBILE MENU NAVIGATION INTERACTION HANDLE ---
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navLinksContainer = document.getElementById('nav-links-container');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            navLinksContainer.classList.toggle('open');
-        });
-
-        // Auto-close overlay when a responsive anchor navigation pathway item is executed
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                navLinksContainer.classList.remove('open');
-            });
-        });
-
-        // --- 2. MODAL WINDOW ENGINE (DYNAMIC MEDIA INJECTION SETUP) ---
-        const modal = document.getElementById('infoModal');
-        const modalImg = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDesc = document.getElementById('modalDesc');
-        const closeModalBtn = document.querySelector('.close-modal');
-        const imageWrapper = document.querySelector('.modal-image-wrapper');
-
-        // Dynamically create and place the video tag in the layout context if missing
-        let modalVideo = document.getElementById('modalVideo');
-        if (!modalVideo) {
-            modalVideo = document.createElement('video');
-            modalVideo.id = 'modalVideo';
-            modalVideo.controls = true;
-            modalVideo.autoplay = true;
-            modalVideo.loop = true;
-            modalVideo.muted = true;
-            modalVideo.playsInline = true;
-            modalVideo.style.width = '100%';
-            modalVideo.style.height = '100%';
-            modalVideo.style.objectFit = 'cover';
-            modalVideo.style.borderRadius = '12px';
-            modalVideo.style.display = 'none'; // Hidden initially
-            imageWrapper.appendChild(modalVideo);
-        }
-
-        const triggerCards = document.querySelectorAll('.buy-card, .apple-card');
-
-        triggerCards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                const title = card.getAttribute('data-title');
-                const imgUrl = card.getAttribute('data-image');
-                const videoUrl = card.getAttribute('data-video');
-                const description = card.getAttribute('data-desc');
-
-                modalTitle.textContent = title;
-                modalDesc.textContent = description;
-
-                // Media type logic switch handling
-                if (videoUrl) {
-                    // Hide image element frame, expose video stream framework
-                    modalImg.style.display = 'none';
-                    modalVideo.style.display = 'block';
-                    modalVideo.src = videoUrl;
-                    modalVideo.load();
-                    modalVideo.play().catch(err => console.log("Autoplay caught:", err));
-                } else {
-                    // Revert viewport display window back to image element layout
-                    modalVideo.pause();
-                    modalVideo.style.display = 'none';
-                    modalImg.style.display = 'block';
-                    modalImg.src = imgUrl || '';
-                }
-
-                modal.style.display = 'flex';
-                document.body.style.overflowY = 'hidden'; 
-            });
-        });
-
-        // Modal exit functions to halt running media tracks cleanly
-        const cleanAndCloseModal = () => {
-            modal.style.display = 'none';
-            document.body.style.overflowY = 'auto';
-            if (modalVideo) {
-                modalVideo.pause();
-                modalVideo.src = ''; // Flush data stream paths instantly
-            }
-        };
-
-        closeModalBtn.addEventListener('click', cleanAndCloseModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                cleanAndCloseModal();
-            }
-        });
-
-        // --- 3. SCROLL REVEAL OBSERVER SYSTEM ---
-        const revealElements = document.querySelectorAll('.reveal');
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        revealElements.forEach(el => observer.observe(el));
-
-        // --- 4. APPLE CAROUSEL SLIDE PAGINATION CONTROLS ---
-        const row = document.querySelector('.apple-card-row');
-        document.querySelector('.scroll-btn.next')?.addEventListener('click', () => {
-            row.scrollBy({ left: 350, behavior: 'smooth' });
-        });
-        document.querySelector('.scroll-btn.prev')?.addEventListener('click', () => {
-            row.scrollBy({ left: -350, behavior: 'smooth' });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
