@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patrick Onest Remigio // Creative Director & Developer Portfolio</title>
-    <!-- Google Fonts for premium typography system -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -12,16 +11,19 @@
 </head>
 <body>
 
-    <!-- INTERACTIVE BACKGROUND & CUSTOM CURSOR LENS -->
     <div id="custom-cursor"></div>
     <canvas id="swirl-canvas"></canvas>
 
-    <!-- NAVIGATION HEADER -->
     <nav>
         <a href="#" class="logo-container">
             <span class="logo-text">// PORTFOLIO //</span>
         </a>
-        <div class="nav-links">
+        <div class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="nav-links-container">
             <a href="#hero">About</a>
             <a href="#work">Featured Work</a>
             <a href="#case-studies">My Design</a>
@@ -30,7 +32,6 @@
     </nav>
 
     <main>
-        <!-- 1. HERO ARCHITECTURE (INTRODUCTION) -->
         <section id="hero" class="hero">
             <div class="hero-content fade-up">
                 <h2>Web Design Web Developer and Quality Assurance // 2026</h2>
@@ -39,12 +40,10 @@
                 <a href="#work" class="btn-outline">View Selected Works</a>
             </div>
             <div class="hero-photo-container">
-                <!-- Profile image with edge-blending mask -->
                 <img src="patrick-hero_processed.png" alt="Patrick Onest Remigio Portrait">
             </div>
         </section>
 
-        <!-- 2. CORE STACK & EXPERTISE BAR -->
         <section class="stats reveal">
             <div class="stat-item">
                 <h3>Web Design /</h3>
@@ -60,31 +59,26 @@
             </div>
         </section>
 
-        <!-- 3. FEATURED WORK GRID (WITH LIVE MODAL HOOKS) -->
         <section id="work" class="buy-zone-section reveal">
             <div class="buy-grid">
-                <!-- Project 1 -->
                 <div class="buy-card" 
                      data-title="FORMA DESIGN" 
                      data-image="FORMA DESIGN.png"
                      data-desc="A completely headless digital shopping experience utilizing Next.js and high-performance WebGL product transitions for a premium luxury brand. Built with optimized server-side rendering pipelines for instant global scaling.">
                     <img src="FORMA DESIGN.png" alt="Aether Project Thumbnail">
                 </div>
-                <!-- Project 2 -->
                 <div class="buy-card" 
                      data-title="NETWORK DESIGN" 
                      data-image="NETWORK DESIGN.png"
                      data-desc="Complete corporate rebranding, comprehensive design system generation, and secure multi-platform digital interface rollout for a cutting-edge decentralized fin-tech cloud framework.">
                     <img src="NETWORK DESIGN.png" alt="Krypton Project Thumbnail">
                 </div>
-                <!-- Project 3 -->
                 <div class="buy-card" 
                      data-title="26 PAGES Calculatior in austrilian" 
                      data-image="CALCU.png"
                      data-desc="An interactive generative soundscape application combining Web Audio API node routers with customized raw GLSL mathematical fragmentation canvas rendering shaders.">
                     <img src="CALCU.png" alt="Vortex Project Thumbnail">
                 </div>
-                <!-- Project 4 -->
                 <div class="buy-card" 
                      data-title="FORMA DESIGN" 
                      data-image="Screenshot 2026-04-12 140533.png"
@@ -94,7 +88,6 @@
             </div>
         </section>
 
-        <!-- 4. EDITORIAL BIOGRAPHY & PHILOSOPHY -->
         <section class="ad-container">
             <div class="ad-page reveal">
                 <div class="ad-img-box">
@@ -108,13 +101,11 @@
                 </div>
             </div>
 
-            <!-- ABSTRACT FULL WIDTH PORTFOLIO BREAKOUT BANNER -->
             <div class="full-width-feature" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1500&q=80');">
                 <h2>WEB DEVELOPER</h2>
             </div>
         </section>
 
-        <!-- 5. DEEP DIVE CASE STUDIES (APPLE STORE STYLE CAROUSEL) -->
         <section id="case-studies" class="apple-store-section reveal">
             <h2 class="store-main-title">MY WORK EXPERIENCES <span>// DESIGN</span></h2>
             <p class="store-main-subtitle">A hardwork design develop and system desgins.</p>
@@ -238,10 +229,10 @@
 
                 </div>
             </div>
-        <!-- 6. EXPERIENCE TIMELINE (PROCESS PIPELINE) -->
+        </section>
+        
         <section id="experience" class="eco-flow-section reveal">
             <div class="flow-container">
-                <!-- Milestone 1 -->
                 <div class="flow-step">
                     <div class="step-content">
                         <span class="step-number">22-26</span>
@@ -254,7 +245,6 @@
                     </div>
                 </div>
 
-                <!-- Milestone 2 -->
                 <div class="flow-step">
                     <div class="step-content">
                         <span class="step-number">20-22</span>
@@ -270,7 +260,6 @@
         </section>
     </main>
 
-    <!-- 7. CENTERING PREVIEW MODAL POPUP DISPLAY WINDOW -->
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -284,7 +273,6 @@
         </div>
     </div>
 
-    <!-- 8. FOOTER TERMINUS -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -313,7 +301,6 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT LOGIC BLOCK -->
     <script>
         // --- 1. GLOBAL HIGHER-FIDELITY HOVER CURSOR TRACKER ---
         const cursor = document.getElementById('custom-cursor');
@@ -322,7 +309,7 @@
             cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
         });
 
-        const interactiveElements = document.querySelectorAll('a, button, .buy-card, .apple-card, .close-modal');
+        const interactiveElements = document.querySelectorAll('a, button, .buy-card, .apple-card, .close-modal, .menu-toggle');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.width = '55px';
@@ -333,6 +320,23 @@
                 cursor.style.width = '24px';
                 cursor.style.height = '24px';
                 cursor.style.borderColor = 'rgba(255,255,255,0.4)';
+            });
+        });
+
+        // --- MOBILE MENU NAVIGATION INTERACTION HANDLE ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinksContainer = document.getElementById('nav-links-container');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navLinksContainer.classList.toggle('open');
+        });
+
+        // Auto-close overlay when a responsive anchor navigation pathway item is executed
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navLinksContainer.classList.remove('open');
             });
         });
 
