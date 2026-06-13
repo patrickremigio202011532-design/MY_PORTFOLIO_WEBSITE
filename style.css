@@ -94,14 +94,17 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     pointer-events: none;
+    /* Highest possible system level stacking so it is always visible on every component */
     z-index: 200000 !important; 
     mix-blend-mode: difference;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     will-change: transform;
+    /* Smooth diameter interpolation transitions */
     transition: width 0.3s var(--transition-smooth), height 0.3s var(--transition-smooth), border-color 0.3s ease;
 }
 
+/* Transparent scaffolding allows background canvas loops to be seen through */
 section, 
 .ad-container, 
 .apple-store-section, 
@@ -113,7 +116,7 @@ section,
 }
 
 /* ==========================================================================
-   4. NAVIGATION BRAND BAR & MOBILE INTERFACES
+   4. NAVIGATION BRAND BAR
    ========================================================================== */
 nav { 
     padding: 30px 5%; 
@@ -125,10 +128,8 @@ nav {
     left: 0; 
     width: 100%; 
     z-index: 100; 
-    background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%); 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); /* Safari support matrix */
-    transition: background-color 0.4s ease;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); 
+    backdrop-filter: blur(4px);
 }
 
 .logo-container { 
@@ -136,7 +137,6 @@ nav {
     align-items: center; 
     text-decoration: none; 
     color: inherit; 
-    z-index: 101; 
 }
 
 .logo-text { 
@@ -164,120 +164,6 @@ nav {
     color: var(--accent); 
 }
 
-/* Mobile Scroll Lock Strategy */
-body.mobile-nav-open {
-    overflow: hidden !important;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-
-/* Mobile Hambuger Architecture Toggle Button */
-.mobile-nav-toggle {
-    display: none; 
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 101;
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-}
-
-.hamburger-line {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: var(--accent);
-    transition: transform 0.4s var(--transition-smooth), opacity 0.4s ease;
-    transform-origin: center;
-}
-
-/* Full-Screen Mobile Drawer Viewport */
-.mobile-menu-overlay {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-pure);
-    z-index: 99;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: opacity 0.5s var(--transition-smooth), transform 0.5s var(--transition-smooth);
-}
-
-.mobile-menu-overlay.open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
-
-.mobile-menu-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    width: 100%;
-    padding: 0 40px;
-}
-
-.mobile-link {
-    font-family: var(--font-display);
-    font-size: clamp(24px, 5vw, 36px);
-    color: var(--muted);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    transition: color 0.3s ease, transform 0.3s var(--transition-smooth);
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.mobile-menu-overlay.open .mobile-link {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Staggered entry transitions for overlay design aesthetics */
-.mobile-menu-overlay.open .mobile-link:nth-child(1) { transition: opacity 0.4s ease 0.1s, color 0.3s ease, transform 0.4s var(--transition-smooth) 0.1s; }
-.mobile-menu-overlay.open .mobile-link:nth-child(2) { transition: opacity 0.4s ease 0.2s, color 0.3s ease, transform 0.4s var(--transition-smooth) 0.2s; }
-.mobile-menu-overlay.open .mobile-link:nth-child(3) { transition: opacity 0.4s ease 0.3s, color 0.3s ease, transform 0.4s var(--transition-smooth) 0.3s; }
-.mobile-menu-overlay.open .mobile-link:nth-child(4) { transition: opacity 0.4s ease 0.4s, color 0.3s ease, transform 0.4s var(--transition-smooth) 0.4s; }
-
-.mobile-link:hover, .mobile-link:active {
-    color: var(--accent);
-}
-
-/* Animated Hamburger Cross Matrix Transitions */
-.mobile-nav-toggle.active .hamburger-line:nth-child(1) {
-    transform: translateY(4px) rotate(45deg);
-}
-.mobile-nav-toggle.active .hamburger-line:nth-child(2) {
-    transform: translateY(-4px) rotate(-45deg);
-}
-
-/* Responsive Trigger Breakpoint for Navigation Layers */
-@media (max-width: 1024px) {
-    body {
-        cursor: default !important; /* Reverts standard mouse behavior for touch monitors gracefully */
-    }
-    #custom-cursor {
-        display: none !important;
-    }
-    .nav-links {
-        display: none; 
-    }
-    .mobile-nav-toggle {
-        display: flex; 
-    }
-}
 
 /* ==========================================================================
    5. PORTFOLIO HERO ARCHITECTURE
@@ -324,6 +210,7 @@ body.mobile-nav-open {
     width: 100%;
     max-width: 650px;
     object-fit: contain;
+    /* Soft Edge Blending Masks into the darkness */
     -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%), 
                         linear-gradient(to right, transparent 0%, black 15%);
     mask-image: linear-gradient(to bottom, black 75%, transparent 100%), 
@@ -339,8 +226,6 @@ body.mobile-nav-open {
         padding: 140px 5% 50px 5%; 
         justify-content: center;
         gap: 40px;
-        height: auto;
-        min-height: 100vh;
     }
     .hero-photo-container { justify-content: center; height: 45vh; }
     .hero-photo-container img {
@@ -438,7 +323,7 @@ body.mobile-nav-open {
     color: transparent; 
     text-align: center;
     width: 100%;
-    padding: 0 20px; 
+    padding: 0 20px; /* Prevents text from hitting the screen edge on mobile */
 }
 
 /* ==========================================================================
@@ -450,7 +335,7 @@ body.mobile-nav-open {
 .store-main-subtitle { font-size: clamp(16px, 2.5vw, 22px); color: var(--muted); margin-bottom: 60px; }
 
 .scroll-wrapper { position: relative; width: 100%; }
-.apple-card-row { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 40px; scroll-snap-type: x mandatory; scroll-padding-left: 10%; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.apple-card-row { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 40px; scroll-snap-type: x mandatory; scroll-padding-left: 10%; scrollbar-width: none; }
 .apple-card-row::-webkit-scrollbar { display: none; }
 
 .scroll-btn {
@@ -461,12 +346,6 @@ body.mobile-nav-open {
 .scroll-wrapper:hover .scroll-btn { opacity: 1; }
 .scroll-btn.prev { left: 20px; }
 .scroll-btn.next { right: 40px; }
-
-@media (max-width: 1024px) {
-    .scroll-btn { display: none !important; } /* Uses native elastic sweep gesture parameters on iOS/Android viewports instead */
-    .apple-store-section { padding: 80px 0 80px 5%; }
-    .apple-card-row { scroll-padding-left: 5%; gap: 16px; }
-}
 
 .apple-card { 
     flex: 0 0 clamp(290px, 32vw, 400px); height: 500px; background: var(--bg-surface); border-radius: 24px; 
@@ -481,12 +360,6 @@ body.mobile-nav-open {
 .card-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 2px; margin-bottom: 6px; }
 .card-title { font-size: 24px; font-weight: 600; line-height: 1.2; }
 .card-price { font-size: 13px; color: var(--muted); }
-
-@media (max-width: 768px) {
-    .apple-card { flex: 0 0 280px; height: 420px; border-radius: 20px; }
-    .card-content { inset: 24px; }
-    .card-title { font-size: 20px; }
-}
 
 /* ==========================================================================
    10. CHRONOLOGICAL EXPERIENCE PIPELINE
@@ -523,13 +396,14 @@ body.mobile-nav-open {
     display: none; 
     position: fixed; 
     inset: 0; 
+    /* Lower stack position than cursor lens, but above everything else */
     z-index: 100000; 
     background-color: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(20px); 
     -webkit-backdrop-filter: blur(20px); 
     justify-content: center; 
     align-items: center; 
-    padding: 20px;
+    padding: 30px;
     animation: fadeInBackground 0.4s ease forwards;
 }
 
@@ -558,15 +432,12 @@ body.mobile-nav-open {
     border-radius: 14px;
     border: 1px solid var(--border-subtle);
     background: #000;
-    position: relative;
 }
 
-.modal-image-wrapper img,
-.modal-image-wrapper video { 
+.modal-content img { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover;
-    display: none; 
+    object-fit: cover; 
 }
 
 .close-modal {
@@ -596,6 +467,7 @@ body.mobile-nav-open {
 #modalTitle { font-family: var(--font-display); font-size: 22px; margin-bottom: 14px; letter-spacing: -0.5px; }
 #modalDesc { color: #a2a2a7; line-height: 1.75; font-size: 14px; }
 
+/* Modal Window Animation States */
 @keyframes fadeInBackground {
     from { background-color: rgba(0, 0, 0, 0); }
     to { background-color: rgba(0, 0, 0, 0.85); }
@@ -609,12 +481,9 @@ body.mobile-nav-open {
 }
 
 @media (max-width: 768px) {
-    .modal { padding: 12px; }
-    .modal-content { padding: 24px; gap: 16px; border-radius: 20px; }
-    .modal-image-wrapper { height: 220px; border-radius: 10px; }
-    .close-modal { top: 12px; right: 12px; width: 36px; height: 36px; font-size: 18px; }
-    #modalTitle { font-size: 18px; margin-bottom: 8px; }
-    #modalDesc { font-size: 13px; line-height: 1.6; }
+    .modal-content { padding: 20px; }
+    .modal-image-wrapper { height: 240px; }
+    .close-modal { top: 15px; right: 15px; }
 }
 
 /* ==========================================================================
@@ -627,16 +496,21 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
 .footer-col a:hover { color: var(--accent); }
 .footer-bottom { border-top: 1px solid var(--border-subtle); padding-top: 40px; font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 2px; }
 
+
 /* ==========================================================================
    MOBILE & TABLET OPTIMIZATION (iPhones, Android, iPads)
    ========================================================================== */
 @media (max-width: 1024px) {
     .full-width-feature {
-        height: 30vh; 
-        background-attachment: scroll; /* Stabilizes background scrolling issues inside iOS Safari viewports */
+        height: 30vh; /* Reduces height slightly on mobile devices for better framing */
+        background-attachment: scroll; /* Disables fixed attachment on mobile safari to prevent glitching */
     }
+
     .full-width-feature h2 { 
+        /* clamp minimum size (iPhone) , preferred responsive fluid size, maximum size (iPad) */
         font-size: clamp(32px, 7vw, 56px); 
+        
+        /* Trims stroke density slightly on smaller viewports so the text stays legible */
         -webkit-text-stroke: 1.5px rgb(255, 255, 255); 
     }
 }
