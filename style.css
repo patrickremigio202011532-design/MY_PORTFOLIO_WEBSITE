@@ -164,7 +164,6 @@ nav {
     color: var(--accent); 
 }
 
-
 /* ==========================================================================
    5. PORTFOLIO HERO ARCHITECTURE
    ========================================================================== */
@@ -432,12 +431,16 @@ nav {
     border-radius: 14px;
     border: 1px solid var(--border-subtle);
     background: #000;
+    position: relative;
 }
 
-.modal-content img { 
+/* Media handling styles for fluid layout switches */
+.modal-image-wrapper img,
+.modal-image-wrapper video { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; 
+    object-fit: cover;
+    display: none; /* Controlled dynamically by JavaScript logic */
 }
 
 .close-modal {
@@ -495,7 +498,6 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
 .footer-col a, .footer-col p { display: block; color: var(--muted); text-decoration: none; font-size: 13px; margin-bottom: 12px; line-height: 1.6; }
 .footer-col a:hover { color: var(--accent); }
 .footer-bottom { border-top: 1px solid var(--border-subtle); padding-top: 40px; font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 2px; }
-
 
 /* ==========================================================================
    MOBILE & TABLET OPTIMIZATION (iPhones, Android, iPads)
