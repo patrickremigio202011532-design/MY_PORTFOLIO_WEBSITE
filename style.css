@@ -319,8 +319,11 @@ nav {
 .full-width-feature h2 { 
     font-family: var(--font-display); 
     font-size: 8vw; 
-    -webkit-text-stroke: 1px rgb(255, 255, 255); 
+    -webkit-text-stroke: 3px rgb(255, 255, 255); 
     color: transparent; 
+    text-align: center;
+    width: 100%;
+    padding: 0 20px; /* Prevents text from hitting the screen edge on mobile */
 }
 
 /* ==========================================================================
