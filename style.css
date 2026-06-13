@@ -1,0 +1,513 @@
+/* ==========================================================================
+   1. SYSTEM VARIABLES & DESIGN TOKENS
+   ========================================================================== */
+:root {
+    --bg-pure: #000000;
+    --bg-surface: #0a0a0a;
+    --bg-card: #121212;
+    --accent: #ffffff;
+    --muted: #8e8e93;
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-active: rgba(255, 255, 255, 0.2);
+    
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Syncopate', sans-serif;
+    
+    --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-standard: 0.6s;
+}
+
+/* ==========================================================================
+   2. GLOBAL CORE RESETS
+   ========================================================================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    scroll-behavior: smooth; 
+}
+
+body {
+    background-color: var(--bg-pure);
+    color: var(--accent);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    cursor: none !important; /* Disables standard system mouse vector pointer */
+}
+
+/* Scroll-Revealed Animation Configurations */
+.reveal { 
+    opacity: 0; 
+    transform: translateY(40px); 
+    transition: transform var(--duration-standard) var(--transition-smooth), 
+                opacity var(--duration-standard) var(--transition-smooth); 
+}
+
+.reveal.active { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+/* Action Link Element Button System */
+.btn-outline { 
+    display: inline-block;
+    border: 1px solid var(--accent); 
+    padding: 18px 45px; 
+    color: var(--accent); 
+    text-decoration: none; 
+    font-size: 10px; 
+    font-weight: 600;
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
+    background: transparent; 
+    cursor: pointer; 
+    transition: background 0.4s var(--transition-smooth), color 0.4s var(--transition-smooth); 
+}
+
+.btn-outline:hover { 
+    background: var(--accent); 
+    color: var(--bg-pure); 
+}
+
+/* ==========================================================================
+   3. IMMERSIVE LAYER FIXES (CANVAS & CURSOR LENS)
+   ========================================================================== */
+#swirl-canvas { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    z-index: -1; 
+    pointer-events: none; 
+    background: transparent; 
+}
+
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.04); 
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    /* Highest possible system level stacking so it is always visible on every component */
+    z-index: 200000 !important; 
+    mix-blend-mode: difference;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    will-change: transform;
+    /* Smooth diameter interpolation transitions */
+    transition: width 0.3s var(--transition-smooth), height 0.3s var(--transition-smooth), border-color 0.3s ease;
+}
+
+/* Transparent scaffolding allows background canvas loops to be seen through */
+section, 
+.ad-container, 
+.apple-store-section, 
+.buy-zone-section,
+.eco-flow-section {
+    background: transparent !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================================================
+   4. NAVIGATION BRAND BAR
+   ========================================================================== */
+nav { 
+    padding: 30px 5%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 100; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); 
+    backdrop-filter: blur(4px);
+}
+
+.logo-container { 
+    display: flex; 
+    align-items: center; 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.logo-text { 
+    font-family: var(--font-display); 
+    letter-spacing: 4px; 
+    font-weight: 700; 
+    font-size: 16px; 
+}
+
+.nav-links { 
+    font-size: 10px; 
+    letter-spacing: 2px; 
+    display: flex; 
+    gap: 30px; 
+}
+
+.nav-links a { 
+    color: var(--muted); 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+    text-transform: uppercase; 
+}
+
+.nav-links a:hover { 
+    color: var(--accent); 
+}
+
+
+/* ==========================================================================
+   5. PORTFOLIO HERO ARCHITECTURE
+   ========================================================================== */
+.hero { 
+    height: 100vh; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 5% 0 10%; 
+}
+
+.hero-content { 
+    flex: 1.2; 
+    z-index: 5;
+}
+
+.hero-content h2 { 
+    font-size: 11px; 
+    letter-spacing: 5px; 
+    color: var(--muted); 
+    margin-bottom: 25px; 
+    text-transform: uppercase; 
+}
+
+.hero-content h1 { 
+    font-family: var(--font-display); 
+    font-size: clamp(38px, 5.5vw, 75px); 
+    line-height: 1.15; 
+    text-transform: uppercase; 
+    margin-bottom: 40px; 
+}
+
+.hero-photo-container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hero-photo-container img {
+    max-height: 80vh;
+    width: 100%;
+    max-width: 650px;
+    object-fit: contain;
+    /* Soft Edge Blending Masks into the darkness */
+    -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%), 
+                        linear-gradient(to right, transparent 0%, black 15%);
+    mask-image: linear-gradient(to bottom, black 75%, transparent 100%), 
+                linear-gradient(to right, transparent 0%, black 15%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+}
+
+@media (max-width: 1024px) {
+    .hero { 
+        flex-direction: column-reverse; 
+        text-align: center; 
+        padding: 140px 5% 50px 5%; 
+        justify-content: center;
+        gap: 40px;
+    }
+    .hero-photo-container { justify-content: center; height: 45vh; }
+    .hero-photo-container img {
+        max-height: 40vh;
+        -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+}
+
+/* ==========================================================================
+   6. METRICS & SKILLS DISPLAY BAR
+   ========================================================================== */
+.stats { 
+    display: flex; 
+    justify-content: space-around; 
+    padding: 80px 10%; 
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle); 
+    background: var(--bg-pure); 
+}
+
+.stat-item { text-align: center; }
+.stat-item h3 { font-family: var(--font-display); font-size: 20px; margin-bottom: 8px; }
+.stat-item p { font-size: 9px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+
+@media (max-width: 768px) { .stats { flex-direction: column; gap: 40px; } }
+
+/* ==========================================================================
+   7. WORK GALLERY GRID
+   ========================================================================== */
+.buy-zone-section { padding: 120px 10%; }
+.buy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+
+.buy-card { 
+    aspect-ratio: 1 / 1; 
+    background: var(--bg-surface); 
+    border: 1px solid var(--border-subtle); 
+    overflow: hidden; 
+    cursor: pointer;
+    transition: border-color 0.4s var(--transition-smooth);
+}
+
+.buy-card img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    opacity: 0.7; 
+    transition: transform 0.6s var(--transition-smooth), opacity 0.6s var(--transition-smooth); 
+}
+
+.buy-card:hover { border-color: var(--border-active); }
+.buy-card:hover img { opacity: 1; transform: scale(1.04); }
+
+/* ==========================================================================
+   8. PORTFOLIO EDITORIAL TEXT LAYOUTS
+   ========================================================================== */
+.ad-page { 
+    min-height: 70vh; 
+    padding: 120px 10%; 
+    border-top: 1px solid var(--border-subtle); 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 80px; 
+    align-items: center;
+}
+
+.ad-img-box { width: 100%; height: 480px; background: var(--bg-surface); overflow: hidden; border: 1px solid var(--border-subtle); }
+.ad-img-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; transition: transform 1s var(--transition-smooth); }
+.ad-page:hover .ad-img-box img { transform: scale(1.03); opacity: 0.9; }
+
+.ad-label { font-size: 10px; color: var(--muted); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: block; }
+.ad-title { font-family: var(--font-display); font-size: clamp(26px, 3.5vw, 38px); margin-bottom: 30px; line-height: 1.2; }
+.ad-desc { color: #b3b3b3; font-size: 15px; line-height: 1.8; margin-bottom: 40px; }
+
+@media (max-width: 850px) {
+    .ad-page { grid-template-columns: 1fr; gap: 40px; }
+    .ad-img-box { height: 340px; }
+}
+
+.full-width-feature { 
+    width: 100%; 
+    height: 40vh; 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.full-width-feature h2 { 
+    font-family: var(--font-display); 
+    font-size: 8vw; 
+    -webkit-text-stroke: 1px rgb(255, 255, 255); 
+    color: transparent; 
+}
+
+/* ==========================================================================
+   9. APPLE-STYLE HORIZONTAL CASE STUDIES
+   ========================================================================== */
+.apple-store-section { padding: 120px 0 120px 10%; border-top: 1px solid var(--border-subtle); overflow: hidden; }
+.store-main-title { font-size: clamp(30px, 4.5vw, 45px); font-weight: 700; margin-bottom: 12px; }
+.store-main-title span { color: var(--muted); font-weight: 400; }
+.store-main-subtitle { font-size: clamp(16px, 2.5vw, 22px); color: var(--muted); margin-bottom: 60px; }
+
+.scroll-wrapper { position: relative; width: 100%; }
+.apple-card-row { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 40px; scroll-snap-type: x mandatory; scroll-padding-left: 10%; scrollbar-width: none; }
+.apple-card-row::-webkit-scrollbar { display: none; }
+
+.scroll-btn {
+    position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: rgba(40, 40, 40, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50%; color: white; cursor: pointer; z-index: 10; display: flex; 
+    align-items: center; justify-content: center; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: opacity 0.3s ease; opacity: 0;
+}
+.scroll-wrapper:hover .scroll-btn { opacity: 1; }
+.scroll-btn.prev { left: 20px; }
+.scroll-btn.next { right: 40px; }
+
+.apple-card { 
+    flex: 0 0 clamp(290px, 32vw, 400px); height: 500px; background: var(--bg-surface); border-radius: 24px; 
+    position: relative; overflow: hidden; scroll-snap-align: start; text-decoration: none; color: var(--accent); border: 1px solid var(--border-subtle); 
+    cursor: pointer;
+}
+.apple-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: transform 0.8s var(--transition-smooth); }
+.apple-card:hover img { transform: scale(1.02); }
+.apple-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 100%); z-index: 2; }
+
+.card-content { position: absolute; inset: 35px; display: flex; flex-direction: column; justify-content: space-between; z-index: 5; }
+.card-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 2px; margin-bottom: 6px; }
+.card-title { font-size: 24px; font-weight: 600; line-height: 1.2; }
+.card-price { font-size: 13px; color: var(--muted); }
+
+/* ==========================================================================
+   10. CHRONOLOGICAL EXPERIENCE PIPELINE
+   ========================================================================== */
+.eco-flow-section { padding: 140px 10%; border-top: 1px solid var(--border-subtle); }
+.flow-container { max-width: 1000px; margin: 0 auto; }
+.flow-step { display: flex; align-items: center; gap: 80px; margin-bottom: 120px; position: relative; }
+.flow-step:nth-child(even) { flex-direction: row-reverse; }
+
+.step-number { 
+    font-family: var(--font-display); font-size: clamp(60px, 8vw, 110px); font-weight: 700; color: transparent; 
+    -webkit-text-stroke: 1px rgba(255,255,255,0.1); position: absolute; top: -40px; left: -20px; z-index: -1;
+}
+.flow-step:nth-child(even) .step-number { left: auto; right: -20px; }
+
+.step-content { flex: 1; }
+.step-tag { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-bottom: 12px; display: block; }
+.step-title { font-family: var(--font-display); font-size: 22px; margin-bottom: 20px; }
+.step-details { font-size: 14px; color: #a2a2a7; line-height: 1.8; }
+
+.step-visual { flex: 1.1; height: 380px; background: var(--bg-surface); border: 1px solid var(--border-subtle); overflow: hidden; }
+.step-visual img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: transform 0.8s ease; }
+.flow-step:hover .step-visual img { transform: scale(1.02); opacity: 0.9; }
+
+@media (max-width: 850px) {
+    .flow-step, .flow-step:nth-child(even) { flex-direction: column-reverse; align-items: stretch; gap: 24px; margin-bottom: 80px; }
+    .step-visual { height: 280px; }
+}
+
+/* ==========================================================================
+   11. PROJECT WORKSPACE CENTER POPUP MODAL
+   ========================================================================== */
+.modal {
+    display: none; 
+    position: fixed; 
+    inset: 0; 
+    /* Lower stack position than cursor lens, but above everything else */
+    z-index: 100000; 
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px); 
+    justify-content: center; 
+    align-items: center; 
+    padding: 30px;
+    animation: fadeInBackground 0.4s ease forwards;
+}
+
+.modal-content {
+    position: relative; 
+    width: 100%; 
+    max-width: 880px; 
+    background: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    color: var(--accent); 
+    padding: 40px; 
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+    transform: scale(0.95) translateY(30px);
+    opacity: 0;
+    animation: popUpWindow 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal-image-wrapper {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid var(--border-subtle);
+    background: #000;
+}
+
+.modal-content img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.close-modal {
+    position: absolute; 
+    top: -20px; 
+    right: -20px; 
+    color: var(--accent); 
+    font-size: 24px; 
+    cursor: pointer;
+    background: #111; 
+    width: 48px; 
+    height: 48px; 
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.close-modal:hover { 
+    background: #222; 
+    transform: scale(1.05);
+}
+
+.modal-info { padding: 5px 0 0 0; }
+#modalTitle { font-family: var(--font-display); font-size: 22px; margin-bottom: 14px; letter-spacing: -0.5px; }
+#modalDesc { color: #a2a2a7; line-height: 1.75; font-size: 14px; }
+
+/* Modal Window Animation States */
+@keyframes fadeInBackground {
+    from { background-color: rgba(0, 0, 0, 0); }
+    to { background-color: rgba(0, 0, 0, 0.85); }
+}
+
+@keyframes popUpWindow {
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content { padding: 20px; }
+    .modal-image-wrapper { height: 240px; }
+    .close-modal { top: 15px; right: 15px; }
+}
+
+/* ==========================================================================
+   12. FOOTER TERMINUS
+   ========================================================================== */
+footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1px solid var(--border-subtle); position: relative; z-index: 5; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; }
+.footer-col h4 { font-size: 10px; letter-spacing: 3px; color: var(--accent); margin-bottom: 20px; text-transform: uppercase; }
+.footer-col a, .footer-col p { display: block; color: var(--muted); text-decoration: none; font-size: 13px; margin-bottom: 12px; line-height: 1.6; }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom { border-top: 1px solid var(--border-subtle); padding-top: 40px; font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 2px; }
+
+
+/* ==========================================================================
+   MOBILE & TABLET OPTIMIZATION (iPhones, Android, iPads)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .full-width-feature {
+        height: 30vh; /* Reduces height slightly on mobile devices for better framing */
+        background-attachment: scroll; /* Disables fixed attachment on mobile safari to prevent glitching */
+    }
+
+    .full-width-feature h2 { 
+        /* clamp minimum size (iPhone) , preferred responsive fluid size, maximum size (iPad) */
+        font-size: clamp(32px, 7vw, 56px); 
+        
+        /* Trims stroke density slightly on smaller viewports so the text stays legible */
+        -webkit-text-stroke: 1.5px rgb(255, 255, 255); 
+    }
+}
