@@ -73,6 +73,8 @@ gsap.utils.toArray(".process-item").forEach((item)=>{
     });
 
 });
-
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("nav-active");
+}
 
 
