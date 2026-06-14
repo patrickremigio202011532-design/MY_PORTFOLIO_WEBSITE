@@ -859,79 +859,110 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
     }
 
    /* ==========================================================================
-   TARGETED PROCESS MODULE MOBILE REPAIR
+ /* ==========================================================================
+   COMPLETE MOBILE REPAIR FOR PROCESS SECTION (MAX-WIDTH: 768px)
    ========================================================================== */
-
-@media (max-width: 300px) {
+@media (max-width: 768px) {
+    /* 1. Reset the entire section container to align strictly center */
     .process-section {
-        grid-template-columns: 1fr !important; /* Forces layout into a clean vertical single file */
-        gap: 40px;
-        padding: 80px 5%;
+        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 60px 24px !important;
+        gap: 32px !important;
+        width: 100% !important;
+        overflow-x: hidden;
+    }
+
+    /* 2. Fix the main section headers */
+    .process-tag {
+        margin: 0 auto 12px auto !important;
+        text-align: center !important;
     }
 
     .process-heading {
-        font-size: clamp(2.2rem, 6vw, 3.5rem) !important; /* Normalizes the main section heading size */
-        line-height: 1.1;
-        margin-bottom: 25px;
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+        text-align: center !important;
+        margin: 0 auto 20px auto !important;
     }
 
+    /* 3. Shrink and center the giant main workspace banner image */
     .process-main-image {
-        height: 320px; /* Prevents high-rise images from taking over the screen layout viewport */
-        margin-top: 0;
-        border-radius: 20px;
+        width: 100% !important;
+        max-width: 450px !important; /* Prevents it from becoming too large on tablets */
+        height: 240px !important; /* Aggressively scales down the height */
+        margin: 0 auto !important;
+        border-radius: 16px !important;
     }
 
+    /* 4. Force individual list cards to sit straight and center */
     .process-item {
-        flex-direction: column !important; /* Stack small cards cleanly */
-        align-items: flex-start;
-        gap: 15px;
-        padding: 20px;
-        width: 100%;
+        flex-direction: column !important;
+        align-items: center !important; /* Centers inner elements vertically */
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 24px 20px !important;
+        margin: 0 auto 20px auto !important;
+        width: 100% !important;
+        max-width: 450px !important;
     }
 
+    /* 5. FIX THE IMAGES: Shrink the heights and center them */
     .process-image {
-        width: 60% !important; /* Expand imagery layout to avoid awkward vertical side columns */
-        height: 180px;
-        border-radius: 14px;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 150px !important; /* Drastically lowers the height to stop them from swallowing the screen */
+        border-radius: 12px !important;
+        margin: 0 auto 16px auto !important; /* Centers the image box inside the item card */
+        display: block !important;
     }
 
+    .process-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+
+    /* 6. Center the numeric identifiers, headers, and descriptions */
     .process-text {
-        width: 100%;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0 !important;
     }
 
-    /* Fixed structural text size overflows */
     .process-text h3 {
-        font-size: 2.2rem !important; /* Keeps '01', '02' identifiers readable and within box boundaries */
-        line-height: 1;
-        margin-bottom: 5px;
+        font-size: 2rem !important;
+        margin: 0 auto 6px auto !important;
+        text-align: center !important;
     }
 
     .process-text h4 {
-        font-size: 1.3rem !important; /* Normalizes structural card subtitles */
-        line-height: 1.2;
-        margin-bottom: 8px;
+        font-size: 1.3rem !important;
+        margin: 0 auto 10px auto !important;
+        text-align: center !important;
     }
 
     .process-text p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-}
-
-@media (max-width: 200px) {
-    /* Safe-zone adjustments for specific inline luxury collection text card elements */
-    .process-text, 
-    .process-item div {
-        max-width: 50%;
-        overflow-wrap: break-word; /* Prevents long titles from pushing past the viewport edge */
-        word-break: break-word;
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        text-align: center !important;
+        margin: 0 auto !important;
     }
 
-    /* Target adjustments for your 2026 Collection container text sizing if nested in this module */
+    /* 7. 2026 Collection Card Text Break Safeties */
     .process-text h1,
-    .process-section [class*="title"], 
+    .process-section [class*="title"],
     .process-section [class*="collection"] {
-        font-size: clamp(24px, 5vw, 36px) !important;
+        font-size: 1.8rem !important;
         line-height: 1.2 !important;
+        text-align: center !important;
+        margin: 0 auto 16px auto !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
     }
 }
