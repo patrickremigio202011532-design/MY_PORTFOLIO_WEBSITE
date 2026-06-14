@@ -920,7 +920,7 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
     .banner-content p {
         font-size: 14px !important;
         line-height: 1.7 !important;
-        max-width: 100% !important;
+        max-width: 10% !important;
         margin: 0 auto 30px auto !important;
         padding: 0 10px !important;
     }
