@@ -862,7 +862,7 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
    TARGETED PROCESS MODULE MOBILE REPAIR
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 300px) {
     .process-section {
         grid-template-columns: 1fr !important; /* Forces layout into a clean vertical single file */
         gap: 40px;
@@ -918,7 +918,7 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
     }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 200px) {
     /* Safe-zone adjustments for specific inline luxury collection text card elements */
     .process-text, 
     .process-item div {
