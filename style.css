@@ -909,7 +909,7 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
     .luxury-banner{
         background-attachment:scroll;
     }
-}
+
 /* ================================
    RESPONSIVE SYSTEM FIX (GLOBAL)
 ================================ */
@@ -917,18 +917,53 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
 @media (max-width: 1024px) {
 
     .flow-step {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.step-number {
+    font-size: 110px;
+    opacity: 0.2;
+    position: relative;
+}
+
+
+@media (max-width: 1024px) {
+
+    .flow-step {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        position: relative;
+        text-align: center;
     }
 
     .step-number {
-        position: relative;
-        font-size: 50px;
-        opacity: 0.2;
-        margin-bottom: 10px;
-        left: auto;
-        top: auto;
+        font-size: 60px;
+    }
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-active {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        background: black;
+        padding: 20px;
+        border: 1px solid #333;
     }
 }
