@@ -862,7 +862,7 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
    TARGETED PROCESS MODULE MOBILE REPAIR
    ========================================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .process-section {
         grid-template-columns: 1fr !important; /* Forces layout into a clean vertical single file */
         gap: 40px;
