@@ -1,6 +1,104 @@
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+* {
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        padding: 16px 5%;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .nav-links {
+        display: none; /* prevents overflow and zoom-out bug */
+    }
+
+    .logo-text {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    nav {
+        padding: 18px 5%;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 9px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+}
+@media (max-width: 768px) {
+
+    .hero {
+        flex-direction: column-reverse;
+        padding: 110px 5% 50px;
+        height: auto;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .hero-photo-container img {
+        max-width: 100%;
+        max-height: 280px;
+    }
+}
+@media (max-width: 1024px) {
+
+    .flow-step {
+        flex-direction: column !important;
+        gap: 20px;
+    }
+
+    .step-number {
+        position: relative !important;
+        font-size: 48px !important;
+        opacity: 0.2;
+    }
+}
+@media (max-width: 768px) {
+
+    .buy-grid {
+        grid-template-columns: 1fr;
+        padding: 60px 5%;
+        gap: 18px;
+    }
+
+    .buy-card {
+        width: 100%;
+        height: auto;
+    }
+}
+
+body {
+    overflow-x: hidden;
+    touch-action: manipulation;
+}
+
 /* ==========================================================================
    1. SYSTEM VARIABLES & DESIGN TOKENS
    ========================================================================== */
+
 :root {
     --bg-pure: #000000;
     --bg-surface: #0a0a0a;
