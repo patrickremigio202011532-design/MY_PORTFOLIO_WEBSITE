@@ -862,107 +862,83 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
  /* ==========================================================================
    COMPLETE MOBILE REPAIR FOR PROCESS SECTION (MAX-WIDTH: 768px)
    ========================================================================== */
+/* ==========================================================================
+   EXCLUSIVE MOBILE REPAIR FOR LUXURY BANNER EXTRACTION
+   ========================================================================== */
 @media (max-width: 768px) {
-    /* 1. Reset the entire section container to align strictly center */
-    .process-section {
-        grid-template-columns: 1fr !important;
+    /* 1. Reset main banner container layout boundaries */
+    .luxury-banner {
+        min-height: 80vh !important; /* Prevents awkward excessive vertical space */
+        height: auto !important;
+        padding: 80px 0 !important;
         display: flex !important;
-        flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        text-align: center !important;
-        padding: 60px 24px !important;
-        gap: 32px !important;
         width: 100% !important;
-        overflow-x: hidden;
+        max-width: 100vw !important;
+        overflow: hidden !important;
     }
 
-    /* 2. Fix the main section headers */
-    .process-tag {
-        margin: 0 auto 12px auto !important;
-        text-align: center !important;
+    /* 2. De-scale background positioning to prevent viewport clipping shifts */
+    .banner-bg {
+        background-attachment: scroll !important; /* Crucial fix for iOS safari/Chrome image lag */
+        transform: scale(1) !important;
     }
 
-    .process-heading {
-        font-size: 2.5rem !important;
-        line-height: 1.1 !important;
-        text-align: center !important;
-        margin: 0 auto 20px auto !important;
-    }
-
-    /* 3. Shrink and center the giant main workspace banner image */
-    .process-main-image {
-        width: 100% !important;
-        max-width: 450px !important; /* Prevents it from becoming too large on tablets */
-        height: 240px !important; /* Aggressively scales down the height */
-        margin: 0 auto !important;
-        border-radius: 16px !important;
-    }
-
-    /* 4. Force individual list cards to sit straight and center */
-    .process-item {
-        flex-direction: column !important;
-        align-items: center !important; /* Centers inner elements vertically */
-        justify-content: center !important;
-        text-align: center !important;
-        padding: 24px 20px !important;
-        margin: 0 auto 20px auto !important;
-        width: 100% !important;
-        max-width: 450px !important;
-    }
-
-    /* 5. FIX THE IMAGES: Shrink the heights and center them */
-    .process-image {
+    /* 3. Contain content wrapper layout to fit phone widths perfectly */
+    .banner-content {
         width: 100% !important;
         max-width: 100% !important;
-        height: 150px !important; /* Drastically lowers the height to stop them from swallowing the screen */
-        border-radius: 12px !important;
-        margin: 0 auto 16px auto !important; /* Centers the image box inside the item card */
-        display: block !important;
-    }
-
-    .process-image img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center !important;
-    }
-
-    /* 6. Center the numeric identifiers, headers, and descriptions */
-    .process-text {
-        width: 100% !important;
-        text-align: center !important;
-        padding: 0 !important;
-    }
-
-    .process-text h3 {
-        font-size: 2rem !important;
-        margin: 0 auto 6px auto !important;
-        text-align: center !important;
-    }
-
-    .process-text h4 {
-        font-size: 1.3rem !important;
-        margin: 0 auto 10px auto !important;
-        text-align: center !important;
-    }
-
-    .process-text p {
-        font-size: 14px !important;
-        line-height: 1.6 !important;
+        padding: 0 20px !important; /* Creates a clean, protective side margin */
+        box-sizing: border-box !important;
         text-align: center !important;
         margin: 0 auto !important;
     }
 
-    /* 7. 2026 Collection Card Text Break Safeties */
-    .process-text h1,
-    .process-section [class*="title"],
-    .process-section [class*="collection"] {
-        font-size: 1.8rem !important;
+    /* 4. Fix "2026 COLLECTION" tracking */
+    .banner-content span {
+        font-size: 11px !important;
+        letter-spacing: 3px !important;
+        display: block !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* 5. FIX THE OVERFLOWING HEADLINE: Shrink font size aggressively */
+    .banner-content h2 {
+        font-size: 28px !important; /* Shrinks "Creating Timeless..." so it doesn't break out */
         line-height: 1.2 !important;
-        text-align: center !important;
-        margin: 0 auto 16px auto !important;
-        word-break: break-word !important;
+        letter-spacing: 1px !important;
+        margin-top: 10px !important;
+        margin-bottom: 20px !important;
+        width: 100% !important;
+        white-space: normal !important; /* Forces normal line breaking */
         overflow-wrap: break-word !important;
+        word-break: break-word !important;
+    }
+
+    /* 6. Standardize description copy readability */
+    .banner-content p {
+        font-size: 14px !important;
+        line-height: 1.7 !important;
+        max-width: 100% !important;
+        margin: 0 auto 30px auto !important;
+        padding: 0 10px !important;
+    }
+
+    /* 7. Fit "EXPLORE PROJECTS" button inside the screen boundaries */
+    .banner-content .btn-outline {
+        padding: 14px 32px !important; /* Smaller paddings so button box is perfectly contained */
+        font-size: 10px !important;
+        letter-spacing: 2px !important;
+        display: inline-block !important;
+        width: auto !important;
+        max-width: 90% !important;
+    }
+
+    /* 8. Neutralize the floating glass decorative asset container that stretches layouts */
+    .banner-content::after {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
     }
 }
