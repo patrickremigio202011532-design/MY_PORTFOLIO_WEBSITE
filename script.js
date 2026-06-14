@@ -44,17 +44,32 @@ document.querySelector('.close-btn').addEventListener('click', () => {
     
     modal.classList.remove('open');
 });
-// EXTRA: animate flow-step like reveal system
-const steps = document.querySelectorAll('.flow-step');
 
-const stepObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
-    });
-}, {
-    threshold: 0.2
+// PARALLAX BANNER
+
+gsap.to(".banner-bg",{
+    y:-150,
+    ease:"none",
+    scrollTrigger:{
+        trigger:".luxury-banner",
+        start:"top bottom",
+        end:"bottom top",
+        scrub:true
+    }
 });
 
-steps.forEach(step => stepObserver.observe(step));
+// PROCESS IMAGE REVEAL
+
+gsap.utils.toArray(".process-item").forEach((item)=>{
+
+    gsap.from(item,{
+        opacity:0,
+        y:80,
+        duration:1,
+        scrollTrigger:{
+            trigger:item,
+            start:"top 85%"
+        }
+    });
+
+});
