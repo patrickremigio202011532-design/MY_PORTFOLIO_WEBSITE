@@ -14,6 +14,81 @@
 
 </head>
 <body>
+    <style>
+@media (max-width: 768px) {
+    /* 1. Reset main banner container boundaries */
+    .luxury-banner {
+        min-height: auto !important;
+        height: auto !important;
+        padding: 80px 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow: hidden !important;
+    }
+
+    /* 2. Fix the background behavior for mobile devices */
+    .banner-bg {
+        background-attachment: scroll !important; /* Fixes layout shifting on mobile browsers */
+        transform: scale(1) !important;
+    }
+
+    /* 3. Contain the text wrapper boundaries */
+    .banner-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 24px !important; /* Protects text from hitting screen edges */
+        box-sizing: border-box !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+
+    /* 4. Fix "2026 COLLECTION" tracking */
+    .banner-content span {
+        font-size: 11px !important;
+        letter-spacing: 3px !important;
+        display: block !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* 5. FORCE HEADLINE DOWN: Resizes the giant "Creating Timeless..." text */
+    .banner-content h2 {
+        font-size: 28px !important; 
+        line-height: 1.2 !important;
+        letter-spacing: 1px !important;
+        margin-top: 10px !important;
+        margin-bottom: 20px !important;
+        width: 100% !important;
+        white-space: normal !important; /* Force statement wrap formatting */
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+    }
+
+    /* 6. Fix paragraph spacing readability */
+    .banner-content p {
+        font-size: 14px !important;
+        line-height: 1.7 !important;
+        max-width: 100% !important;
+        margin: 0 auto 30px auto !important;
+    }
+
+    /* 7. Fit "EXPLORE PROJECTS" outline inside grid gutters */
+    .banner-content .btn-outline {
+        padding: 14px 32px !important;
+        font-size: 10px !important;
+        letter-spacing: 2px !important;
+        display: inline-block !important;
+        width: auto !important;
+    }
+
+    /* 8. Delete layout-stretching background glass element */
+    .banner-content::after {
+        display: none !important;
+    }
+}
+</style>
 
     <div id="custom-cursor"></div>
     <canvas id="swirl-canvas"></canvas>
