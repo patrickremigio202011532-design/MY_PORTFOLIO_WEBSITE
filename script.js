@@ -45,31 +45,3 @@ document.querySelector('.close-btn').addEventListener('click', () => {
     modal.classList.remove('open');
 });
 
-// PARALLAX BANNER
-
-gsap.to(".banner-bg",{
-    y:-150,
-    ease:"none",
-    scrollTrigger:{
-        trigger:".luxury-banner",
-        start:"top bottom",
-        end:"bottom top",
-        scrub:true
-    }
-});
-
-// PROCESS IMAGE REVEAL
-
-gsap.utils.toArray(".process-item").forEach((item)=>{
-
-    gsap.from(item,{
-        opacity:0,
-        y:80,
-        duration:1,
-        scrollTrigger:{
-            trigger:item,
-            start:"top 85%"
-        }
-    });
-
-});
