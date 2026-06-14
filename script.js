@@ -73,3 +73,53 @@ gsap.utils.toArray(".process-item").forEach((item)=>{
     });
 
 });
+
+
+const modal = document.getElementById("infoModal");
+const modalImg = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const closeBtn = document.querySelector(".close-modal");
+
+/* CURSOR (DISABLED ON MOBILE AUTOMATICALLY) */
+const cursor = document.getElementById("custom-cursor");
+
+if (window.innerWidth > 1024) {
+document.addEventListener("mousemove", e => {
+cursor.style.transform = `translate(${e.clientX}px,${e.clientY}px)`;
+});
+}
+
+/* CARDS */
+document.querySelectorAll(".buy-card").forEach(card=>{
+card.addEventListener("click",()=>{
+
+modal.style.display="flex";
+modalTitle.textContent=card.dataset.title;
+modalDesc.textContent=card.dataset.desc;
+modalImg.src=card.dataset.image;
+
+});
+});
+
+/* CLOSE MODAL */
+function closeModal(){
+modal.style.display="none";
+modalImg.src="";
+}
+
+closeBtn.addEventListener("click",closeModal);
+
+modal.addEventListener("click",(e)=>{
+if(e.target===modal) closeModal();
+});
+
+/* GSAP SAFE */
+if(window.innerWidth>768){
+gsap.registerPlugin(ScrollTrigger);
+}
+
+/* PERFORMANCE */
+document.querySelectorAll("video").forEach(v=>{
+v.preload="metadata";
+});
