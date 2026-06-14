@@ -922,7 +922,7 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
     /* Safe-zone adjustments for specific inline luxury collection text card elements */
     .process-text, 
     .process-item div {
-        max-width: 100%;
+        max-width: 50%;
         overflow-wrap: break-word; /* Prevents long titles from pushing past the viewport edge */
         word-break: break-word;
     }
