@@ -561,6 +561,43 @@
         document.querySelector('.scroll-btn.prev')?.addEventListener('click', () => {
             row.scrollBy({ left: -350, behavior: 'smooth' });
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links a');
+
+    if (menuBtn && navLinks) {
+        // Toggle menu view state on action tap
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('nav-active');
+            
+            // Optional styling feedback: turn menu icon into an 'X' symbol when open
+            if (navLinks.classList.contains('nav-active')) {
+                menuBtn.innerHTML = '&times;'; // Changes ☰ to ✕
+            } else {
+                menuBtn.innerHTML = '&#9776;'; // Restores ☰
+            }
+        });
+
+        // Auto collapse menu selection viewport view panel once a target link is clicked
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav-active');
+                menuBtn.innerHTML = '&#9776;';
+            });
+        });
+
+        // Close menu panel if a user taps anywhere outside the active window view
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+                navLinks.classList.remove('nav-active');
+                menuBtn.innerHTML = '&#9776;';
+            }
+        });
+    }
+});
     </script>
 </body>
 </html>
