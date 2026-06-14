@@ -890,7 +890,7 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
     }
 
     .process-image {
-        width: 100% !important; /* Expand imagery layout to avoid awkward vertical side columns */
+        width: 60% !important; /* Expand imagery layout to avoid awkward vertical side columns */
         height: 180px;
         border-radius: 14px;
     }
