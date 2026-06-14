@@ -514,3 +514,384 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
         -webkit-text-stroke: 1.5px rgb(255, 255, 255); 
     }
 }
+
+/* =====================================================
+GLOBAL MOBILE OPTIMIZATION
+ADD AT VERY BOTTOM OF STYLE.CSS
+===================================================== */
+
+html,
+body{
+overflow-x:hidden;
+width:100%;
+}
+
+img,
+video{
+max-width:100%;
+height:auto;
+display:block;
+}
+
+*{
+box-sizing:border-box;
+}
+
+/* =====================================================
+NAVIGATION
+===================================================== */
+
+@media(max-width:992px){
+
+```
+nav{
+    padding:20px;
+    flex-direction:column;
+    gap:20px;
+}
+
+.nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.nav-links a{
+    font-size:13px;
+}
+```
+
+}
+
+/* =====================================================
+HERO
+===================================================== */
+
+@media(max-width:992px){
+
+```
+.hero{
+    flex-direction:column;
+    text-align:center;
+    padding:140px 25px 80px;
+    gap:50px;
+}
+
+.hero-content{
+    width:100%;
+}
+
+.hero-content h1{
+    font-size:clamp(3rem,12vw,5rem);
+    line-height:.95;
+}
+
+.hero-content h2{
+    font-size:12px;
+}
+
+.hero-photo-container{
+    width:100%;
+    max-width:380px;
+    margin:auto;
+}
+```
+
+}
+
+/* =====================================================
+STATS
+===================================================== */
+
+@media(max-width:768px){
+
+```
+.stats{
+    grid-template-columns:1fr;
+    gap:30px;
+    padding:50px 25px;
+}
+```
+
+}
+
+/* =====================================================
+WORK GRID
+===================================================== */
+
+@media(max-width:992px){
+
+```
+.buy-grid{
+    grid-template-columns:1fr;
+    gap:25px;
+}
+
+.buy-card{
+    width:100%;
+}
+```
+
+}
+
+/* =====================================================
+MANIFESTO SECTION
+===================================================== */
+
+@media(max-width:992px){
+
+```
+.ad-page{
+    grid-template-columns:1fr;
+}
+
+.ad-img-box{
+    height:300px;
+}
+
+.ad-title{
+    font-size:2rem;
+}
+```
+
+}
+
+/* =====================================================
+FEATURE BANNER
+===================================================== */
+
+@media(max-width:768px){
+
+```
+.full-width-feature{
+    min-height:50vh;
+}
+
+.full-width-feature h2{
+    font-size:clamp(2rem,10vw,4rem);
+    text-align:center;
+    padding:0 20px;
+}
+```
+
+}
+
+/* =====================================================
+APPLE CARDS
+===================================================== */
+
+@media(max-width:768px){
+
+```
+.apple-card{
+    min-width:280px;
+    width:280px;
+}
+
+.card-title{
+    font-size:1.3rem;
+}
+```
+
+}
+
+/* =====================================================
+EXPERIENCE SECTION
+===================================================== */
+
+@media(max-width:992px){
+
+```
+.flow-step{
+    flex-direction:column;
+}
+
+.step-visual{
+    width:100%;
+}
+
+.step-visual img{
+    width:100%;
+}
+```
+
+}
+
+/* =====================================================
+PROCESS SECTION
+===================================================== */
+
+@media(max-width:992px){
+
+```
+.process-section{
+    grid-template-columns:1fr;
+    gap:50px;
+    padding:120px 25px;
+}
+
+.process-main-image{
+    height:350px;
+}
+
+.process-item{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.process-image{
+    width:100%;
+    height:220px;
+}
+
+.process-text h3{
+    font-size:3rem;
+}
+```
+
+}
+
+/* =====================================================
+LUXURY GRID
+===================================================== */
+
+@media(max-width:992px){
+
+```
+.luxury-grid{
+    grid-template-columns:1fr;
+}
+
+.luxury-card{
+    height:450px;
+}
+```
+
+}
+
+/* =====================================================
+LUXURY BANNER
+===================================================== */
+
+@media(max-width:768px){
+
+```
+.luxury-banner{
+    min-height:90vh;
+}
+
+.banner-bg{
+    background-attachment:scroll;
+}
+
+.banner-content{
+    padding:25px;
+}
+
+.banner-content h2{
+    font-size:clamp(3rem,12vw,5rem);
+}
+```
+
+}
+
+/* =====================================================
+FOOTER
+===================================================== */
+
+@media(max-width:992px){
+
+```
+.footer-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+    gap:40px;
+}
+```
+
+}
+
+/* =====================================================
+MODAL
+===================================================== */
+
+@media(max-width:768px){
+
+```
+.modal-content{
+    width:95%;
+    height:auto;
+    flex-direction:column;
+    overflow-y:auto;
+    max-height:90vh;
+}
+
+.modal-image-wrapper{
+    height:250px;
+}
+
+.modal-info{
+    padding:25px;
+}
+```
+
+}
+
+/* =====================================================
+TOUCH DEVICES
+===================================================== */
+
+@media (hover:none){
+
+```
+#custom-cursor{
+    display:none !important;
+}
+```
+
+}
+
+/* =====================================================
+IPHONE SAFE AREA
+===================================================== */
+
+@supports (padding:max(0px)) {
+
+```
+body{
+    padding-left:max(0px, env(safe-area-inset-left));
+    padding-right:max(0px, env(safe-area-inset-right));
+    padding-bottom:max(0px, env(safe-area-inset-bottom));
+}
+```
+
+}
+
+/* =====================================================
+SMALL DEVICES
+===================================================== */
+
+@media(max-width:480px){
+
+```
+section{
+    padding-left:20px !important;
+    padding-right:20px !important;
+}
+
+h1{
+    font-size:2.8rem !important;
+}
+
+h2{
+    word-break:break-word;
+}
+
+.btn-outline{
+    width:100%;
+    text-align:center;
+}
+```
+
+}
+
