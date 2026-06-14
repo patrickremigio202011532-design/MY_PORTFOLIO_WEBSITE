@@ -44,4 +44,17 @@ document.querySelector('.close-btn').addEventListener('click', () => {
     
     modal.classList.remove('open');
 });
+// EXTRA: animate flow-step like reveal system
+const steps = document.querySelectorAll('.flow-step');
 
+const stepObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+steps.forEach(step => stepObserver.observe(step));
