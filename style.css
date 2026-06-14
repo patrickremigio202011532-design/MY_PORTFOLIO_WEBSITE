@@ -816,149 +816,129 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
    RESPONSIVE SYSTEM FIX (GLOBAL)
 ================================ */
 
-img, video {
-    max-width: 100%;
-    height: auto;
+:root {
+--bg:#000;
+--text:#fff;
+--muted:#888;
 }
 
-html, body {
-    overflow-x: hidden;
-}
-
-/* Better tap experience on mobile */
-button, a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* Prevent layout overflow issues */
 * {
-    box-sizing: border-box;
-}
-@media (max-width: 768px) {
-
-    .hero {
-        flex-direction: column-reverse;
-        height: auto;
-        padding: 120px 5% 60px;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .hero-content h1 {
-        font-size: 36px;
-    }
-
-    .hero-photo-container img {
-        max-height: 320px;
-    }
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-@media (max-width: 768px) {
-    .stats {
-        flex-direction: column;
-        gap: 30px;
-        padding: 60px 5%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .buy-zone-section {
-        padding: 80px 5%;
-    }
-
-    .buy-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .buy-card {
-        height: 260px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .apple-store-section {
-        padding: 80px 0 80px 5%;
-    }
-
-    .apple-card {
-        flex: 0 0 85%;
-        height: 420px;
-    }
-
-    .scroll-btn {
-        display: none; /* better UX on mobile */
-    }
-}
-@media (max-width: 768px) {
-
-    nav {
-        padding: 20px 5%;
-    }
-
-    .nav-links {
-        gap: 15px;
-        font-size: 9px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .modal-content {
-        width: 95%;
-        padding: 20px;
-        border-radius: 16px;
-    }
-
-    .modal-image-wrapper {
-        height: 220px;
-    }
-
-    #modalTitle {
-        font-size: 18px;
-    }
-
-    #modalDesc {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .banner-content h2 {
-        font-size: 2.2rem;
-        line-height: 1.1;
-    }
-
-    .luxury-banner {
-        min-height: 70vh;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .process-section {
-        grid-template-columns: 1fr;
-        padding: 100px 5%;
-    }
-
-    .process-main-image {
-        height: 300px;
-    }
-
-    .process-item {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .process-image {
-        width: 100%;
-        height: 200px;
-    }
-}
 body {
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
+background:var(--bg);
+color:var(--text);
+font-family:Inter;
+overflow-x:hidden;
+}
+
+/* CURSOR */
+#custom-cursor {
+position:fixed;
+width:20px;
+height:20px;
+border:1px solid #fff;
+border-radius:50%;
+pointer-events:none;
+z-index:9999;
+}
+
+/* HERO */
+.hero {
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:100px 8%;
+min-height:100vh;
+}
+
+.hero h1 {
+font-size:clamp(32px,5vw,70px);
+}
+
+/* GRID */
+.buy-grid {
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+padding:80px 8%;
+}
+
+.buy-card {
+background:#111;
+border-radius:16px;
+overflow:hidden;
+cursor:pointer;
+}
+
+.buy-card img {
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* MODAL */
+.modal {
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.8);
+justify-content:center;
+align-items:center;
+}
+
+.modal-content {
+background:#111;
+padding:20px;
+max-width:600px;
+width:90%;
+border-radius:12px;
+}
+
+.modal-image-wrapper img {
+width:100%;
+border-radius:10px;
+}
+
+/* =========================
+RESPONSIVE SYSTEM
+========================= */
+
+/* MOBILE */
+@media (max-width:767px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+gap:30px;
+}
+
+.buy-grid{
+grid-template-columns:1fr;
+}
+
+#custom-cursor{
+display:none;
+}
+
+body{
+cursor:auto;
+}
+}
+
+/* TABLET (iPad) */
+@media (min-width:768px) and (max-width:1024px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.buy-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
 }
