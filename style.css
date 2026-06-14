@@ -686,7 +686,7 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
 /* ==========================================================================
    MOBILE & TABLET OPTIMIZATION (iPhones, Android, iPads)
    ========================================================================== */
-@media (max-width: 1024px) {
+@media (max-width: 600px) {
     .full-width-feature {
         height: 30vh; /* Reduces height slightly on mobile devices for better framing */
         background-attachment: scroll; /* Disables fixed attachment on mobile safari to prevent glitching */
