@@ -683,22 +683,7 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
 
 }
 
-/* ==========================================================================
-   MOBILE & TABLET OPTIMIZATION (iPhones, Android, iPads)
-   ========================================================================== */
-@media (max-width: 600px) {
-    .full-width-feature {
-        height: 30vh; /* Reduces height slightly on mobile devices for better framing */
-        background-attachment: scroll; /* Disables fixed attachment on mobile safari to prevent glitching */
-    }
 
-    .full-width-feature h2 { 
-        /* clamp minimum size (iPhone) , preferred responsive fluid size, maximum size (iPad) */
-        font-size: clamp(32px, 7vw, 56px); 
-        
-        /* Trims stroke density slightly on smaller viewports so the text stays legible */
-        -webkit-text-stroke: 1.5px rgb(255, 255, 255); 
-    }
 /* =====================================
    DESIGN PROCESS SECTION
 ===================================== */
