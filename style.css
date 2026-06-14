@@ -857,4 +857,81 @@ footer { padding: 100px 10% 40px 10%; background: var(--bg-pure); border-top: 1p
         opacity: 1;
         transform: translateY(0);
     }
+
+   /* ==========================================================================
+   TARGETED PROCESS MODULE MOBILE REPAIR
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .process-section {
+        grid-template-columns: 1fr !important; /* Forces layout into a clean vertical single file */
+        gap: 40px;
+        padding: 80px 5%;
+    }
+
+    .process-heading {
+        font-size: clamp(2.2rem, 6vw, 3.5rem) !important; /* Normalizes the main section heading size */
+        line-height: 1.1;
+        margin-bottom: 25px;
+    }
+
+    .process-main-image {
+        height: 320px; /* Prevents high-rise images from taking over the screen layout viewport */
+        margin-top: 0;
+        border-radius: 20px;
+    }
+
+    .process-item {
+        flex-direction: column !important; /* Stack small cards cleanly */
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .process-image {
+        width: 100% !important; /* Expand imagery layout to avoid awkward vertical side columns */
+        height: 180px;
+        border-radius: 14px;
+    }
+
+    .process-text {
+        width: 100%;
+    }
+
+    /* Fixed structural text size overflows */
+    .process-text h3 {
+        font-size: 2.2rem !important; /* Keeps '01', '02' identifiers readable and within box boundaries */
+        line-height: 1;
+        margin-bottom: 5px;
+    }
+
+    .process-text h4 {
+        font-size: 1.3rem !important; /* Normalizes structural card subtitles */
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    .process-text p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Safe-zone adjustments for specific inline luxury collection text card elements */
+    .process-text, 
+    .process-item div {
+        max-width: 100%;
+        overflow-wrap: break-word; /* Prevents long titles from pushing past the viewport edge */
+        word-break: break-word;
+    }
+
+    /* Target adjustments for your 2026 Collection container text sizing if nested in this module */
+    .process-text h1,
+    .process-section [class*="title"], 
+    .process-section [class*="collection"] {
+        font-size: clamp(24px, 5vw, 36px) !important;
+        line-height: 1.2 !important;
+    }
 }
