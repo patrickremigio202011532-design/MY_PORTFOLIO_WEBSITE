@@ -3,676 +3,1143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patrick Onest Remigio // Creative Director & Developer Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syncopate:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-</head>
-<body>
+    <title>Patrick Onest Remigio — Portfolio</title>
     <style>
-@media (max-width: 768px) {
-    /* 1. Reset main banner container boundaries */
-    .luxury-banner {
-        min-height: auto !important;
-        height: auto !important;
-        padding: 80px 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 100% !important;
-        max-width: 100vw !important;
-        overflow: hidden !important;
-    }
+        @import url('https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap');
 
-    /* 2. Fix the background behavior for mobile devices */
-    .banner-bg {
-        background-attachment: scroll !important; /* Fixes layout shifting on mobile browsers */
-        transform: scale(1) !important;
-    }
-
-    /* 3. Contain the text wrapper boundaries */
-    .banner-content {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 24px !important; /* Protects text from hitting screen edges */
-        box-sizing: border-box !important;
-        text-align: center !important;
-        margin: 0 auto !important;
-    }
-
-    /* 4. Fix "2026 COLLECTION" tracking */
-    .banner-content span {
-        font-size: 11px !important;
-        letter-spacing: 3px !important;
-        display: block !important;
-        margin-bottom: 12px !important;
-    }
-
-    /* 5. FORCE HEADLINE DOWN: Resizes the giant "Creating Timeless..." text */
-    .banner-content h2 {
-        font-size: 28px !important; 
-        line-height: 1.2 !important;
-        letter-spacing: 1px !important;
-        margin-top: 10px !important;
-        margin-bottom: 20px !important;
-        width: 100% !important;
-        white-space: normal !important; /* Force statement wrap formatting */
-        overflow-wrap: break-word !important;
-        word-break: break-word !important;
-    }
-
-    /* 6. Fix paragraph spacing readability */
-    .banner-content p {
-        font-size: 14px !important;
-        line-height: 1.7 !important;
-        max-width: 100% !important;
-        margin: 0 auto 30px auto !important;
-    }
-
-    /* 7. Fit "EXPLORE PROJECTS" outline inside grid gutters */
-    .banner-content .btn-outline {
-        padding: 14px 32px !important;
-        font-size: 10px !important;
-        letter-spacing: 2px !important;
-        display: inline-block !important;
-        width: auto !important;
-    }
-
-    /* 8. Delete layout-stretching background glass element */
-    .banner-content::after {
-        display: none !important;
-    }
-}
-</style>
-
-    <div id="custom-cursor"></div>
-    <canvas id="swirl-canvas"></canvas>
-
-    <nav>
-    <a href="#" class="logo-container">
-        <span class="logo-text">// PORTFOLIO //</span>
-    </a>
-
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-    <div class="nav-links" id="navLinks">
-        <a href="#hero">About</a>
-        <a href="#work">Featured Work</a>
-        <a href="#case-studies">My Design</a>
-        <a href="#experience">Experience</a>
-    </div>
-</nav>
-
-    <main>
-        <section id="hero" class="hero">
-            <div class="hero-content fade-up">
-                <h2>Web Design Web Developer and Quality Assurance // 2026</h2>
-                <h1>Patrick Onest<br>Remigio</h1>
-                <p style="color: var(--muted); letter-spacing: 2px; text-transform: uppercase; font-size: 11px; margin-bottom: 40px; margin-top: -30px;">Crafting High-Fidelity Digital Experiences</p>
-                <a href="#work" class="btn-outline">View Selected Works</a>
-            </div>
-            <div class="hero-photo-container">
-                <img src="patrick-hero_processed.png" alt="Patrick Onest Remigio Portrait">
-            </div>
-        </section>
-
-        <section class="stats reveal">
-            <div class="stat-item">
-                <h3>Web Design /</h3>
-                <p>UI/UX & Creative Direction</p>
-            </div>
-            <div class="stat-item">
-                <h3>Frontend /</h3>
-                <p>WebGL, React, Next.js, CSS3</p>
-            </div>
-            <div class="stat-item">
-                <h3>Network Design /</h3>
-                <p>Cisco Packet Tracer</p>
-            </div>
-        </section>
-
-        <section id="work" class="buy-zone-section reveal">
-            <div class="buy-grid">
-                <div class="buy-card" 
-                     data-title="FORMA DESIGN" 
-                     data-image="FORMA DESIGN.png"
-                     data-desc="A completely headless digital shopping experience utilizing Next.js and high-performance WebGL product transitions for a premium luxury brand. Built with optimized server-side rendering pipelines for instant global scaling.">
-                    <img src="FORMA DESIGN.png" alt="Aether Project Thumbnail">
-                </div>
-                <div class="buy-card" 
-                     data-title="NETWORK DESIGN" 
-                     data-image="NETWORK DESIGN.png"
-                     data-desc="Complete corporate rebranding, comprehensive design system generation, and secure multi-platform digital interface rollout for a cutting-edge decentralized fin-tech cloud framework.">
-                    <img src="NETWORK DESIGN.png" alt="Krypton Project Thumbnail">
-                </div>
-                <div class="buy-card" 
-                     data-title="26 PAGES Calculatior in austrilian" 
-                     data-image="CALCU.png"
-                     data-desc="An interactive generative soundscape application combining Web Audio API node routers with customized raw GLSL mathematical fragmentation canvas rendering shaders.">
-                    <img src="CALCU.png" alt="Vortex Project Thumbnail">
-                </div>
-                <div class="buy-card" 
-                     data-title="FORMA DESIGN" 
-                     data-image="Screenshot 2026-04-12 140533.png"
-                     data-desc="A hyper-minimalist property presentation engine prioritizing ultra-smooth layout visibility changes, custom micro-interactions, and flawless performance parameters optimized for luxury mobile browsers.">
-                    <img src="Screenshot 2026-04-12 140533.png" alt="Nova Project Thumbnail">
-                </div>
-            </div>
-        </section>
-
-        <section class="ad-container">
-            <div class="ad-page reveal">
-                <div class="ad-img-box">
-                    <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1542744094-2ab25be78b90?auto=format&fit=crop&w=800&q=80">
-                        <source src="VID1.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="ad-text-content">
-                    <span class="ad-label">The Manifesto</span>
-                    <h3 class="ad-title">Where Aesthetic Architecture Meets Interactive Code</h3>
-                    <p class="ad-desc">I design digital spaces that prioritize structural balance, lightning-fast response times, and immersive user experiences. By fusing minimalist grid layouts with clean, semantic web production, I transform ordinary user journeys into unforgettable premium interfaces.</p>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=patrickremigio202011532@gmail.com" target="_blank" class="btn-outline">Contact Me</a>
-                </div>
-            </div>
-        </section>
-
-        <div class="full-width-feature" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1500&q=80');">
-            <h2>WEB DEVELOPER</h2>
-        </div>
-
-        <section id="case-studies" class="apple-store-section reveal">
-            <h2 class="store-main-title">MY WORK EXPERIENCES <span>// DESIGN</span></h2>
-            <p class="store-main-subtitle">A hardwork design develop and system desgins.</p>
-
-            <div class="scroll-wrapper">
-                <button class="scroll-btn prev" aria-label="Scroll left">&#8249;</button>
-                <button class="scroll-btn next" aria-label="Scroll right">&#8250;</button>
-                
-                <div class="apple-card-row">
-                    <div class="apple-card" 
-                         data-title="FORMA // Structural Architecture & Ecosystem" 
-                         data-video="VID1.mp4"
-                         data-desc="An immersive presentation engine highlighting dark-themed editorial design grids, fluid layout state changes, and seamless landscape-to-structure image reveals customized for ultra-premium architectural portfolios.">
-                        <video src="VID1.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">01 / CONVERSION DESIGN</div>
-                                <h3 class="card-title">FORMA // Structural Architecture & Ecosystem</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="CITY STORIES // Panoramic Reveal Engine" 
-                         data-video="VID2.mp4"
-                         data-desc="An experimental, high-impact storytelling layout built to maximize cinematic engagement. As the viewport scrolls, synchronized side panels slide outward to transition seamlessly from a street-level urban grid into an expansive, full-width bird's-eye architectural skyline.">
-                        <video src="VID2.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">02 / WEB INTERACTION</div>
-                                <h3 class="card-title">CITY STORIES // Panoramic Reveal Engine</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="Hyper-Vibrant Neon Canvas Matrix" 
-                         data-video="VID3.mp4"
-                         data-desc="Engineered for smooth 60FPS presentation workflows. This module optimizes heavy, saturated visual assets through hardware-accelerated transitions, enabling rapid layout mutations and dynamic typography overlays without sacrificing browser performance.">
-                        <video src="VID3.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">03 / AUTOMATION ARCHITECTURE</div>
-                                <h3 class="card-title">Hyper-Vibrant Neon Canvas Matrix</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="Parallax Slider Frame Matrix" 
-                         data-video="VID4.mp4"
-                         data-desc="Engineered with smooth, hardware-accelerated CSS clip-paths. This modular interaction system pushes outer image panels toward the viewport boundary, turning a rigid graphic grid into an immersive background frame architecture.">
-                        <video src="VID4.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">04 / SPATIAL GRAPHICS</div>
-                                <h3 class="card-title">Parallax Slider Frame Matrix</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="TOKYO NIGHT // Kinetic Typography Overlay" 
-                         data-video="VID5.mp4"
-                         data-desc="An elegant storefront interaction layout showcasing advanced horizontal slice reveals. As the user engages, synchronized neon video ribbons glide apart on hardware-accelerated axes to unveil clean, high-contrast typography and minimalist city narratives.">
-                        <video src="VID5.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">05 / KINETIC TYPOGRAPHY</div>
-                                <h3 class="card-title">TOKYO NIGHT // Kinetic Typography Overlay</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="TOKYO NIGHT // Vertical Split Showcase" 
-                         data-video="VID6.mp4"
-                         data-desc="An elegant interaction concept featuring a dual-panel vertical sliding animation. Upon scrolling, the layout shifts to push high-contrast neon cityscapes upward and downward away from the viewport center, elegantly fading into a minimalist black text canvas.">
-                        <video src="VID6.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">06 / GRID SYSTEMS</div>
-                                <h3 class="card-title">TOKYO NIGHT // Vertical Split Showcase</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="TOKYO // Explore The Night Interface" 
-                         data-video="VID7.mp4"
-                         data-desc="A modern cinematic scrolling experience inspired by Tokyo's vibrant neon streets. This interaction architecture coordinates a localized text reveal with structural layout masks, transitioning into a beautiful, full-bleed blur overlay as the user advances.">
-                        <video src="VID7.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">07 / EXPERIMENTAL UI</div>
-                                <h3 class="card-title">TOKYO // Explore The Night Interface</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                    <div class="apple-card" 
-                         data-title="Distributed Hub-and-Spoke Infrastructure" 
-                         data-video="VID8.mp4"
-                         data-desc="An elegant interaction concept featuring a dual-panel vertical sliding animation. Upon scrolling, the layout shifts to push high-contrast neon cityscapes upward and downward away from the viewport center, elegantly fading into a minimalist black text canvas.">
-                        <video src="VID8.mp4" autoplay loop muted playsinline class="card-video-cover"></video>
-                        <div class="card-content">
-                            <div class="card-meta-top">
-                                <div class="card-label">08 / CINEMATIC LAYOUT</div>
-                                <h3 class="card-title">TOKYO NIGHT // Vertical Split Showcase</h3>
-                            </div>
-                            <span class="card-price">Click to Read Case Study</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="eco-flow-section reveal">
-            <div class="flow-container">
-                <div class="flow-step">
-                    <div class="step-content">
-                        <span class="step-number">22-26</span>
-                        <span class="step-tag">Current Position</span>
-                        <h3 class="step-title">Lead Interactive Engineer — Studio Devt</h3>
-                        <p class="step-details">Directing user interface strategy, structural layout systems, and custom frontend build pipelines for global tech products. Championing modular design patterns and high-performance WebGL integrations.</p>
-                    </div>
-                    <div class="step-visual">
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Engineering Experience Layer">
-                    </div>
-                </div>
-
-                <div class="flow-step">
-                    <div class="step-content">
-                        <span class="step-number">20-22</span>
-                        <span class="step-tag">Previous Experience</span>
-                        <h3 class="step-title">Senior UI/UX Designer — Vector Agency</h3>
-                        <p class="step-details">Spearheaded full-scale responsive product transformations for design-forward clients. Engineered fluid component design systems, custom interactions, and intuitive mobile application architectures.</p>
-                    </div>
-                    <div class="step-visual">
-                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" alt="Design Experience Layer">
-                    </div>
-                </div>
-
-                <!-- LUXURY SHOWCASE SECTION -->
-<section class="luxury-showcase reveal">
-    <div class="luxury-header">
-        <span>SELECTED PROJECTS</span>
-        <h2>Luxury Digital Experiences</h2>
-        <p>Elegant interfaces crafted through architecture, motion, and premium user interaction systems.</p>
-    </div>
-
-        <div class="luxury-card">
-            <img src="CT1.png">
-            <div class="luxury-overlay">
-                <h3>Certificate Of Completion Microsoft Azure Security Concepts 2021</h3>
-                <p>experiences.</p>
-            </div>
-        </div>
-
-        <div class="luxury-card">
-            <img src="CT2.png">
-            <div class="luxury-overlay">
-                <h3>CertificateOfCompletion_Planning a Microsoft Azure Solution</h3>
-                <p>experiences.</p>
-                
-            <div class="luxury-card">
-            <img src="CT3.png">
-            <div class="luxury-overlay">
-                <h3>Ethical Hacker certificate</h3>
-                <p>experiences.</p>
-
-            <div class="luxury-card">
-            <img src="CT4.png">
-            <div class="luxury-overlay">
-                <h3>Microsoft Teams Essential Training</h3>
-                <p>experiences.</p>
-
-             <div class="luxury-card">
-            <img src="CT5.png">
-            <div class="luxury-overlay">
-                <h3>Excel: Tips and Tricks</h3>
-                <p>experiences.</p>
-            
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- PROCESS SECTION -->
-<section class="process-section reveal">
-
-    <div class="process-left">
-        <span>HOW I WORK</span>
-        <h2>Design Process</h2>
-
-        <div class="process-main-image">
-            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80">
-        </div>
-    </div>
-
-    <div class="process-right">
-
-        <div class="process-item">
-            <div class="process-image">
-                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80">
-            </div>
-            <div class="process-text">
-                <h3>01</h3>
-                <h4>Research</h4>
-                <p>Understanding business goals, user psychology and market positioning.</p>
-            </div>
-        </div>
-
-        <div class="process-item">
-            <div class="process-image">
-                <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1000&q=80">
-            </div>
-            <div class="process-text">
-                <h3>02</h3>
-                <h4>Design</h4>
-                <p>Creating premium visual systems and immersive luxury experiences.</p>
-            </div>
-        </div>
-
-        <!-- LUXURY BANNER -->
-         <section class="luxury-banner">
-
- <div class="banner-bg"></div>
-
-    <div class="banner-content">
-        <span>2026 COLLECTION</span>
-
-        <h2>
-            Creating Timeless
-            <br>
-            Digital Architecture
-        </h2>
-
-        <p>
-            Combining premium aesthetics, modern development,
-            and seamless digital experiences for brands,
-            architecture studios and luxury businesses.
-        </p>
-
-        <a href="#work" class="btn-outline">
-            Explore Projects
-        </a>
-    </div>
-
-</section>
-
-        <div class="process-item">
-            <div class="process-image">
-                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80">
-            </div>
-            <div class="process-text">
-                <h3>03</h3>
-                <h4>Development</h4>
-                <p>Building ultra-fast interfaces with modern technologies.</p>
-            </div>
-        </div>
-
-        <div class="process-item">
-            <div class="process-image">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80">
-            </div>
-            <div class="process-text">
-                <h3>04</h3>
-                <h4>Launch</h4>
-                <p>Testing, optimization and deployment for maximum performance.</p>
-            </div>
-        </div>
-   
-            </div>
-        </section>
-    </main>
-
-    <div id="infoModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-image-wrapper">
-                <img id="modalImage" src="" alt="Project Presentation Screen Grid">
-            </div>
-            <div class="modal-info">
-                <h3 id="modalTitle">Project Title Placeholder</h3>
-                <p id="modalDesc">Detailed system overview information placeholder text context goes here smoothly.</p>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <span class="logo-text" style="display:block; margin-bottom: 20px;">PATRICK ONEST REMIGIO</span>
-                <p>Creating memorable interfaces through fine-tuned typography, functional motion design, and elegant code solutions.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <a href="#hero">About Intro</a>
-                <a href="#work">Featured Work</a>
-                <a href="#case-studies">Case Studies</a>
-            </div>
-            <div class="footer-col">
-                <h4>Social Assets</h4>
-                <a href="https://www.facebook.com/trick.remigio/" target="_blank" rel="noopener">Facebook</a>
-                <a href="https://www.instagram.com/trick_romeo?fbclid=IwY2xjawSbAsVleHRuA2FlbQIxMABicmlkETFQZ0twb3RIZVA4c2RNTHZzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHg5xSHztertCYvjHTJJqpeiomR6NmQgQq8cCGt-KLgK4LgTBIBvFJO4gTOmn_aem_gD6Wkumwge8Kjq2Rq8h5lg" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://www.linkedin.com/in/patrick-onest-remigio-a8049a267/" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="https://www.youtube.com/@bosstrick8305" target="_blank" rel="noopener">YouTube</a>
-            </div>
-            <div class="footer-col">
-                <h4>Inquiries</h4>
-                <p>Caloocan, Metro Manila</p>
-                <a href="https://patrickremigio202011532-design.github.io/MY_PORTFOLIO_WEBSITE/#work">patrick_portfolio</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 Patrick Onest Remigio. All Rights Reserved. 
-        </div>
-    </footer>
-
-    <script>
-        // --- 1. GLOBAL HIGHER-FIDELITY HOVER CURSOR TRACKER ---
-        const cursor = document.getElementById('custom-cursor');
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
-        });
-
-        const interactiveElements = document.querySelectorAll('a, button, .buy-card, .apple-card, .close-modal');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.width = '55px';
-                cursor.style.height = '55px';
-                cursor.style.borderColor = 'rgba(255,255,255,0.8)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.width = '24px';
-                cursor.style.height = '24px';
-                cursor.style.borderColor = 'rgba(255,255,255,0.4)';
-            });
-        });
-
-        // --- 2. MODAL WINDOW ENGINE (DYNAMIC MEDIA INJECTION SETUP) ---
-        const modal = document.getElementById('infoModal');
-        const modalImg = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDesc = document.getElementById('modalDesc');
-        const closeModalBtn = document.querySelector('.close-modal');
-        const imageWrapper = document.querySelector('.modal-image-wrapper');
-
-        // Dynamically create and place the video tag in the layout context if missing
-        let modalVideo = document.getElementById('modalVideo');
-        if (!modalVideo) {
-            modalVideo = document.createElement('video');
-            modalVideo.id = 'modalVideo';
-            modalVideo.controls = true;
-            modalVideo.autoplay = true;
-            modalVideo.loop = true;
-            modalVideo.muted = true;
-            modalVideo.playsInline = true;
-            modalVideo.style.width = '100%';
-            modalVideo.style.height = '100%';
-            modalVideo.style.objectFit = 'cover';
-            modalVideo.style.borderRadius = '12px';
-            modalVideo.style.display = 'none'; // Hidden initially
-            imageWrapper.appendChild(modalVideo);
+        /* Global Reset & Base Style */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            user-select: none; 
+            -webkit-font-smoothing: antialiased;
         }
 
-        const triggerCards = document.querySelectorAll('.buy-card, .apple-card');
+        html, body {
+            width: 100%;
+            background-color: #000000;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
-        triggerCards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                const title = card.getAttribute('data-title');
-                const imgUrl = card.getAttribute('data-image');
-                const videoUrl = card.getAttribute('data-video');
-                const description = card.getAttribute('data-desc');
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            cursor: none;
+        }
 
-                modalTitle.textContent = title;
-                modalDesc.textContent = description;
+        * { cursor: none !important; }
+        ::-webkit-scrollbar { display: none; width: 0; }
 
-                // Media type logic switch handling
-                if (videoUrl) {
-                    // Hide image element frame, expose video stream framework
-                    modalImg.style.display = 'none';
-                    modalVideo.style.display = 'block';
-                    modalVideo.src = videoUrl;
-                    modalVideo.load();
-                    modalVideo.play().catch(err => console.log("Autoplay caught:", err));
-                } else {
-                    // Revert viewport display window back to image element layout
-                    modalVideo.pause();
-                    modalVideo.style.display = 'none';
-                    modalImg.style.display = 'block';
-                    modalImg.src = imgUrl || '';
-                }
+        /* WebGL Background Canvas */
+        #webgl {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+            outline: none;
+            pointer-events: none;
+        }
 
-                modal.style.display = 'flex';
-                document.body.style.overflowY = 'hidden'; 
-            });
-        });
+        /* Custom Double-Ring Cursor */
+        .cursor-inner {
+            position: fixed; top: 0; left: 0;
+            width: 6px; height: 6px;
+            border: 2px solid rgba(255, 255, 255, 1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .cursor-outer {
+            position: fixed; top: 0; left: 0;
+            width: 40px; height: 40px;
+            border: 1.5px solid rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9998;
+            transition: width 0.3s, height 0.3s, background 0.3s;
+        }
 
-        // Modal exit functions to halt running media tracks cleanly
-        const cleanAndCloseModal = () => {
-            modal.style.display = 'none';
-            document.body.style.overflowY = 'auto';
-            if (modalVideo) {
-                modalVideo.pause();
-                modalVideo.src = ''; // Flush data stream paths instantly
-            }
+        /* Layout & Cinematic Overlay Containers */
+        .scroll-container {
+            position: relative;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .cinematic-viewport {
+            position: relative;
+            width: 100%;
+            height: 500vh; /* Determines the duration of the entry WebGL scroll experience */
+        }
+
+        .cinematic-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            z-index: 10;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0 60px 40px 60px;
+            box-sizing: border-box;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Fixed Header */
+        .main-header {
+            display: flex; justify-content: space-between; align-items: center;
+            width: 100%; z-index: 20;
+            pointer-events: auto;
+            padding: 30px 0;
+        }
+        .brand { font-size: 14px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; }
+        .header-nav { display: flex; align-items: center; gap: 24px; }
+        .nav-link {
+            color: rgba(255,255,255,0.6); text-decoration: none;
+            font-size: 10px; text-transform: uppercase; letter-spacing: 2px;
+            font-weight: 500; transition: color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active { color: #ffffff; }
+        .nav-dot { width: 3px; height: 3px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; }
+        
+        .contact-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 24px;
+            background: #ffffff; color: #000000;
+            text-decoration: none;
+            font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+            border-radius: 20px;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .btn-circle {
+            display: inline-block; width: 6px; height: 6px;
+            border: 1px solid #000000; border-radius: 50%; background: transparent;
+        }
+        .contact-btn:hover { transform: scale(1.05); background: #f0f0f0; }
+
+        /* Structural Overlay Lines */
+        .grid-horizontal-line {
+            position: fixed; top: 90px; left: 0; right: 0;
+            width: 100%; height: 1px;
+            background: rgba(255, 255, 255, 0.12);
+            z-index: 5; pointer-events: none;
+        }
+        .grid-lines {
+            position: fixed; top: 0; left: 40px; right: 40px;
+            width: calc(100% - 80px); height: 100vh;
+            display: flex; justify-content: space-between;
+            z-index: 5; pointer-events: none;
+        }
+        .grid-line {
+            position: relative; width: 1px; height: 100%;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .grid-line:nth-child(3) { margin-top: 90px; height: calc(100vh - 90px); }
+        .grid-dot {
+            position: absolute; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px; height: 6px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .grid-dot.top { top: 90px; }
+        .grid-dot.bottom { bottom: 40px; }
+
+        /* Story Progress Bar Overlays */
+        .story-dashes {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex; flex-direction: column; gap: 12px;
+        }
+        .story-dash { width: 2px; height: 40px; background: rgba(255, 255, 255, 0.15); border-radius: 2px; }
+        .story-dash-fill { width: 100%; height: 0%; background: #ffffff; border-radius: 2px; transition: height 0.1s linear; }
+
+        /* Text Slides Setup */
+        .slide { 
+            position: absolute; 
+            bottom: 12%; 
+            left: 0;
+            width: 100%;
+            pointer-events: none; 
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .slide.active { opacity: 1; pointer-events: auto; }
+
+        #slide-1 .slide-title { margin-left: 60px; }
+        #slide-1 .desc-row { position: relative; display: flex; width: 100%; }
+        #slide-1 .col-1 { margin-left: 60px; width: calc(25vw - 60px); }
+        #slide-1 .col-2 { position: absolute; left: calc(25vw + 40px); width: calc(25vw - 60px); }
+
+        #slide-2 .slide-title { margin-left: calc(25vw + 40px); }
+        #slide-2 .slide-desc { margin-left: calc(50vw + 20px); width: calc(25vw - 60px); }
+
+        #slide-3 { left: calc(50vw + 20px); width: calc(25vw - 60px); }
+        #slide-4 { left: calc(25% + 40px); max-width: 700px; }
+
+        .slide-title {
+            font-family: 'Italiana', serif;
+            font-size: 90px;
+            line-height: 1.0;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: #fff6ed;
+            text-transform: uppercase;
+        }
+        .slide-desc {
+            font-size: 14px; line-height: 1.7; font-weight: 300;
+            color: #d1d5db; letter-spacing: 0.5px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transition-delay: 0.3s;
+        }
+        .slide.active .slide-desc { opacity: 1; transform: translateY(0); }
+
+        .slide-title .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(8px);
+            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .slide.active .slide-title .char { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+        /* Integrated Portfolio Main Body Layout */
+        .portfolio-content {
+            position: relative;
+            width: 100%;
+            background: #000000;
+            z-index: 15;
+            padding: 120px 100px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .section-headline {
+            font-family: 'Italiana', serif;
+            font-size: 54px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding-bottom: 20px;
+        }
+
+        /* Categories Section Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 140px;
+        }
+        .category-card {
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 24px;
+        }
+        .category-card h3 {
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: #fff6ed;
+        }
+        .category-card p {
+            font-size: 13px;
+            color: #a3a3a3;
+            line-height: 1.6;
+        }
+
+        /* Featured Works Grid Section */
+        .works-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            margin-bottom: 140px;
+        }
+        .work-item {
+            position: relative;
+            background: #090909;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        .work-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.2);
+        }
+        .work-image-wrapper {
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background: #111;
+        }
+        .work-image-wrapper img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .work-item:hover .work-image-wrapper img {
+            transform: scale(1.03);
+        }
+        .work-meta {
+            padding: 30px;
+        }
+        .work-meta h4 {
+            font-family: 'Italiana', serif;
+            font-size: 28px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .work-meta p {
+            font-size: 13px;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* Manifesto Callout Block */
+        .manifesto-block {
+            margin: 140px 0;
+            max-width: 900px;
+        }
+        .manifesto-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #a3a3a3;
+            margin-bottom: 15px;
+        }
+        .manifesto-title {
+            font-family: 'Italiana', serif;
+            font-size: 42px;
+            line-height: 1.3;
+            color: #fff6ed;
+            margin-bottom: 25px;
+        }
+        .manifesto-body {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #d1d5db;
+            font-weight: 300;
+        }
+
+        /* Video Showcase Experimental Loop Grid */
+        .video-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 140px;
+        }
+        .video-card {
+            position: relative;
+            aspect-ratio: 1/1;
+            background: #0a0a0a;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .video-card video {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .video-overlay-title {
+            position: absolute; bottom: 15px; left: 15px;
+            font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+            background: rgba(0,0,0,0.7); padding: 4px 8px; border-radius: 2px;
+        }
+
+        /* Experiences Timeline List Layout */
+        .experience-list {
+            margin-bottom: 140px;
+        }
+        .exp-row {
+            display: grid;
+            grid-template-columns: 25% 45% 30%;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .exp-time { font-size: 14px; color: #a3a3a3; letter-spacing: 1px; }
+        .exp-role { font-size: 18px; font-weight: 500; color: #fff6ed; }
+        .exp-company { font-size: 14px; color: #d1d5db; text-align: right; }
+
+        /* Certifications & Frameworks Section */
+        .certifications-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            margin-bottom: 140px;
+        }
+        .cert-card {
+            background: #050505;
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 35px;
+            border-radius: 4px;
+        }
+        .cert-card h4 {
+            font-size: 16px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; color: #fff6ed;
+        }
+        .cert-card p {
+            font-size: 13px; color: #8c8c8c;
+        }
+
+        /* Systematic Process Steps Display */
+        .process-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 140px;
+        }
+        .process-step {
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 25px;
+        }
+        .step-num { font-size: 12px; color: #8c8c8c; margin-bottom: 10px; }
+        .step-name { font-size: 18px; text-transform: uppercase; margin-bottom: 10px; color: #fff6ed; }
+        .step-desc { font-size: 13px; color: #a3a3a3; line-height: 1.6; }
+
+        /* Integrated Luxury Footer Section */
+        .main-footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-left h5 { font-size: 16px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+        .footer-left p { font-size: 13px; color: #a3a3a3; max-width: 300px; line-height: 1.6; }
+        .footer-nav-group, .footer-socials, .footer-inquiries {
+            display: flex; flex-direction: column; gap: 12px;
+        }
+        .footer-heading { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #8c8c8c; margin-bottom: 8px; }
+        .footer-link { color: #d1d5db; text-decoration: none; font-size: 13px; transition: color 0.3s; }
+        .footer-link:hover { color: #ffffff; }
+
+        /* Add this to your existing CSS styles */
+.credential-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 680px; /* Forces a controlled, professional height */
+    background: #111;
+    overflow: hidden;
+    border-radius: 4px 4px 0 0; /* Smooth corners matching the card */
+}
+
+.credential-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Keeps the entire certificate visible without stretching or cropping */
+    background-color: #0b0b0b; /* Blends the image background with your dark theme */
+    display: block;
+}
+    </style>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <div class="cursor-inner"></div>
+    <div class="cursor-outer"></div>
+
+    <div class="grid-horizontal-line"></div>
+    <div class="grid-lines">
+        <div class="grid-line"><div class="grid-dot top"></div><div class="grid-dot bottom"></div></div>
+        <div class="grid-line"><div class="grid-dot top"></div><div class="grid-dot bottom"></div></div>
+        <div class="grid-line"><div class="grid-dot top"></div><div class="grid-dot bottom"></div></div>
+        <div class="grid-line"><div class="grid-dot top"></div><div class="grid-dot bottom"></div></div>
+        <div class="grid-line story-progress-container">
+            <div class="grid-dot top"></div>
+            <div class="grid-dot bottom"></div>
+            <div class="story-dashes">
+                <div class="story-dash"><div class="story-dash-fill" id="dash-fill-1"></div></div>
+                <div class="story-dash"><div class="story-dash-fill" id="dash-fill-2"></div></div>
+                <div class="story-dash"><div class="story-dash-fill" id="dash-fill-3"></div></div>
+                <div class="story-dash"><div class="story-dash-fill" id="dash-fill-4"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="webgl"></canvas>
+
+    <div class="scroll-container">
+        <div class="cinematic-viewport">
+            <div class="cinematic-container">
+                <div class="main-header">
+                    <div class="brand">\\ PORTFOLIO \\</div>
+                    <nav class="header-nav">
+                        <a href="#about" class="nav-link active">Intro</a>
+                        <span class="nav-dot"></span>
+                        <a href="#work" class="nav-link">Featured Work</a>
+                        <span class="nav-dot"></span>
+                        <a href="#experimental" class="nav-link">Media Splices</a>
+                        <span class="nav-dot"></span>
+                        <a href="#credentials" class="nav-link">Credentials</a>
+                        <span class="nav-dot"></span>
+                        <a href="resume.html" target="_blank" class="nav-link">Resume</a>
+                    </nav>
+                    <div class="header-actions">
+                        <a href="mailto:patrick_portfolio@example.com" class="contact-btn">Contact <span class="btn-circle"></span></a>
+                    </div>
+                </div>
+
+                <div class="slide active" id="slide-1">
+                    <h2 class="slide-title">Patrick Onest <br>Remigio</h2>
+                    <div class="desc-row">
+                        <p class="slide-desc col-1">Crafting high-fidelity digital experiences. Architecting seamless structural flow between creative visual concepts and pristine, production-grade network systems.</p>
+                        <p class="slide-desc col-2">BSIT graduate of National University Fairview specializing in web design engineering, interactive user environments, and enterprise system infrastructure metrics.</p>
+                    </div>
+                </div>
+
+                <div class="slide" id="slide-2">
+                    <h2 class="slide-title">Design <br>Ecosystems</h2>
+                    <p class="slide-desc">Fusing meticulous layout hierarchies with low-latency execution loops. Merging creative aesthetic design directly with complex, programmatic engineering rules maps.</p>
+                </div>
+
+                <div class="slide" id="slide-3">
+                    <h2 class="slide-title">Interactive <br>Architectures</h2>
+                    <p class="slide-desc">Building digital playgrounds that optimize computational efficiency, visual response speed profiles, and fluid system deployment pipelines seamlessly.</p>
+                </div>
+
+                <div class="slide" id="slide-4">
+                    <h2 class="slide-title">System <br>Automation</h2>
+                    <p class="slide-desc">Developing custom cross-device software scripts, local task schedulers, and centralized network architectures designed to run autonomously.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-content" id="about">
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <h3>Web Design / UI/UX</h3>
+                    <p>Creative art direction, component system architecture, structural page grids layouts, high-end typography engineering, and cinematic motion frameworks design maps.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Frontend Development</h3>
+                    <p>Writing highly responsive clean production components code with special focus on custom WebGL configurations, standard matrix transforms, and zero-latency loading speeds.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Network Administration</h3>
+                    <p>Designing sophisticated multi-branch enterprise topologies within Cisco Packet Tracer models utilizing active inter-VLAN routing loops and complex corporate infrastructure configurations.</p>
+                </div>
+            </div>
+
+            <h3 class="section-headline" id="work">Featured Works</h3>
+            <div class="works-gallery">
+                <div class="work-item">
+                    <div class="work-image-wrapper">
+                        <img src="FORMA DESIGN.png" alt="Forma Design Architectural Presentation">
+                    </div>
+                    <div class="work-meta">
+                        <h4>FORMA // Structural Architecture Website</h4>
+                        <p>A high-end hyper-minimalist custom web layout featuring modular structure presentation grids, elegant cinematic asset masking transitions, and completely integrated interactive navigation tracks mapping.</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="work-image-wrapper">
+                        <img src="NETWORK DESIGN.png" alt="Hub and Spoke Topology Map Setup">
+                    </div>
+                    <div class="work-meta">
+                        <h4>Recto2Go Enterprise Topology Architecture</h4>
+                        <p>A rigorous corporate infrastructure blueprint built as a Hub-and-Spoke system in Cisco Packet Tracer. Interconnects multiple localized physical branches via advanced Inter-VLAN routing structures and unified VoIP networks configuration.</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="work-image-wrapper">
+                        <img src="CALCU.png" alt="Loan Repayment Calculator UI">
+                    </div>
+                    <div class="work-meta">
+                        <h4>Loan Repayment Comprehensive Calculator</h4>
+                        <p>An interactive, data-intensive operational calculating system utilizing precise computational algorithm fields. Generates full multi-page technical data summaries modeled on targeted system metrics parameters.</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="work-image-wrapper">
+                        <img src="WEBSITE DESIGN.png" alt="Alternative Creative Layout Draft">
+                    </div>
+                    <div class="work-meta">
+                        <h4>Integrated Multi-Deployer Automation Console</h4>
+                        <p>A unified interface platform design focused on system monitoring execution. Links active script layers directly with background system operations matrices for simplified server controls management.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="manifesto-block">
+                <div class="manifesto-tag">The Manifesto</div>
+                <h3 class="manifesto-title">Where Clean Architectural Balance Meets Systematic Code Engineering</h3>
+                <p class="manifesto-body">
+                    I treat screen layouts like physical structural forms: every component choice must follow solid structural purpose, pixel distributions must maintain perfect balancing fields, and execution loops must load instantly. By bridging creative graphical choices directly with robust core code logic frameworks, complex system operations become beautiful, accessible, and high-performing human experiences.
+                </p>
+            </div>
+
+            <h3 class="section-headline" id="experimental">Tokyo Night Experimental Showcase</h3>
+            <div class="video-showcase-grid">
+                <div class="video-card">
+                    <video src="VID1.mp4" autoplay loop muted playsinline></video>
+                    <div class="video-overlay-title">Kinetic Typography</div>
+                </div>
+                <div class="video-card">
+                    <video src="VID2.mp4" autoplay loop muted playsinline></video>
+                    <div class="video-overlay-title">Vertical Split Showcase</div>
+                </div>
+                <div class="video-card">
+                    <video src="VID3.mp4" autoplay loop muted playsinline></video>
+                    <div class="video-overlay-title">Explore the Night UI</div>
+                </div>
+                <div class="video-card">
+                    <video src="VID4.mp4" autoplay loop muted playsinline></video>
+                    <div class="video-overlay-title">Panoramic Engine</div>
+                </div>
+                <div class="video-card">
+                    <video src="VID5.mp4" autoplay loop muted playsinline></video>
+                    <div class="video-overlay-title">Neon Canvas Matrix</div>
+                </div>
+                <div class="video-card">
+                    <video src="VID6.mp4" autoplay loop muted playsinline></video>
+                    <div class="video-overlay-title">Parallax Slider Track</div>
+                </div>
+                <div class="video-card">
+                    <video src="VID7.mp4" autoplay loop muted playsinline></video>
+                    <div class="video-overlay-title">Split Panel Core</div>
+                </div>
+                <div class="video-card">
+                    <video src="VID8.mp4" autoplay loop muted playsinline></video>
+                    <div class="video-overlay-title">Motion Synthesis Layer</div>
+                </div>
+            </div>
+
+            <h3 class="section-headline">Professional Experience</h3>
+            <div class="experience-list">
+                <div class="exp-row">
+                    <div class="exp-time">2024 — PRESENT</div>
+                    <div class="exp-role">Lead Interactive Strategy Engineer</div>
+                    <div class="exp-company">Studio Devt</div>
+                </div>
+                <div class="exp-row">
+                    <div class="exp-time">2020 — 2022</div>
+                    <div class="exp-role">Senior UI/UX Designer &amp; Prototyper</div>
+                    <div class="exp-company">Vector Agency</div>
+                </div>
+            </div>
+
+            <h3 class="section-headline" id="credentials">System Credentials &amp; Certifications</h3>
+<div class="certifications-section">
+    <div class="cert-card">
+        <div class="credential-image-wrapper">
+            <img src="CT1.png" alt="Microsoft Azure: Security Concepts" class="credential-img" loading="lazy">
+        </div>
+        <h4>Microsoft Azure: Security Concepts</h4>
+        <p>Comprehensive evaluation covering threat mitigation workflows, identity verification systems management, and system architecture defense rules mapping inside the cloud infrastructure matrix.</p>
+    </div>
+
+    <div class="cert-card">
+        <div class="credential-image-wrapper">
+            <img src="CT2.png" alt="Planning a Microsoft Azure Solution" class="credential-img" loading="lazy">
+        </div>
+        <h4>Planning a Microsoft Azure Solution</h4>
+        <p>Advanced engineering optimization credential mapping network structure dependencies, compute parameters sizing matrices, and computational budget efficiency configurations.</p>
+    </div>
+
+    <div class="cert-card">
+        <div class="credential-image-wrapper">
+            <img src="CT3.png" alt="Ethical Hacker System Certification" class="credential-img" loading="lazy">
+        </div>
+        <h4>Ethical Hacker System Certification</h4>
+        <p>Cisco Networking Academy infrastructure validation training focused on identifying vulnerability matrices, testing network routing paths security loops, and establishing secure defenses protocols.</p>
+    </div>
+
+    <div class="cert-card">
+        <div class="credential-image-wrapper">
+            <img src="CT4.png" alt="Microsoft Teams Essential Training" class="credential-img" loading="lazy">
+        </div>
+        <h4>Microsoft Teams Essential Training</h4>
+        <p>Validation covering enterprise administration setup configurations, team synchronization data mapping parameters, and remote connection protocol management routines.</p>
+    </div>
+</div>
+
+            <h3 class="section-headline">Design Process System</h3>
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="step-num">01</div>
+                    <div class="step-name">Research</div>
+                    <p class="step-desc">Analyzing core audience actions patterns, target platform technical capabilities boundaries, and establishing clean structural layout parameters blueprints.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">02</div>
+                    <div class="step-name">Design</div>
+                    <p class="step-desc">Creating precise graphic compositions files, deciding typography scale system settings, and organizing active asset layouts grids patterns.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">03</div>
+                    <div class="step-name">Development</div>
+                    <p class="step-desc">Transforming accepted flat design structures cleanly into performance-optimized interactive code blocks with high-fidelity system response metrics.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">04</div>
+                    <div class="step-name">Launch</div>
+                    <p class="step-desc">Running meticulous validation tests across responsive environment parameters, testing operational asset routes speeds, and executing fine-tuning loops.</p>
+                </div>
+            </div>
+
+            <footer class="main-footer">
+                <div class="footer-left">
+                    <h5>PATRICK ONEST REMIGIO</h5>
+                    <p>Information Technology Specialist. Creating balanced structural systems bridging creative art design directions with complex, automated network architectures.</p>
+                </div>
+                <div class="footer-nav-group">
+                    <div class="footer-heading">Navigation</div>
+                    <a href="#" class="footer-link">Top Core</a>
+                    <a href="#about" class="footer-link">Domain Overview</a>
+                    <a href="#work" class="footer-link">Case Folders</a>
+                    <a href="#credentials" class="footer-link">System Metrics</a>
+                </div>
+                <div class="footer-socials">
+                    <div class="footer-heading">Social Tracks</div>
+                    <a href="#" class="footer-link">LinkedIn</a>
+                    <a href="#" class="footer-link">YouTube</a>
+                    <a href="#" class="footer-link">Instagram</a>
+                    <a href="#" class="footer-link">Facebook</a>
+                </div>
+                <div class="footer-inquiries">
+                    <div class="footer-heading">Inquiries</div>
+                    <span class="footer-link">Quezon City, Metro Manila</span>
+                    <span class="footer-link">patrick_portfolio@example.com</span>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'three';
+
+        const canvas = document.querySelector('#webgl');
+        let scene, camera, renderer;
+        let imageMesh; 
+        let targetScroll = 0, currentScroll = 0;
+        let targetMouseX = 0, targetMouseY = 0;
+        let mouseX = 0, mouseY = 0;
+        let cursorX = window.innerWidth / 2, cursorY = window.innerHeight / 2;
+        let outerCursorX = window.innerWidth / 2, outerCursorY = window.innerHeight / 2;
+
+        let bgMaterial;
+        const shaderUniforms = {
+            uTime: { value: 0 },
+            uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+            uMouse: { value: new THREE.Vector2(0, 0) },
+            uScroll: { value: 0 }
         };
 
-        closeModalBtn.addEventListener('click', cleanAndCloseModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                cleanAndCloseModal();
-            }
-        });
+        let sparkParticles;
+        const sparkCount = 450;
+        const sparkData = [];
+        const sizes = { width: window.innerWidth, height: window.innerHeight };
+        const clock = new THREE.Clock();
 
-        // --- 3. SCROLL REVEAL OBSERVER SYSTEM ---
-        const revealElements = document.querySelectorAll('.reveal');
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        function initScene() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color('#000000');
+            scene.fog = new THREE.FogExp2('#000000', 0.015);
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('active');
+            camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 100);
+            camera.position.set(0, 0, 3.2);
+            scene.add(camera);
+
+            createBackgroundShader();
+
+            renderer = new THREE.WebGLRenderer({
+                canvas: canvas,
+                antialias: true,
+                alpha: false,
+                powerPreference: "high-performance"
+            });
+            renderer.setSize(sizes.width, sizes.height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.8;
+
+            // Dramatic Lighting Matrix
+            const ambientLight = new THREE.AmbientLight('#ffffff', 0.2);
+            scene.add(ambientLight);
+
+            const keyLight = new THREE.SpotLight('#ffecd1', 12.0);
+            keyLight.position.set(3, 4, 4);
+            keyLight.angle = Math.PI / 4;
+            keyLight.penumbra = 0.8;
+            scene.add(keyLight);
+
+            const rimLight = new THREE.DirectionalLight('#d6ebff', 6.0);
+            rimLight.position.set(-4, 2, -3);
+            scene.add(rimLight);
+
+            loadHeroImageMesh();
+            createSparks();
+            splitTitlesIntoChars();
+
+            window.addEventListener('scroll', onWindowScroll);
+            window.addEventListener('mousemove', onMouseMove);
+            window.addEventListener('resize', onWindowResize);
+
+            animate();
+        }
+
+        // Projecting patrick-hero_processed.png elegantly inside the 3D space matrix
+        function loadHeroImageMesh() {
+            const textureLoader = new THREE.TextureLoader();
+            textureLoader.load('patrick-hero_processed.png', (texture) => {
+                // Preserving profile aspect ratios metrics beautifully
+                const imgAspect = texture.image.width / texture.image.height;
+                const meshHeight = 2.0;
+                const meshWidth = meshHeight * imgAspect;
+
+                const geometry = new THREE.PlaneGeometry(meshWidth, meshHeight, 32, 32);
+                
+                // Fine satin reflection mapping parameter variables built directly into material layers
+                const material = new THREE.MeshStandardMaterial({
+                    map: texture,
+                    roughness: 0.35,
+                    metalness: 0.2,
+                    transparent: true,
+                    side: THREE.DoubleSide
+                });
+
+                imageMesh = new THREE.Mesh(geometry, material);
+                imageMesh.position.set(0.4, 0, 0); // Perfectly balanced layout positioning offset
+                scene.add(imageMesh);
+            }, undefined, (err) => {
+                // Fallback elegant structural plate if load error occurs
+                const geometry = new THREE.PlaneGeometry(1.4, 2.0);
+                const material = new THREE.MeshStandardMaterial({ color: '#111111', roughness: 0.5 });
+                imageMesh = new THREE.Mesh(geometry, material);
+                imageMesh.position.set(0.4, 0, 0);
+                scene.add(imageMesh);
+            });
+        }
+
+        function createBackgroundShader() {
+            const vertexShader = `
+                varying vec2 vUv;
+                void main() {
+                    vUv = uv;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
                 }
+            `;
+
+            const fragmentShader = `
+                varying vec2 vUv;
+                uniform float uTime;
+                uniform vec2 uResolution;
+                uniform vec2 uMouse;
+                uniform float uScroll;
+
+                float hash(float n) { return fract(sin(n) * 43758.5453123); }
+                float noise(in vec3 x) {
+                    vec3 p = floor(x);
+                    vec3 f = fract(x);
+                    f = f*f*(3.0-2.0*f);
+                    float n = p.x + p.y*57.0 + 113.0*p.z;
+                    return mix(mix(mix(hash(n+  0.0), hash(n+  1.0), f.x),
+                                   mix(hash(n+ 57.0), hash(n+ 58.0), f.x), f.y),
+                               mix(mix(hash(n+113.0), hash(n+114.0), f.x),
+                                   mix(hash(n+170.0), hash(n+171.0), f.x), f.y), f.z);
+                }
+
+                void main() {
+                    vec2 uv = (gl_FragCoord.xy - 0.5 * uResolution.xy) / uResolution.y;
+                    float aspect = uResolution.x / uResolution.y;
+                    float time = uTime * 0.06;
+                    float scroll = uScroll;
+                    
+                    vec2 warpedUv = uv;
+                    float scrollDeform = scroll * 4.5;
+                    
+                    warpedUv.x += sin(uv.y * 2.2 + time + scrollDeform) * 0.3;
+                    warpedUv.y += cos(uv.x * 2.2 - time - scrollDeform * 0.7) * 0.3;
+                    
+                    vec2 scrollDrift = vec2(scroll * 0.03, -scroll * 0.01);
+                    vec2 mouseShift = vec2(uMouse.x * aspect * 0.04, uMouse.y * 0.04);
+                    warpedUv += scrollDrift + mouseShift;
+                    
+                    float w1 = sin(dot(warpedUv, vec2(cos(0.6), sin(0.6))) * 2.5 + time);
+                    float w2 = cos(dot(warpedUv, vec2(cos(-0.7), sin(-0.7))) * 3.0 - time * 1.2 + w1 * 0.3);
+                    float waveField = w1 * 0.6 + w2 * 0.4;
+                    
+                    float wideSheen = pow(max(0.0, 1.0 - abs(waveField - 0.1)), 3.0);
+                    float crest = wideSheen * 0.6;
+                    
+                    // Smooth Transition parameters: Molten Bronze to Sapphire blue steel metrics
+                    vec3 c0_shadow = vec3(0.001, 0.0006, 0.0004);
+                    vec3 c0_wave   = vec3(0.07, 0.035, 0.012);
+                    vec3 c0_crest  = vec3(0.42, 0.26, 0.14);
+                    
+                    vec3 c1_shadow = vec3(0.0002, 0.0005, 0.001);
+                    vec3 c1_wave   = vec3(0.01, 0.025, 0.055);
+                    vec3 c1_crest  = vec3(0.14, 0.28, 0.48);
+                    
+                    float t = smoothstep(0.0, 0.8, scroll);
+                    vec3 colShadow = mix(c0_shadow, c1_shadow, t);
+                    vec3 colWave   = mix(c0_wave, c1_wave, t);
+                    vec3 colCrest  = mix(c0_crest, c1_crest, t);
+                    
+                    vec3 color = mix(colShadow, colWave, smoothstep(-0.5, 0.5, waveField));
+                    color += colCrest * crest * 1.3;
+                    
+                    float vignette = 1.0 - dot(uv, uv) * 0.15;
+                    gl_FragColor = vec4(color * vignette, 1.0);
+                }
+            `;
+
+            bgMaterial = new THREE.ShaderMaterial({
+                vertexShader: vertexShader,
+                fragmentShader: fragmentShader,
+                uniforms: shaderUniforms,
+                depthWrite: false,
+                depthTest: false
             });
-        }, observerOptions);
 
-        revealElements.forEach(el => observer.observe(el));
+            const bgGeometry = new THREE.PlaneGeometry(40, 40);
+            const bgMesh = new THREE.Mesh(bgGeometry, bgMaterial);
+            bgMesh.position.set(0, 0, -10);
+            camera.add(bgMesh);
+        }
 
-        // --- 4. APPLE CAROUSEL SLIDE PAGINATION CONTROLS ---
-        const row = document.querySelector('.apple-card-row');
-        document.querySelector('.scroll-btn.next')?.addEventListener('click', () => {
-            row.scrollBy({ left: 350, behavior: 'smooth' });
-        });
-        document.querySelector('.scroll-btn.prev')?.addEventListener('click', () => {
-            row.scrollBy({ left: -350, behavior: 'smooth' });
-        });
+        function createSparkTexture() {
+            const sCanvas = document.createElement('canvas');
+            sCanvas.width = 16; sCanvas.height = 16;
+            const ctx = sCanvas.getContext('2d');
+            const gradient = ctx.createRadialGradient(8, 8, 0, 8, 8, 8);
+            gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+            gradient.addColorStop(0.3, 'rgba(255, 230, 200, 0.8)');
+            gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 16, 16);
+            return new THREE.CanvasTexture(sCanvas);
+        }
 
-        document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    const links = document.querySelectorAll('.nav-links a');
+        function createSparks() {
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(sparkCount * 3);
+            const colors = new Float32Array(sparkCount * 3);
 
-    if (menuBtn && navLinks) {
-        // Toggle menu view state on action tap
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle('nav-active');
+            for (let i = 0; i < sparkCount; i++) {
+                positions[i * 3] = (Math.random() - 0.5) * 7.0;
+                positions[i * 3 + 1] = (Math.random() - 0.5) * 5.0;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 6.0;
+
+                if (Math.random() < 0.65) {
+                    colors[i * 3] = 1.0;
+                    colors[i * 3 + 1] = 0.35 + Math.random() * 0.2;
+                    colors[i * 3 + 2] = 0.05;
+                } else {
+                    colors[i * 3] = 0.5;
+                    colors[i * 3 + 1] = 0.75 + Math.random() * 0.2;
+                    colors[i * 3 + 2] = 1.0;
+                }
+
+                sparkData.push({
+                    speedX: (Math.random() - 0.5) * 0.3,
+                    speedY: 0.2 + Math.random() * 0.3,
+                    speedZ: (Math.random() - 0.5) * 0.3,
+                    swaySpeed: 0.6 + Math.random() * 1.2,
+                    swayRadius: 0.04 + Math.random() * 0.1,
+                    phase: Math.random() * Math.PI * 2
+                });
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 0.03,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.9,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+                map: createSparkTexture()
+            });
+
+            sparkParticles = new THREE.Points(geometry, material);
+            scene.add(sparkParticles);
+        }
+
+        function splitTitlesIntoChars() {
+            document.querySelectorAll('.slide-title').forEach(title => {
+                const text = title.innerHTML;
+                let finalHTML = '';
+                let delayCount = 0;
+                const lineSplits = text.split(/(<br\s*\/?>)/i);
+                
+                lineSplits.forEach(segment => {
+                    if (segment.toLowerCase().startsWith('<br')) {
+                        finalHTML += segment;
+                    } else {
+                        for (let i = 0; i < segment.length; i++) {
+                            if (segment[i] === ' ') {
+                                finalHTML += ' ';
+                            } else {
+                                finalHTML += `<span class="char" style="transition-delay: ${delayCount * 0.03}s">${segment[i]}</span>`;
+                                delayCount++;
+                            }
+                        }
+                    }
+                });
+                title.innerHTML = finalHTML;
+            });
+        }
+
+        function onWindowScroll() {
+            const scrollMax = document.documentElement.scrollHeight - window.innerHeight;
+            const currentTop = window.scrollY || document.documentElement.scrollTop;
             
-            // Optional styling feedback: turn menu icon into an 'X' symbol when open
-            if (navLinks.classList.contains('nav-active')) {
-                menuBtn.innerHTML = '&times;'; // Changes ☰ to ✕
+            // Constrain targeted calculation parameters strictly within upper cinematic viewport heights
+            const cinematicHeight = window.innerHeight * 4; 
+            targetScroll = Math.min(currentTop / cinematicHeight, 1.0);
+
+            // Handle fading out fixed presentation containers when diving deep into data layout grids
+            const cinematicContainer = document.querySelector('.cinematic-container');
+            if (currentTop > window.innerHeight * 3.8) {
+                cinematicContainer.style.opacity = '0';
+                cinematicContainer.style.pointerEvents = 'none';
             } else {
-                menuBtn.innerHTML = '&#9776;'; // Restores ☰
+                cinematicContainer.style.opacity = '1';
+                cinematicContainer.style.pointerEvents = 'auto';
             }
-        });
+        }
 
-        // Auto collapse menu selection viewport view panel once a target link is clicked
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('nav-active');
-                menuBtn.innerHTML = '&#9776;';
+        function onMouseMove(event) {
+            cursorX = event.clientX;
+            cursorY = event.clientY;
+            
+            const innerNode = document.querySelector('.cursor-inner');
+            if (innerNode) {
+                innerNode.style.left = `${cursorX}px`;
+                innerNode.style.top = `${cursorY}px`;
+            }
+
+            targetMouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            targetMouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        function onWindowResize() {
+            sizes.width = window.innerWidth;
+            sizes.height = window.innerHeight;
+            camera.aspect = sizes.width / sizes.height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(sizes.width, sizes.height);
+            shaderUniforms.uResolution.value.set(sizes.width, sizes.height);
+        }
+
+        function updateSlideMilestones(scrollVal) {
+            const slides = document.querySelectorAll('.slide');
+            const links = document.querySelectorAll('.nav-link');
+            let activeIdx = 0;
+
+            if (scrollVal < 0.25) activeIdx = 0;
+            else if (scrollVal < 0.50) activeIdx = 1;
+            else if (scrollVal < 0.75) activeIdx = 2;
+            else activeIdx = 3;
+
+            slides.forEach((slide, idx) => {
+                if (idx === activeIdx) slide.classList.add('active');
+                else slide.classList.remove('active');
             });
-        });
 
-        // Close menu panel if a user taps anywhere outside the active window view
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
-                navLinks.classList.remove('nav-active');
-                menuBtn.innerHTML = '&#9776;';
+            links.forEach((link, idx) => {
+                if (idx === activeIdx) link.classList.add('active');
+                else link.classList.remove('active');
+            });
+
+            // Updating story dashes fill lengths status indicator bars
+            for (let i = 1; i <= 4; i++) {
+                const fillNode = document.getElementById(`dash-fill-${i}`);
+                if (!fillNode) continue;
+                
+                const minRange = (i - 1) * 0.25;
+                const maxRange = i * 0.25;
+                
+                if (scrollVal > maxRange) {
+                    fillNode.style.height = '100%';
+                } else if (scrollVal < minRange) {
+                    fillNode.style.height = '0%';
+                } else {
+                    const factor = (scrollVal - minRange) / 0.25;
+                    fillNode.style.height = `${factor * 100}%`;
+                }
             }
-        });
-    }
-});
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const elapsedTime = clock.getElapsedTime();
+            
+            // Linear inertia interpolation equations setup
+            currentScroll += (targetScroll - currentScroll) * 0.04;
+            mouseX += (targetMouseX - mouseX) * 0.05;
+            mouseY += (targetMouseY - mouseY) * 0.05;
+
+            outerCursorX += (cursorX - outerCursorX) * 0.18;
+            outerCursorY += (cursorY - outerCursorY) * 0.18;
+            const outerNode = document.querySelector('.cursor-outer');
+            if (outerNode) {
+                outerNode.style.left = `${outerCursorX}px`;
+                outerNode.style.top = `${outerCursorY}px`;
+            }
+
+            shaderUniforms.uTime.value = elapsedTime;
+            shaderUniforms.uScroll.value = currentScroll;
+            shaderUniforms.uMouse.value.set(mouseX, mouseY);
+
+            // Animate dynamic 3D profile mesh transforms orientation vectors
+            if (imageMesh) {
+                imageMesh.rotation.y = mouseX * 0.12 + (currentScroll * Math.PI * 0.1);
+                imageMesh.rotation.x = mouseY * 0.08;
+                
+                // Subtle breathing scale factor calculation loops
+                const breathFactor = 1.0 + Math.sin(elapsedTime * 1.5) * 0.015;
+                imageMesh.scale.set(breathFactor, breathFactor, 1.0);
+                
+                // Parallax tracking positioning shift translation maps
+                imageMesh.position.x = 0.4 - (currentScroll * 0.8);
+            }
+
+            // Animate structural procedural sparks simulation matrix physics
+            if (sparkParticles) {
+                const positions = sparkParticles.geometry.attributes.position.array;
+                for (let i = 0; i < sparkCount; i++) {
+                    const data = sparkData[i];
+                    
+                    positions[i * 3 + 1] += data.speedY * (1.0 + currentScroll * 1.5) * 0.03; 
+                    positions[i * 3] += Math.sin(elapsedTime * data.swaySpeed + data.phase) * data.swayRadius * 0.1;
+
+                    // Bound checks resetting loops logic arrays configuration
+                    if (positions[i * 3 + 1] > 2.5) {
+                        positions[i * 3 + 1] = -2.5;
+                        positions[i * 3] = (Math.random() - 0.5) * 7.0;
+                    }
+                }
+                sparkParticles.geometry.attributes.position.needsUpdate = true;
+                sparkParticles.rotation.y = elapsedTime * 0.02;
+            }
+
+            updateSlideMilestones(currentScroll);
+            renderer.render(scene, camera);
+        }
+
+        window.onload = () => {
+            initScene();
+        };
     </script>
 </body>
 </html>
