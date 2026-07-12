@@ -1159,8 +1159,11 @@
 
     }
 
+ 
+
 
 }
+
 
     </style>
 
@@ -1221,8 +1224,7 @@
                 <div class="slide active" id="slide-1">
                     <h2 class="slide-title">Patrick Onest <br>Remigio</h2>
                     <div class="desc-row">
-                        <p class="slide-desc col-1">Crafting high-fidelity digital experiences. Architecting seamless structural flow between creative visual concepts and pristine, production-grade network systems.</p>
-                        <p class="slide-desc col-2">BSIT graduate of National University Fairview specializing in web design engineering, interactive user environments, and enterprise system infrastructure metrics.</p>
+                        <p class="slide-desc col-1">Creative visual concepts and pristine, production-grade network systems. BSIT graduate of National University Fairview specializing in web design engineering, interactive user environments, and enterprise system infrastructure metrics.</p>
                     </div>
                 </div>
 
@@ -1259,7 +1261,37 @@
                     <p>Designing sophisticated multi-branch enterprise topologies within Cisco Packet Tracer models utilizing active inter-VLAN routing loops and complex corporate infrastructure configurations.</p>
                 </div>
             </div>
-
+            <h3 class="section-headline" id="work">3D WEBSITE WORKS</h3>
+            <div class="works-gallery">
+                <div class="work-item">
+                    <div class="VIDEO_9">
+                        <video src="VID10.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="work-meta">
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="VIDEO_9">
+                        <video src="3DVID.mp4" autoplay loop muted playsinline>
+                    </div>
+                    <div class="work-meta">
+                        <h4>BLENDER</h4>
+                    </div>
+                </div>
+                    <div class="work-item">
+                    <div class="VIDEO_9">
+                        <video src="VID9.mp4" autoplay loop muted playsinline></video>
+                    </div>      
+                </div>
+                <div class="work-item">
+                    <div class="VIDEO_9">
+                        <video src="IPHONE.mp4  " autoplay loop muted playsinline>
+                    </div>
+                    <div class="work-meta">
+                        <h4>BLENDER</h4>
+                    </div>
+                </div>
+            </div>
             <h3 class="section-headline" id="work">Featured Works</h3>
             <div class="works-gallery">
                 <div class="work-item">
@@ -1346,6 +1378,7 @@
                     <div class="video-overlay-title">Motion Synthesis Layer</div>
                 </div>
             </div>
+            
 
             <h3 class="section-headline">Professional Experience</h3>
             <div class="experience-list">
@@ -1427,6 +1460,7 @@
                     <p class="step-desc">Running meticulous validation tests across responsive environment parameters, testing operational asset routes speeds, and executing fine-tuning loops.</p>
                 </div>
             </div>
+            
 
             <footer class="main-footer">
                 <div class="footer-left">
@@ -1479,13 +1513,19 @@
         let sparkParticles;
         const sparkCount = 450;
         const sparkData = [];
+        
+        // --- NEW: Moving Lines Variables ---
+        let movingLinesMesh;
+        const movingLineCount = 200;
+        const movingLineData = [];
+
         const sizes = { width: window.innerWidth, height: window.innerHeight };
         const clock = new THREE.Clock();
 
         function initScene() {
             scene = new THREE.Scene();
             scene.background = new THREE.Color('#000000');
-            scene.fog = new THREE.FogExp2('#000000', 0.015);
+            scene.fog = new THREE.FogExp2('#05010a', 0.015); // Dark purple fog
 
             camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 100);
             camera.position.set(0, 0, 3.2);
@@ -1504,22 +1544,23 @@
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
             renderer.toneMappingExposure = 1.8;
 
-            // Dramatic Lighting Matrix
+            // Lighting adapted for the Blue, Purple, Gold theme
             const ambientLight = new THREE.AmbientLight('#ffffff', 0.2);
             scene.add(ambientLight);
 
-            const keyLight = new THREE.SpotLight('#ffecd1', 12.0);
+            const keyLight = new THREE.SpotLight('#ffffff', 12.0);
             keyLight.position.set(3, 4, 4);
             keyLight.angle = Math.PI / 4;
             keyLight.penumbra = 0.8;
             scene.add(keyLight);
 
-            const rimLight = new THREE.DirectionalLight('#d6ebff', 6.0);
+            const rimLight = new THREE.DirectionalLight('#a685ff', 6.0); // Purple-ish rim light
             rimLight.position.set(-4, 2, -3);
             scene.add(rimLight);
 
             loadHeroImageMesh();
             createSparks();
+            createMovingLines(); // Add our new moving lines!
             splitTitlesIntoChars();
 
             window.addEventListener('scroll', onWindowScroll);
@@ -1529,18 +1570,15 @@
             animate();
         }
 
-        // Projecting patrick-hero_processed.png elegantly inside the 3D space matrix
         function loadHeroImageMesh() {
             const textureLoader = new THREE.TextureLoader();
             textureLoader.load('patrick-hero_processed.png', (texture) => {
-                // Preserving profile aspect ratios metrics beautifully
                 const imgAspect = texture.image.width / texture.image.height;
                 const meshHeight = 2.0;
                 const meshWidth = meshHeight * imgAspect;
 
                 const geometry = new THREE.PlaneGeometry(meshWidth, meshHeight, 32, 32);
                 
-                // Fine satin reflection mapping parameter variables built directly into material layers
                 const material = new THREE.MeshStandardMaterial({
                     map: texture,
                     roughness: 0.35,
@@ -1550,10 +1588,9 @@
                 });
 
                 imageMesh = new THREE.Mesh(geometry, material);
-                imageMesh.position.set(0.4, 0, 0); // Perfectly balanced layout positioning offset
+                imageMesh.position.set(0.4, 0, 0); 
                 scene.add(imageMesh);
             }, undefined, (err) => {
-                // Fallback elegant structural plate if load error occurs
                 const geometry = new THREE.PlaneGeometry(1.4, 2.0);
                 const material = new THREE.MeshStandardMaterial({ color: '#111111', roughness: 0.5 });
                 imageMesh = new THREE.Mesh(geometry, material);
@@ -1579,17 +1616,7 @@
                 uniform float uScroll;
 
                 float hash(float n) { return fract(sin(n) * 43758.5453123); }
-                float noise(in vec3 x) {
-                    vec3 p = floor(x);
-                    vec3 f = fract(x);
-                    f = f*f*(3.0-2.0*f);
-                    float n = p.x + p.y*57.0 + 113.0*p.z;
-                    return mix(mix(mix(hash(n+  0.0), hash(n+  1.0), f.x),
-                                   mix(hash(n+ 57.0), hash(n+ 58.0), f.x), f.y),
-                               mix(mix(hash(n+113.0), hash(n+114.0), f.x),
-                                   mix(hash(n+170.0), hash(n+171.0), f.x), f.y), f.z);
-                }
-
+                
                 void main() {
                     vec2 uv = (gl_FragCoord.xy - 0.5 * uResolution.xy) / uResolution.y;
                     float aspect = uResolution.x / uResolution.y;
@@ -1613,14 +1640,16 @@
                     float wideSheen = pow(max(0.0, 1.0 - abs(waveField - 0.1)), 3.0);
                     float crest = wideSheen * 0.6;
                     
-                    // Smooth Transition parameters: Molten Bronze to Sapphire blue steel metrics
-                    vec3 c0_shadow = vec3(0.001, 0.0006, 0.0004);
-                    vec3 c0_wave   = vec3(0.07, 0.035, 0.012);
-                    vec3 c0_crest  = vec3(0.42, 0.26, 0.14);
+                    // --- BLUE, PURPLE, GOLD PALETTE ---
+                    // State 1 (Top of page): Deep Blue base, Vibrant Purple Waves, Gold Crests
+                    vec3 c0_shadow = vec3(0.01, 0.02, 0.1);    // Deep Blue Base
+                    vec3 c0_wave   = vec3(0.3, 0.05, 0.5);     // Purple Waves
+                    vec3 c0_crest  = vec3(0.9, 0.7, 0.1);      // Gold Crests
                     
-                    vec3 c1_shadow = vec3(0.0002, 0.0005, 0.001);
-                    vec3 c1_wave   = vec3(0.01, 0.025, 0.055);
-                    vec3 c1_crest  = vec3(0.14, 0.28, 0.48);
+                    // State 2 (Scrolled): Dark Purple base, Bright Blue Waves, Gold Crests
+                    vec3 c1_shadow = vec3(0.05, 0.01, 0.08);   // Dark Purple Base
+                    vec3 c1_wave   = vec3(0.05, 0.3, 0.8);     // Bright Blue Waves
+                    vec3 c1_crest  = vec3(1.0, 0.8, 0.2);      // Glowing Gold Crests
                     
                     float t = smoothstep(0.0, 0.8, scroll);
                     vec3 colShadow = mix(c0_shadow, c1_shadow, t);
@@ -1628,7 +1657,7 @@
                     vec3 colCrest  = mix(c0_crest, c1_crest, t);
                     
                     vec3 color = mix(colShadow, colWave, smoothstep(-0.5, 0.5, waveField));
-                    color += colCrest * crest * 1.3;
+                    color += colCrest * crest * 1.5; // Boosted crest intensity for the gold
                     
                     float vignette = 1.0 - dot(uv, uv) * 0.15;
                     gl_FragColor = vec4(color * vignette, 1.0);
@@ -1655,7 +1684,7 @@
             const ctx = sCanvas.getContext('2d');
             const gradient = ctx.createRadialGradient(8, 8, 0, 8, 8, 8);
             gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-            gradient.addColorStop(0.3, 'rgba(255, 230, 200, 0.8)');
+            gradient.addColorStop(0.3, 'rgba(255, 255, 255, 0.8)');
             gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, 16, 16);
@@ -1672,14 +1701,16 @@
                 positions[i * 3 + 1] = (Math.random() - 0.5) * 5.0;
                 positions[i * 3 + 2] = (Math.random() - 0.5) * 6.0;
 
-                if (Math.random() < 0.65) {
-                    colors[i * 3] = 1.0;
-                    colors[i * 3 + 1] = 0.35 + Math.random() * 0.2;
-                    colors[i * 3 + 2] = 0.05;
+                const colorType = Math.random();
+                if (colorType < 0.33) {
+                    // Blue Sparks
+                    colors[i * 3] = 0.1; colors[i * 3 + 1] = 0.5; colors[i * 3 + 2] = 1.0;
+                } else if (colorType < 0.66) {
+                    // Purple Sparks
+                    colors[i * 3] = 0.7; colors[i * 3 + 1] = 0.2; colors[i * 3 + 2] = 0.9;
                 } else {
-                    colors[i * 3] = 0.5;
-                    colors[i * 3 + 1] = 0.75 + Math.random() * 0.2;
-                    colors[i * 3 + 2] = 1.0;
+                    // Gold Sparks
+                    colors[i * 3] = 1.0; colors[i * 3 + 1] = 0.8; colors[i * 3 + 2] = 0.1;
                 }
 
                 sparkData.push({
@@ -1696,7 +1727,7 @@
             geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
             const material = new THREE.PointsMaterial({
-                size: 0.03,
+                size: 0.035, // Slightly larger to show off the colors
                 vertexColors: true,
                 transparent: true,
                 opacity: 0.9,
@@ -1707,6 +1738,66 @@
 
             sparkParticles = new THREE.Points(geometry, material);
             scene.add(sparkParticles);
+        }
+
+        // --- NEW FUNCTION: Create moving 3D streaks/lines ---
+        function createMovingLines() {
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(movingLineCount * 6); // 2 points per line
+            const colors = new Float32Array(movingLineCount * 6);
+
+            for(let i = 0; i < movingLineCount; i++) {
+                // Random position in 3D space
+                const x = (Math.random() - 0.5) * 12;
+                const y = (Math.random() - 0.5) * 8;
+                const z = (Math.random() - 0.5) * 8 - 2;
+                const length = 0.3 + Math.random() * 0.8; // Random line length
+
+                // Start point
+                positions[i * 6]     = x;
+                positions[i * 6 + 1] = y;
+                positions[i * 6 + 2] = z;
+                
+                // End point (slightly higher on Y axis)
+                positions[i * 6 + 3] = x;
+                positions[i * 6 + 4] = y + length;
+                positions[i * 6 + 5] = z;
+
+                let r, g, b;
+                const colorType = Math.random();
+                if (colorType < 0.33) {
+                    // Blue
+                    r = 0.0; g = 0.4; b = 1.0;
+                } else if (colorType < 0.66) {
+                    // Purple
+                    r = 0.6; g = 0.1; b = 0.9;
+                } else {
+                    // Gold
+                    r = 1.0; g = 0.7; b = 0.1;
+                }
+
+                // Apply color to both points of the line
+                colors[i * 6] = r; colors[i * 6 + 1] = g; colors[i * 6 + 2] = b;
+                colors[i * 6 + 3] = r; colors[i * 6 + 4] = g; colors[i * 6 + 5] = b;
+
+                movingLineData.push({
+                    speed: 0.02 + Math.random() * 0.06, // Upward floating speed
+                    length: length
+                });
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const material = new THREE.LineBasicMaterial({
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.5,
+                blending: THREE.AdditiveBlending
+            });
+
+            movingLinesMesh = new THREE.LineSegments(geometry, material);
+            scene.add(movingLinesMesh);
         }
 
         function splitTitlesIntoChars() {
@@ -1738,11 +1829,9 @@
             const scrollMax = document.documentElement.scrollHeight - window.innerHeight;
             const currentTop = window.scrollY || document.documentElement.scrollTop;
             
-            // Constrain targeted calculation parameters strictly within upper cinematic viewport heights
             const cinematicHeight = window.innerHeight * 4; 
             targetScroll = Math.min(currentTop / cinematicHeight, 1.0);
 
-            // Handle fading out fixed presentation containers when diving deep into data layout grids
             const cinematicContainer = document.querySelector('.cinematic-container');
             if (currentTop > window.innerHeight * 3.8) {
                 cinematicContainer.style.opacity = '0';
@@ -1796,7 +1885,6 @@
                 else link.classList.remove('active');
             });
 
-            // Updating story dashes fill lengths status indicator bars
             for (let i = 1; i <= 4; i++) {
                 const fillNode = document.getElementById(`dash-fill-${i}`);
                 if (!fillNode) continue;
@@ -1819,7 +1907,6 @@
             requestAnimationFrame(animate);
             const elapsedTime = clock.getElapsedTime();
             
-            // Linear inertia interpolation equations setup
             currentScroll += (targetScroll - currentScroll) * 0.04;
             mouseX += (targetMouseX - mouseX) * 0.05;
             mouseY += (targetMouseY - mouseY) * 0.05;
@@ -1836,20 +1923,15 @@
             shaderUniforms.uScroll.value = currentScroll;
             shaderUniforms.uMouse.value.set(mouseX, mouseY);
 
-            // Animate dynamic 3D profile mesh transforms orientation vectors
             if (imageMesh) {
                 imageMesh.rotation.y = mouseX * 0.12 + (currentScroll * Math.PI * 0.1);
                 imageMesh.rotation.x = mouseY * 0.08;
                 
-                // Subtle breathing scale factor calculation loops
                 const breathFactor = 1.0 + Math.sin(elapsedTime * 1.5) * 0.015;
                 imageMesh.scale.set(breathFactor, breathFactor, 1.0);
-                
-                // Parallax tracking positioning shift translation maps
                 imageMesh.position.x = 0.4 - (currentScroll * 0.8);
             }
 
-            // Animate structural procedural sparks simulation matrix physics
             if (sparkParticles) {
                 const positions = sparkParticles.geometry.attributes.position.array;
                 for (let i = 0; i < sparkCount; i++) {
@@ -1858,14 +1940,37 @@
                     positions[i * 3 + 1] += data.speedY * (1.0 + currentScroll * 1.5) * 0.03; 
                     positions[i * 3] += Math.sin(elapsedTime * data.swaySpeed + data.phase) * data.swayRadius * 0.1;
 
-                    // Bound checks resetting loops logic arrays configuration
-                    if (positions[i * 3 + 1] > 2.5) {
-                        positions[i * 3 + 1] = -2.5;
+                    if (positions[i * 3 + 1] > 3.0) {
+                        positions[i * 3 + 1] = -3.0;
                         positions[i * 3] = (Math.random() - 0.5) * 7.0;
                     }
                 }
                 sparkParticles.geometry.attributes.position.needsUpdate = true;
                 sparkParticles.rotation.y = elapsedTime * 0.02;
+            }
+
+            // --- Animate the NEW Moving Lines ---
+            if (movingLinesMesh) {
+                const positions = movingLinesMesh.geometry.attributes.position.array;
+                for (let i = 0; i < movingLineCount; i++) {
+                    const data = movingLineData[i];
+                    
+                    // Move the line upward
+                    const flowSpeed = data.speed * (1.0 + currentScroll * 1.5);
+                    positions[i * 6 + 1] += flowSpeed; // start Y
+                    positions[i * 6 + 4] += flowSpeed; // end Y
+
+                    // When the line floats too high, reset it to the bottom
+                    if (positions[i * 6 + 1] > 4.0) {
+                        const newX = (Math.random() - 0.5) * 12;
+                        positions[i * 6] = newX;             // start X
+                        positions[i * 6 + 3] = newX;         // end X
+                        positions[i * 6 + 1] = -4.0;         // start Y
+                        positions[i * 6 + 4] = -4.0 + data.length; // end Y
+                    }
+                }
+                movingLinesMesh.geometry.attributes.position.needsUpdate = true;
+                movingLinesMesh.rotation.y = elapsedTime * 0.03; // Slowly rotate the whole line matrix
             }
 
             updateSlideMilestones(currentScroll);
@@ -1875,6 +1980,6 @@
         window.onload = () => {
             initScene();
         };
-    </script>
+</script>
 </body>
 </html>
