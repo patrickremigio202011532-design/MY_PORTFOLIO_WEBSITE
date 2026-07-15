@@ -22,14 +22,14 @@
             background-color: #000000;
             -ms-overflow-style: none;
             scrollbar-width: none;
-            /* Prevent bouncing on mobile */
-            overscroll-behavior-y: none;
+            overscroll-behavior-y: none; /* Prevents mobile bounce */
         }
 
         body {
             font-family: 'Outfit', sans-serif;
             color: #ffffff;
             overflow-x: hidden;
+            cursor: none;
         }
 
         /* --- FULLSCREEN CURSOR FIX --- */
@@ -136,6 +136,7 @@
             background: #fff;
             transition: width .35s ease;
         }
+
         .nav-link.active { color: #ffffff; }
         .nav-dot { width: 3px; height: 3px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; }
         
@@ -294,15 +295,14 @@
             line-height: 1.6;
         }
 
-        /* --- CRITICAL iOS DOUBLE TAP BUG FIX ---
-           Makes sure elements are recognized immediately as clickable
-           by iOS without waiting to process hover animations */
+        /* --- MOBILE TOUCH OVERLAY FIX ---
+           Guarantees touch events register instantly */
         .modal-trigger {
             position: relative;
             cursor: pointer !important;
             -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
-        /* Mobile Touch Overlay Shield */
         .modal-trigger::after {
             content: '';
             position: absolute;
@@ -566,7 +566,13 @@
             justify-content: center; 
             align-items: center; 
             padding: 30px;
-            animation: fadeInBackground 0.4s ease forwards;
+            animation: fadeInBackground 0.3s ease forwards;
+        }
+
+        /* Ghost Click Protection Animation */
+        .modal.closing {
+            animation: fadeOutBackground 0.3s ease forwards;
+            pointer-events: none !important; /* Disables interaction while fading */
         }
 
         .modal-content {
@@ -584,7 +590,7 @@
             box-shadow: 0 30px 100px rgba(0,0,0,0.8);
             transform: scale(0.95) translateY(30px);
             opacity: 0;
-            animation: popUpWindow 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: popUpWindow 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             pointer-events: auto; 
         }
 
@@ -606,7 +612,7 @@
             object-fit: contain; 
             border-radius: 14px;
             background: #000;
-            pointer-events: auto; /* ALLOWS CLICKS ON VIDEO CONTROLS */
+            pointer-events: auto; 
         }
 
         .close-modal {
@@ -634,8 +640,13 @@
         #modalDesc { color: #a2a2a7; line-height: 1.75; font-size: 14px; }
 
         @keyframes fadeInBackground {
-            from { background-color: rgba(0, 0, 0, 0); }
-            to { background-color: rgba(0, 0, 0, 0.85); }
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOutBackground {
+            from { opacity: 1; }
+            to { opacity: 0; }
         }
 
         @keyframes popUpWindow {
@@ -715,13 +726,6 @@
             .ad-img-box { height: 350px; }
             .ad-title { font-size: 32px; }
             .full-width-feature.web-dev-3d { height: 25vh; }
-            
-            /* Remove blur filter for Apple iOS bug fix */
-            .modal {
-                backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
-                background-color: rgba(5, 5, 5, 0.98) !important;
-            }
         }
 
         @media (max-width:900px) and (orientation:landscape) {
@@ -761,7 +765,12 @@
             .credential-image-wrapper { height:auto; aspect-ratio: 3/4; }
             .main-footer { flex-direction:column; gap:35px; }
             
-            /* Modal mobile resizing */
+            /* --- CRITICAL SAFARI MOBILE REPAIR: Removes heavy blur preventing iOS green screen flashes --- */
+            .modal {
+                background-color: rgba(5, 5, 5, 0.98) !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
             .modal-content { padding: 20px; width: 95%; border-radius: 16px; }
             .modal-image-wrapper { height: auto; aspect-ratio: 16/9; }
             .close-modal { top: -15px; right: -15px; width: 40px; height: 40px; font-size: 20px; }
@@ -1209,7 +1218,7 @@
             createSparks();
             createMovingLines(); 
             splitTitlesIntoChars();
-            initModalLogic(); // Initialize the modal functionality
+            initModalLogic(); 
             
             // --- FULLSCREEN CURSOR FIX ---
             const handleFullscreen = () => {
@@ -1278,7 +1287,7 @@
                     modalVideo.style.display = 'block';
                     modalVideo.src = videoSrc;
                     
-                    // RESTORE SILENCE: Make sure ALL videos are muted
+                    // ALL VIDEOS MUST BE MUTED ALWAYS
                     modalVideo.muted = true;
                     modalVideo.volume = 0;
                     
@@ -1296,25 +1305,37 @@
                 document.body.style.overflowY = 'hidden'; 
             };
 
-            // Attach to all items with the modal-trigger class using direct click binding for mobile optimization
+            // Bind explicitly to click events. By isolating hover in CSS, iOS will no longer treat the first tap as a hover.
             document.querySelectorAll('.modal-trigger').forEach(card => {
                 card.addEventListener('click', openModalHandler);
             });
 
-            // Shutdown Modal
-            const cleanAndCloseModal = () => {
-                modal.style.display = 'none';
-                document.body.style.overflowY = 'auto';
-                if (modalVideo) {
-                    modalVideo.pause();
-                    modalVideo.src = ''; 
+            // Shutdown Modal with built-in Ghost Click Protection Delay
+            const cleanAndCloseModal = (e) => {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
                 }
+                
+                // Start CSS fade-out animation
+                modal.classList.add('closing');
+                
+                // Remove from view after animation completes (absorbs ghost clicks safely)
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    modal.classList.remove('closing');
+                    document.body.style.overflowY = 'auto';
+                    if (modalVideo) {
+                        modalVideo.pause();
+                        modalVideo.src = ''; 
+                    }
+                }, 350); 
             };
 
             closeModalBtn.addEventListener('click', cleanAndCloseModal);
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
-                    cleanAndCloseModal();
+                    cleanAndCloseModal(e);
                 }
             });
         }
@@ -1667,7 +1688,6 @@
                 const breathFactor = 1.0 + Math.sin(elapsedTime * 1.5) * 0.015;
                 imageMesh.scale.set(breathFactor, breathFactor, 1.0);
                 
-                // --- FIXED INITIAL POSITION ANIMATION (Shifted left to start from 0.1) ---
                 if (currentScroll > 0.8) {
                     let fadeOutProgress = (currentScroll - 0.8) * 5.0; 
                     imageMesh.position.x = 0.1 - (0.8 * 0.8); 
