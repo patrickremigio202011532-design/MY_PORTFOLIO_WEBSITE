@@ -1743,6 +1743,15 @@
         }
 
         window.onload = () => {
+            // 1. Disable browser's automatic scroll restoration
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
+            
+            // 2. Force the window to scroll to the absolute top
+            window.scrollTo(0, 0);
+
+            // 3. Initialize your 3D scene
             initScene();
         };
     </script>
