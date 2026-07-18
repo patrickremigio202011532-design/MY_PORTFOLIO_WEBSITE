@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: #050505; 
+            color: #ffffff; 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            padding: 50px 10%;
+        }
+        .resume-container { max-width: 800px; margin: 0 auto; }
+        
+        /* Interactive Texture Effect */
+        .interactive-text {
+            background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffcc, #ff00cc);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: background-position 0.1s ease-out;
+            cursor: default;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-size: 1.5rem; margin-top: 2rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+        
+        h3 { margin-top: 1.5rem; }
+        p, li { color: #aaaaaa; margin-bottom: 0.5rem; }
+        ul { padding-left: 20px; }
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 2rem; 
+            color: #ffecd1; 
+            text-decoration: none; 
+            border: 1px solid #ffecd1; 
+            padding: 5px 15px; 
+            border-radius: 4px; 
+        }
+        .back-link:hover { background: #ffecd1; color: #050505; }
+    </style>
+</head>
+<body>
+
+<div class="resume-container">
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    
+    <header>
+        <h1 class="interactive-text">[YOUR NAME]</h1>
+        <p>System Architect & Network Engineer</p>
+    </header>
+
+    <h2 class="interactive-text">Professional Profile</h2>
+    <p>Experienced technical professional specializing in infrastructure design, system automation, and cloud security architectures.</p>
+
+    <h2 class="interactive-text">Technical Certifications</h2>
+    <ul>
+        <li>ISTQB Certified Tester Foundation Level 4.0</li>
+        <li>Microsoft Azure: Security & Solution Architecture</li>
+        <li>Cisco Networking Academy: Enterprise Infrastructure</li>
+        <li>Python Automation & GUI Systems</li>
+    </ul>
+
+    <h2 class="interactive-text">Experience</h2>
+    <h3>System Administrator</h3>
+    <p><em>[Company Name] | [Dates]</em></p>
+    <ul>
+        <li>Managed cloud infrastructure matrices and server deployments.</li>
+        <li>Automated routine system administration tasks using Python scripts.</li>
+        <li>Implemented secure network routing protocols and firewall configurations.</li>
+    </ul>
+
+    <h2 class="interactive-text">Education</h2>
+    <h3>[Degree/Certification Name]</h3>
+    <p>[Institution Name]</p>
+</div>
+
+<script>
+    // Logic to move the gradient background based on mouse position
+    document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        
+        document.querySelectorAll('.interactive-text').forEach(el => {
+            el.style.backgroundPosition = `${x}% ${y}%`;
+        });
+    });
+</script>
+
+</body>
+</html>
