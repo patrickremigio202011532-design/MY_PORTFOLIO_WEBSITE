@@ -15,6 +15,24 @@
         }
         .resume-container { max-width: 800px; margin: 0 auto; }
         
+        /* Profile Header Section with Image */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid #222;
+        }
+        .header-text {
+            flex: 1;
+        }
+
         /* Interactive Texture Effect */
         .interactive-text {
             background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffcc, #ff00cc);
@@ -26,11 +44,12 @@
             cursor: default;
         }
 
-        h1 { font-size: 3rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px; }
-        h2 { font-size: 1.5rem; margin-top: 2rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-size: 1.4rem; margin-top: 2rem; border-bottom: 1px solid #232323; padding-bottom: 0.5rem; margin-bottom: 1rem; }
         
-        h3 { margin-top: 1.5rem; }
-        p, li { color: #aaaaaa; margin-bottom: 0.5rem; }
+        h3 { margin-top: 1.2rem; font-size: 1.1rem; color: #ffffff; }
+        .sub-text { font-size: 0.9rem; color: #777777; margin-bottom: 0.5rem; display: block; }
+        p, li { color: #aaaaaa; margin-bottom: 0.5rem; font-size: 0.95rem; }
         ul { padding-left: 20px; }
         .back-link { 
             display: inline-block; 
@@ -42,6 +61,14 @@
             border-radius: 4px; 
         }
         .back-link:hover { background: #ffecd1; color: #050505; }
+        
+        .contact-info { margin-top: 0.5rem; font-size: 0.9rem; color: #888; }
+        .contact-info span { margin-right: 15px; }
+
+        @media (max-width: 600px) {
+            .profile-header { flex-direction: column; text-align: center; gap: 1rem; }
+            body { padding: 30px 5%; }
+        }
     </style>
 </head>
 <body>
@@ -49,34 +76,59 @@
 <div class="resume-container">
     <a href="index.html" class="back-link">← Back to Portfolio</a>
     
-    <header>
-        <h1 class="interactive-text">[YOUR NAME]</h1>
-        <p>System Architect & Network Engineer</p>
+    <header class="profile-header">
+        <img src="patrick-hero_processed.png" alt="Patrick Onest S. Remigio" class="profile-pic">
+        <div class="header-text">
+            <h1 class="interactive-text">Patrick Onest S. Remigio</h1>
+            <p>IT Specialist & Web Developer</p>
+            <div class="contact-info">
+                <span>📍 Quezon City, Metro Manila</span>
+                <span>📧 patrickremigio202011532@gmail.com</span>
+            </div>
+        </div>
     </header>
 
     <h2 class="interactive-text">Professional Profile</h2>
-    <p>Experienced technical professional specializing in infrastructure design, system automation, and cloud security architectures.</p>
+    <p>An IT student and developer looking for an internship where HTML, full-stack, and 3D modeling skills can be leveraged to solve problems creatively and build great user experiences.</p>
 
-    <h2 class="interactive-text">Technical Certifications</h2>
+    <h2 class="interactive-text">Technical Skills</h2>
     <ul>
-        <li>ISTQB Certified Tester Foundation Level 4.0</li>
-        <li>Microsoft Azure: Security & Solution Architecture</li>
-        <li>Cisco Networking Academy: Enterprise Infrastructure</li>
-        <li>Python Automation & GUI Systems</li>
+        <li><strong>Programming & Web Frameworks:</strong> Java, Python, CSS, PHP, HTML</li>
+        <li><strong>Software & Design Tools:</strong> Blender, Vegas Pro, Android Studio, Canva, Microsoft Office</li>
     </ul>
 
-    <h2 class="interactive-text">Experience</h2>
-    <h3>System Administrator</h3>
-    <p><em>[Company Name] | [Dates]</em></p>
+    <h2 class="interactive-text">Accomplished Projects</h2>
+    
+    <h3>SmartBite Campus Solution</h3>
+    <span class="sub-text">Canteen Payments via RFID and Mobile Notification for MPHS</span>
+    <p>Role: Document & UI/UX Specialist</p>
+
+    <h3>FORMA</h3>
+    <span class="sub-text">Structural Architecture Estimation Website</span>
+    <p>Role: Web Developer & UI/UX Designer</p>
+
+    <h2 class="interactive-text">Certifications & Awards</h2>
     <ul>
-        <li>Managed cloud infrastructure matrices and server deployments.</li>
-        <li>Automated routine system administration tasks using Python scripts.</li>
-        <li>Implemented secure network routing protocols and firewall configurations.</li>
+        <li><strong>Microsoft Azure: Planning Solution</strong> (Certified 2026)</li>
+        <li><strong>Microsoft Azure: Security Concepts</strong> (Certified 2021)</li>
+        <li><strong>Dean's List 1st Honor</strong> (SY 2025–2026)</li>
+        <li><strong>Dean's List 2nd Honor</strong> (SY 2023–2024)</li>
     </ul>
 
     <h2 class="interactive-text">Education</h2>
-    <h3>[Degree/Certification Name]</h3>
-    <p>[Institution Name]</p>
+    
+    <h3>Bachelor of Science in Information Technology</h3>
+    <span class="sub-text">Specialization in Mobile and Internet Technology (BSIT-MI)</span>
+    <p>NU-Fairview | Expected 2027</p>
+
+    <h3>Senior High School</h3>
+    <p>Sacred Heart Academy of La Loma | 2020–2022</p>
+
+    <h3>Junior High School</h3>
+    <p>Sacred Heart Academy of La Loma | 2009–2019</p>
+
+    <h2 class="interactive-text">Other Interests</h2>
+    <p>Photography, Videography, Online Games Streaming, Guitar, Cooking</p>
 </div>
 
 <script>
