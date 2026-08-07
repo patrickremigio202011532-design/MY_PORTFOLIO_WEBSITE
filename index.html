@@ -14,7 +14,6 @@
             box-sizing: border-box; 
             user-select: none; 
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         html, body {
@@ -22,14 +21,12 @@
             background-color: #000000;
             -ms-overflow-style: none;
             scrollbar-width: none;
-            overscroll-behavior-y: none; /* Prevents mobile bounce */
         }
 
         body {
             font-family: 'Outfit', sans-serif;
             color: #ffffff;
             overflow-x: hidden;
-            cursor: none;
         }
 
         /* --- FULLSCREEN CURSOR FIX --- */
@@ -126,6 +123,10 @@
             position: relative;
         }
 
+        .nav-link:hover {
+            color: #fff;
+        }
+
         .nav-link::after {
             content: "";
             position: absolute;
@@ -137,7 +138,10 @@
             transition: width .35s ease;
         }
 
-        .nav-link.active { color: #ffffff; }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link:hover, .nav-link.active { color: #ffffff; }
         .nav-dot { width: 3px; height: 3px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; }
         
         .contact-btn {
@@ -153,6 +157,7 @@
             display: inline-block; width: 6px; height: 6px;
             border: 1px solid #000000; border-radius: 50%; background: transparent;
         }
+        .contact-btn:hover { transform: scale(1.05); background: #f0f0f0; }
 
         /* Structural Overlay Lines */
         .grid-horizontal-line {
@@ -295,22 +300,19 @@
             line-height: 1.6;
         }
 
-        /* --- MOBILE TOUCH OVERLAY FIX ---
-           Guarantees touch events register instantly */
+        /* MOBILE TOUCH OVERLAY FIX FOR MODAL TRIGGERS */
         .modal-trigger {
             position: relative;
             cursor: pointer !important;
             -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
         }
+        /* This invisible layer guarantees touch events aren't blocked by the video element */
         .modal-trigger::after {
             content: '';
             position: absolute;
             inset: 0;
             z-index: 10;
             display: block;
-            width: 100%;
-            height: 100%;
         }
 
         /* Featured Works Grid Section */
@@ -328,17 +330,24 @@
             overflow: hidden;
             transition: transform 0.4s ease, border-color 0.4s ease;
         }
+        .work-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.2);
+        }
         .work-image-wrapper, .VIDEO_9 {
             width: 100%;
             aspect-ratio: 16/10;
             overflow: hidden;
             background: #000000;
         }
-        /* Ensures entire edge-to-edge video is visible without cropping */
+        /* CHANGED: object-fit contain so edges are fully visible */
         .work-image-wrapper img, .VIDEO_9 video {
             width: 100%; height: 100%; object-fit: contain; background: #000000;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             pointer-events: none; 
+        }
+        .work-item:hover .work-image-wrapper img, .work-item:hover .VIDEO_9 video {
+            transform: scale(1.03);
         }
         .work-meta {
             padding: 30px;
@@ -405,6 +414,10 @@
             opacity: 0.75; 
             transition: transform 0.8s ease, opacity 0.8s ease; 
         }
+        .ad-page:hover .ad-img-box video { 
+            transform: scale(1.03); 
+            opacity: 1; 
+        }
         .ad-label { 
             font-size: 11px; 
             color: #a3a3a3; 
@@ -446,6 +459,10 @@
             position: relative;
             z-index: 20;
         }
+        .btn-outline-box:hover { 
+            background: #ffffff; 
+            color: #000000; 
+        }
 
         /* Video Showcase Experimental Loop Grid */
         .video-showcase-grid {
@@ -462,6 +479,7 @@
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.05);
         }
+        /* CHANGED: object-fit contain so edges are fully visible */
         .video-card video {
             width: 100%; height: 100%; object-fit: contain; background: #000000; pointer-events: none;
         }
@@ -537,6 +555,7 @@
         }
         .footer-heading { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #8c8c8c; margin-bottom: 8px; }
         .footer-link { color: #d1d5db; text-decoration: none; font-size: 13px; transition: color 0.3s; }
+        .footer-link:hover { color: #ffffff; }
 
         .credential-image-wrapper {
             position: relative;
@@ -566,13 +585,7 @@
             justify-content: center; 
             align-items: center; 
             padding: 30px;
-            animation: fadeInBackground 0.3s ease forwards;
-        }
-
-        /* Ghost Click Protection Animation */
-        .modal.closing {
-            animation: fadeOutBackground 0.3s ease forwards;
-            pointer-events: none !important; /* Disables interaction while fading */
+            animation: fadeInBackground 0.4s ease forwards;
         }
 
         .modal-content {
@@ -590,14 +603,14 @@
             box-shadow: 0 30px 100px rgba(0,0,0,0.8);
             transform: scale(0.95) translateY(30px);
             opacity: 0;
-            animation: popUpWindow 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: popUpWindow 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             pointer-events: auto; 
         }
 
         .modal-image-wrapper {
             width: 100%;
             height: auto;
-            aspect-ratio: 16 / 9; 
+            aspect-ratio: 16 / 9; /* Adjusted for better video fitting */
             max-height: 60vh;
             overflow: hidden;
             border-radius: 14px;
@@ -609,10 +622,10 @@
         .modal-content img, .modal-content video { 
             width: 100%; 
             height: 100%; 
-            object-fit: contain; 
+            object-fit: contain; /* Ensures entire edge-to-edge video is visible */
             border-radius: 14px;
             background: #000;
-            pointer-events: auto; 
+            pointer-events: auto; /* ALLOWS CLICKS ON VIDEO CONTROLS */
         }
 
         .close-modal {
@@ -635,18 +648,18 @@
             z-index: 10;
         }
 
+        .close-modal:hover { 
+            background: #222; 
+            transform: scale(1.05);
+        }
+
         .modal-info { padding: 5px 0 0 0; }
         #modalTitle { font-family: 'Italiana', serif; font-size: 28px; margin-bottom: 14px; letter-spacing: -0.5px; }
         #modalDesc { color: #a2a2a7; line-height: 1.75; font-size: 14px; }
 
         @keyframes fadeInBackground {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeOutBackground {
-            from { opacity: 1; }
-            to { opacity: 0; }
+            from { background-color: rgba(0, 0, 0, 0); }
+            to { background-color: rgba(0, 0, 0, 0.85); }
         }
 
         @keyframes popUpWindow {
@@ -654,20 +667,6 @@
                 transform: scale(1) translateY(0);
                 opacity: 1;
             }
-        }
-
-        /* --- 100% ISOLATED DESKTOP HOVER STATES ---
-           Guarantees iOS/Mobile browsers skip hover intercept bugs */
-        @media (hover: hover) and (pointer: fine) {
-            .nav-link:hover { color: #fff; }
-            .nav-link:hover::after { width: 100%; }
-            .contact-btn:hover { transform: scale(1.05); background: #f0f0f0; }
-            .work-item:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
-            .work-item:hover .work-image-wrapper img, .work-item:hover .VIDEO_9 video { transform: scale(1.03); }
-            .ad-page:hover .ad-img-box video { transform: scale(1.03); opacity: 1; }
-            .btn-outline-box:hover { background: #ffffff; color: #000000; }
-            .close-modal:hover { background: #222; transform: scale(1.05); }
-            .footer-link:hover { color: #ffffff; }
         }
 
         /* ==========================================================================
@@ -765,12 +764,7 @@
             .credential-image-wrapper { height:auto; aspect-ratio: 3/4; }
             .main-footer { flex-direction:column; gap:35px; }
             
-            /* --- CRITICAL SAFARI MOBILE REPAIR: Removes heavy blur preventing iOS green screen flashes --- */
-            .modal {
-                background-color: rgba(5, 5, 5, 0.98) !important;
-                backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
-            }
+            /* Modal mobile resizing */
             .modal-content { padding: 20px; width: 95%; border-radius: 16px; }
             .modal-image-wrapper { height: auto; aspect-ratio: 16/9; }
             .close-modal { top: -15px; right: -15px; width: 40px; height: 40px; font-size: 20px; }
@@ -783,10 +777,13 @@
             .section-headline { font-size:28px; }
         }
 
-        @media (hover:none) and (pointer: coarse) {
-            /* Force cursors out on mobile touch screens */
-            body:not(.is-fullscreen) * { cursor: auto !important; }
+        @media (hover:none) {
+            .work-item:hover { transform:none; }
+            .work-item:hover img, .work-item:hover video { transform:none; }
+            
+            /* Force cursors out on mobile */
             .cursor-inner, .cursor-outer { display: none !important; }
+            * { cursor: auto !important; }
         }
     </style>
 
@@ -856,7 +853,7 @@
                         <a href="resume.html" target="_blank" class="nav-link">Resume</a>
                     </nav>
                     <div class="header-actions">
-                        <a href="https://www.facebook.com/trick.remigio" class="contact-btn">Contact <span class="btn-circle"></span></a>
+                        <a href="contact.html" class="contact-btn">Contact <span class="btn-circle"></span></a>
                     </div>
                 </div>
 
@@ -989,6 +986,7 @@
         <!-- PORTFOLIO PART 2: Resumes Solid Black Background -->
         <div class="portfolio-content">
 
+            <!-- Manifesto is now back inside the solid black section -->
             <section class="ad-container manifesto-override">
                 <div class="ad-page">
                     <div class="ad-img-box">
@@ -1218,11 +1216,11 @@
             createSparks();
             createMovingLines(); 
             splitTitlesIntoChars();
-            initModalLogic(); 
+            initModalLogic(); // Initialize the modal functionality
             
             // --- FULLSCREEN CURSOR FIX ---
             const handleFullscreen = () => {
-                if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+                if (document.fullscreenElement || document.webkitFullscreenElement) {
                     document.body.classList.add('is-fullscreen');
                 } else {
                     document.body.classList.remove('is-fullscreen');
@@ -1230,8 +1228,6 @@
             };
             document.addEventListener('fullscreenchange', handleFullscreen);
             document.addEventListener('webkitfullscreenchange', handleFullscreen);
-            document.addEventListener('mozfullscreenchange', handleFullscreen);
-            document.addEventListener('MSFullscreenChange', handleFullscreen);
 
             window.addEventListener('scroll', onWindowScroll);
             window.addEventListener('mousemove', onMouseMove);
@@ -1249,93 +1245,77 @@
             const modalDesc = document.getElementById('modalDesc');
             const closeModalBtn = document.querySelector('.close-modal');
 
-            const openModalHandler = (e) => {
-                e.preventDefault();
-                
-                const card = e.currentTarget;
-                
-                // Priority 1: Data attributes
-                let title = card.getAttribute('data-title');
-                let desc = card.getAttribute('data-desc');
-                let videoSrc = card.getAttribute('data-video');
-                let imgSrc = card.getAttribute('data-image');
-
-                // Priority 2: DOM Scrape Fallback
-                if (!title) {
-                    const h4 = card.querySelector('h4, .video-overlay-title');
-                    title = h4 ? h4.innerText : 'Design Project';
-                }
-                if (!desc) {
-                    const p = card.querySelector('p:not(.video-overlay-title)');
-                    desc = p ? p.innerText : 'Exploring visual concepts and structural design layouts.';
-                }
-                if (!videoSrc) {
-                    const vid = card.querySelector('video');
-                    if (vid) videoSrc = vid.getAttribute('src');
-                }
-                if (!imgSrc && !videoSrc) {
-                    const img = card.querySelector('img');
-                    if (img) imgSrc = img.getAttribute('src');
-                }
-
-                // Populate Data
-                modalTitle.textContent = title;
-                modalDesc.textContent = desc;
-
-                if (videoSrc) {
-                    modalImg.style.display = 'none';
-                    modalVideo.style.display = 'block';
-                    modalVideo.src = videoSrc;
-                    
-                    // ALL VIDEOS MUST BE MUTED ALWAYS
-                    modalVideo.muted = true;
-                    modalVideo.volume = 0;
-                    
-                    modalVideo.load();
-                    modalVideo.play().catch(err => console.log(err));
-                } else if (imgSrc) {
-                    modalVideo.pause();
-                    modalVideo.style.display = 'none';
-                    modalImg.style.display = 'block';
-                    modalImg.src = imgSrc;
-                }
-
-                // Display Modal
-                modal.style.display = 'flex';
-                document.body.style.overflowY = 'hidden'; 
-            };
-
-            // Bind explicitly to click events. By isolating hover in CSS, iOS will no longer treat the first tap as a hover.
+            // Attach to all items with the modal-trigger class
             document.querySelectorAll('.modal-trigger').forEach(card => {
-                card.addEventListener('click', openModalHandler);
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Priority 1: Data attributes
+                    let title = card.getAttribute('data-title');
+                    let desc = card.getAttribute('data-desc');
+                    let videoSrc = card.getAttribute('data-video');
+                    let imgSrc = card.getAttribute('data-image');
+
+                    // Priority 2: DOM Scrape Fallback (if no data attributes were explicitly coded)
+                    if (!title) {
+                        const h4 = card.querySelector('h4, .video-overlay-title');
+                        title = h4 ? h4.innerText : 'Design Project';
+                    }
+                    if (!desc) {
+                        const p = card.querySelector('p:not(.video-overlay-title)');
+                        desc = p ? p.innerText : 'Exploring visual concepts and structural design layouts.';
+                    }
+                    if (!videoSrc) {
+                        const vid = card.querySelector('video');
+                        if (vid) videoSrc = vid.getAttribute('src');
+                    }
+                    if (!imgSrc && !videoSrc) {
+                        const img = card.querySelector('img');
+                        if (img) imgSrc = img.getAttribute('src');
+                    }
+
+                    // Populate Data
+                    modalTitle.textContent = title;
+                    modalDesc.textContent = desc;
+
+                    if (videoSrc) {
+                        modalImg.style.display = 'none';
+                        modalVideo.style.display = 'block';
+                        modalVideo.src = videoSrc;
+                        
+                        // RESTORE SILENCE: Make sure ALL videos are muted
+                        modalVideo.muted = true;
+                        modalVideo.volume = 0;
+                        
+                        modalVideo.load();
+                        modalVideo.play().catch(err => console.log(err));
+                    } else if (imgSrc) {
+                        modalVideo.pause();
+                        modalVideo.style.display = 'none';
+                        modalImg.style.display = 'block';
+                        modalImg.src = imgSrc;
+                    }
+
+                    // Display Modal
+                    modal.style.display = 'flex';
+                    document.body.style.overflowY = 'hidden'; 
+                });
             });
 
-            // Shutdown Modal with built-in Ghost Click Protection Delay
-            const cleanAndCloseModal = (e) => {
-                if (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
+            // Shutdown Modal
+            const cleanAndCloseModal = () => {
+                modal.style.display = 'none';
+                document.body.style.overflowY = 'auto';
+                if (modalVideo) {
+                    modalVideo.pause();
+                    modalVideo.src = ''; 
                 }
-                
-                // Start CSS fade-out animation
-                modal.classList.add('closing');
-                
-                // Remove from view after animation completes (absorbs ghost clicks safely)
-                setTimeout(() => {
-                    modal.style.display = 'none';
-                    modal.classList.remove('closing');
-                    document.body.style.overflowY = 'auto';
-                    if (modalVideo) {
-                        modalVideo.pause();
-                        modalVideo.src = ''; 
-                    }
-                }, 350); 
             };
 
             closeModalBtn.addEventListener('click', cleanAndCloseModal);
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
-                    cleanAndCloseModal(e);
+                    cleanAndCloseModal();
                 }
             });
         }
@@ -1688,6 +1668,7 @@
                 const breathFactor = 1.0 + Math.sin(elapsedTime * 1.5) * 0.015;
                 imageMesh.scale.set(breathFactor, breathFactor, 1.0);
                 
+                // --- FIXED INITIAL POSITION ANIMATION (Shifted left to start from 0.1) ---
                 if (currentScroll > 0.8) {
                     let fadeOutProgress = (currentScroll - 0.8) * 5.0; 
                     imageMesh.position.x = 0.1 - (0.8 * 0.8); 
@@ -1743,15 +1724,6 @@
         }
 
         window.onload = () => {
-            // 1. Disable browser's automatic scroll restoration
-            if ('scrollRestoration' in history) {
-                history.scrollRestoration = 'manual';
-            }
-            
-            // 2. Force the window to scroll to the absolute top
-            window.scrollTo(0, 0);
-
-            // 3. Initialize your 3D scene
             initScene();
         };
     </script>
